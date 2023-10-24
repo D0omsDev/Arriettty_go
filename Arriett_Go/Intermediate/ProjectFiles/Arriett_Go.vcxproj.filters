@@ -64,6 +64,12 @@
     <Filter Include="Source\Arriett_Go\AI">
       <UniqueIdentifier>{DFB5407C-68F8-3F9F-B9C6-99CC2FD907C9}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\AI\BTT_RatAttackPlayer.cpp">
+      <Filter>Source\Arriett_Go\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\AI\BTT_RatAttackPlayer.h">
+      <Filter>Source\Arriett_Go\AI</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Arriett_Go\AI\EnemyController.cpp">
       <Filter>Source\Arriett_Go\AI</Filter>
     </ClCompile>
