@@ -11,6 +11,8 @@
     <None Include="..\..\Source\Arriett_GoEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.vsconfig" />
+    <None Include="..\..\Arriett_Go.sln.DotSettings.user" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -58,6 +60,87 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\Arriett_Go\Arriett_GoPlayerController.h">
       <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <Filter Include="Source\Arriett_Go\AI">
+      <UniqueIdentifier>{DFB5407C-68F8-3F9F-B9C6-99CC2FD907C9}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\AI\EnemyController.cpp">
+      <Filter>Source\Arriett_Go\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\AI\EnemyController.h">
+      <Filter>Source\Arriett_Go\AI</Filter>
+    </ClInclude>
+    <Filter Include="Source\Arriett_Go\Animation">
+      <UniqueIdentifier>{CCFAE848-5839-3EA1-9FD3-1A5164FFA664}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\Animation\EnnemyAnimInstance.cpp">
+      <Filter>Source\Arriett_Go\Animation</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\Animation\EnnemyAnimInstance.h">
+      <Filter>Source\Arriett_Go\Animation</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\Animation\HeroAnimInstance.cpp">
+      <Filter>Source\Arriett_Go\Animation</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\Animation\HeroAnimInstance.h">
+      <Filter>Source\Arriett_Go\Animation</Filter>
+    </ClInclude>
+    <Filter Include="Source\Arriett_Go\Characters">
+      <UniqueIdentifier>{1F1EA282-69FA-3E59-A74D-282750FDF774}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\Characters\EnnemyCharacter.cpp">
+      <Filter>Source\Arriett_Go\Characters</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\Characters\EnnemyCharacter.h">
+      <Filter>Source\Arriett_Go\Characters</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\Characters\HeroCharacter.cpp">
+      <Filter>Source\Arriett_Go\Characters</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\Characters\HeroCharacter.h">
+      <Filter>Source\Arriett_Go\Characters</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\Characters\Tourelles.cpp">
+      <Filter>Source\Arriett_Go\Characters</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\Characters\Tourelles.h">
+      <Filter>Source\Arriett_Go\Characters</Filter>
+    </ClInclude>
+    <Filter Include="Source\Arriett_Go\LevelActor">
+      <UniqueIdentifier>{6C3BAFE1-57E7-3C3F-8D35-0EE28658DF2C}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\LevelActor\BasPickUp.cpp">
+      <Filter>Source\Arriett_Go\LevelActor</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\LevelActor\BasPickUp.h">
+      <Filter>Source\Arriett_Go\LevelActor</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\LevelActor\NodeBase.cpp">
+      <Filter>Source\Arriett_Go\LevelActor</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\LevelActor\NodeBase.h">
+      <Filter>Source\Arriett_Go\LevelActor</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\LevelActor\PatroPath.cpp">
+      <Filter>Source\Arriett_Go\LevelActor</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\LevelActor\PatroPath.h">
+      <Filter>Source\Arriett_Go\LevelActor</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\LevelActor\PierreJetable.cpp">
+      <Filter>Source\Arriett_Go\LevelActor</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\LevelActor\PierreJetable.h">
+      <Filter>Source\Arriett_Go\LevelActor</Filter>
+    </ClInclude>
+    <Filter Include="Source\Arriett_Go\Misc">
+      <UniqueIdentifier>{F3439284-2162-3C30-8CE6-0219A3872485}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\Misc\TurnBaseMode.cpp">
+      <Filter>Source\Arriett_Go\Misc</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\Misc\TurnBaseMode.h">
+      <Filter>Source\Arriett_Go\Misc</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

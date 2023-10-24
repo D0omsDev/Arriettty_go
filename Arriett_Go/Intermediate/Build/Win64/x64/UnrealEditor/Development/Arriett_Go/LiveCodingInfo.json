@@ -1,5 +1,39 @@
 {
 	"RemapUnityFiles": 
 	{
+		"Module.Arriett_Go.cpp.obj": [
+			"Arriett_GoCharacter.gen.cpp.obj",
+			"Arriett_GoGameMode.gen.cpp.obj",
+			"Arriett_GoPlayerController.gen.cpp.obj",
+			"Arriett_Go.cpp.obj",
+			"Arriett_GoCharacter.cpp.obj",
+			"Arriett_GoGameMode.cpp.obj",
+			"Arriett_GoPlayerController.cpp.obj",
+			"Arriett_Go.init.gen.cpp.obj",
+			"BasPickUp.gen.cpp.obj",
+			"EnemyAIController.gen.cpp.obj",
+			"EnemyController.gen.cpp.obj",
+			"EnnemyAnimInstance.gen.cpp.obj",
+			"EnnemyCharacter.gen.cpp.obj",
+			"HeroAnimInstance.gen.cpp.obj",
+			"HeroCharacter.gen.cpp.obj",
+			"NodeBase.gen.cpp.obj",
+			"PatroPath.gen.cpp.obj",
+			"PierreJetable.gen.cpp.obj",
+			"Tourelles.gen.cpp.obj",
+			"TurnBaseMode.gen.cpp.obj",
+			"EnemyAIController.cpp.obj",
+			"EnemyController.cpp.obj",
+			"EnnemyAnimInstance.cpp.obj",
+			"HeroAnimInstance.cpp.obj",
+			"EnnemyCharacter.cpp.obj",
+			"HeroCharacter.cpp.obj",
+			"Tourelles.cpp.obj",
+			"BasPickUp.cpp.obj",
+			"NodeBase.cpp.obj",
+			"PatroPath.cpp.obj",
+			"PierreJetable.cpp.obj",
+			"TurnBaseMode.cpp.obj"
+		]
 	}
 }

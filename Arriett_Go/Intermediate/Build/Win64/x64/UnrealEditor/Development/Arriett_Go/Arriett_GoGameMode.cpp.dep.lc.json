@@ -1,0 +1,31 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\lemai\\desktop\\nsm\\arriety_go\\arriettty_go\\arriett_go\\source\\arriett_go\\arriett_gogamemode.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\lemai\\desktop\\nsm\\arriety_go\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\x64\\arriett_goeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\lemai\\desktop\\nsm\\arriety_go\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\arriett_go\\definitions.arriett_go.h",
+            "c:\\users\\lemai\\desktop\\nsm\\arriety_go\\arriettty_go\\arriett_go\\source\\arriett_go\\arriett_gogamemode.h",
+            "f:\\unreal_engine\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "f:\\unreal_engine\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "f:\\unreal_engine\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
+            "f:\\unreal_engine\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "c:\\users\\lemai\\desktop\\nsm\\arriety_go\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\arriett_gogamemode.generated.h",
+            "c:\\users\\lemai\\desktop\\nsm\\arriety_go\\arriettty_go\\arriett_go\\source\\arriett_go\\arriett_goplayercontroller.h",
+            "c:\\users\\lemai\\desktop\\nsm\\arriety_go\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\arriett_goplayercontroller.generated.h",
+            "c:\\users\\lemai\\desktop\\nsm\\arriety_go\\arriettty_go\\arriett_go\\source\\arriett_go\\arriett_gocharacter.h",
+            "f:\\unreal_engine\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
+            "f:\\unreal_engine\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
+            "f:\\unreal_engine\\epic games\\ue_5.3\\engine\\source\\runtime\\experimental\\iris\\core\\public\\iris\\serialization\\irisobjectreferencepackagemap.h",
+            "f:\\unreal_engine\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\iriscore\\uht\\irisobjectreferencepackagemap.generated.h",
+            "f:\\unreal_engine\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementreplication.generated.h",
+            "f:\\unreal_engine\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
+            "f:\\unreal_engine\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rootmotionsource.generated.h",
+            "f:\\unreal_engine\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h",
+            "c:\\users\\lemai\\desktop\\nsm\\arriety_go\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\arriett_gocharacter.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
