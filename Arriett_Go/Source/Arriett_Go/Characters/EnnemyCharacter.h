@@ -15,6 +15,15 @@ public:
 	// Sets default values for this character's properties
 	AEnnemyCharacter();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Enemy")
+	bool bIsAlive = true;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy")
+	bool bIsMoving = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enemy")
+	bool bCanShoot = false;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

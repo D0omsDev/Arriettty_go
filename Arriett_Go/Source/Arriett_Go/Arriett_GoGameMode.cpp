@@ -2,7 +2,7 @@
 
 #include "Arriett_GoGameMode.h"
 #include "Arriett_GoPlayerController.h"
-#include "Arriett_GoCharacter.h"
+//#include "Arriett_GoCharacter.h"
 #include "UObject/ConstructorHelpers.h"
 
 AArriett_GoGameMode::AArriett_GoGameMode()

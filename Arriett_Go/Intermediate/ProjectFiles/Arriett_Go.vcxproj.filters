@@ -64,17 +64,47 @@
     <Filter Include="Source\Arriett_Go\AI">
       <UniqueIdentifier>{DFB5407C-68F8-3F9F-B9C6-99CC2FD907C9}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\Arriett_Go\AI\BTT_RatAttackPlayer.cpp">
-      <Filter>Source\Arriett_Go\AI</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\AI\BTT_RatAttackPlayer.h">
-      <Filter>Source\Arriett_Go\AI</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\Arriett_Go\AI\EnemyController.cpp">
       <Filter>Source\Arriett_Go\AI</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Arriett_Go\AI\EnemyController.h">
       <Filter>Source\Arriett_Go\AI</Filter>
+    </ClInclude>
+    <Filter Include="Source\Arriett_Go\AI\BTS">
+      <UniqueIdentifier>{9D7F028C-531B-326D-9EB4-A8FDC8B2D8BA}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\AI\BTS\BTS_IsPlayerMoving.cpp">
+      <Filter>Source\Arriett_Go\AI\BTS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\AI\BTS\BTS_IsPlayerMoving.h">
+      <Filter>Source\Arriett_Go\AI\BTS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\AI\BTS\BTT_FindPathPoint.cpp">
+      <Filter>Source\Arriett_Go\AI\BTS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\AI\BTS\BTT_FindPathPoint.h">
+      <Filter>Source\Arriett_Go\AI\BTS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\AI\BTS\BTT_IncrementIndex.cpp">
+      <Filter>Source\Arriett_Go\AI\BTS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\AI\BTS\BTT_IncrementIndex.h">
+      <Filter>Source\Arriett_Go\AI\BTS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\AI\BTS\BTT_Rat_2AttcackPlayer.cpp">
+      <Filter>Source\Arriett_Go\AI\BTS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\AI\BTS\BTT_Rat_2AttcackPlayer.h">
+      <Filter>Source\Arriett_Go\AI\BTS</Filter>
+    </ClInclude>
+    <Filter Include="Source\Arriett_Go\AI\Rat">
+      <UniqueIdentifier>{4D130FEB-C6C4-3FAF-8975-5A520081F4B1}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\AI\Rat\BTT_RatAttackPlayer.cpp">
+      <Filter>Source\Arriett_Go\AI\Rat</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\AI\Rat\BTT_RatAttackPlayer.h">
+      <Filter>Source\Arriett_Go\AI\Rat</Filter>
     </ClInclude>
     <Filter Include="Source\Arriett_Go\Animation">
       <UniqueIdentifier>{CCFAE848-5839-3EA1-9FD3-1A5164FFA664}</UniqueIdentifier>
