@@ -1,0 +1,46 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "GridCase.generated.h"
+
+DECLARE_DELEGATE(FOnActivation)
+UCLASS(BlueprintType)
+class AGridCase : public AActor
+{
+    GENERATED_BODY()
+    public:
+    AGridCase();
+    virtual void Tick(float DeltaTime) override;
+
+    void SetCasePosition(int32 NewX, int32 NewY) ;
+    FVector2D GetGridPosition() const;
+    int32 GetX() const;
+    int32 GetY() const;
+    int32 GetZ() const;
+    void SetX(int32 NewX);
+    void SetY(int32 NewY);
+    void SetZ(int32 NewZ);
+
+    void AddNeighbor(AGridCase* Neighbor);
+    void RemoveNeighbor(AGridCase* Neighbor);
+    TArray<AGridCase*> GetNeighbors() const;
+
+
+    void EnterCase();
+    void ExitCase();
+    static void LinkCases(AGridCase* CaseA, AGridCase* CaseB);
+    static void UnlinkCases(AGridCase* CaseA, AGridCase* CaseB);
+    
+    FOnActivation OnActivationDelegate;
+protected :
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UStaticMeshComponent* Mesh = nullptr;
+    int32 X;
+    int32 Y;
+    int32 Z;
+    TArray<AGridCase*> Neighbors;
+
+   
+
+};
+

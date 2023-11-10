@@ -1,6 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "Arriett_GoGameMode.h"
+#include "Arrietty_Game_GameState.h"
 #include "Arriett_GoPlayerController.h"
 #include "Arriett_GoCharacter.h"
 #include "UObject/ConstructorHelpers.h"
@@ -23,4 +24,7 @@ AArriett_GoGameMode::AArriett_GoGameMode()
 	{
 		PlayerControllerClass = PlayerControllerBPClass.Class;
 	}
+
+	//Set the game state to the custom game state
+	GameStateClass = AArrietty_Game_GameState::StaticClass();
 }

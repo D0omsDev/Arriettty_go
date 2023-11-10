@@ -61,6 +61,18 @@
     <ClInclude Include="..\..\Source\Arriett_Go\Arriett_GoPlayerController.h">
       <Filter>Source\Arriett_Go</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\GridCase.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\GridCase.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\GridSpline.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\GridSpline.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
     <Filter Include="Source\Arriett_Go\AI">
       <UniqueIdentifier>{DFB5407C-68F8-3F9F-B9C6-99CC2FD907C9}</UniqueIdentifier>
     </Filter>
@@ -121,10 +133,10 @@
     <ClInclude Include="..\..\Source\Arriett_Go\LevelActor\NodeBase.h">
       <Filter>Source\Arriett_Go\LevelActor</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\LevelActor\PatroPath.cpp">
+    <ClCompile Include="..\..\Source\Arriett_Go\LevelActor\PatrolPath.cpp">
       <Filter>Source\Arriett_Go\LevelActor</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\LevelActor\PatroPath.h">
+    <ClInclude Include="..\..\Source\Arriett_Go\LevelActor\PatrolPath.h">
       <Filter>Source\Arriett_Go\LevelActor</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Arriett_Go\LevelActor\PierreJetable.cpp">
