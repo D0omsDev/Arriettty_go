@@ -1,4 +1,5 @@
 #include "GridCase.h"
+#include "GamePawn.h"
 
 void AGridCase::SetCasePosition(int32 NewX, int32 NewY)  {
 	X = NewX;
@@ -14,8 +15,6 @@ void AGridCase::Tick(float DeltaTime) {
 }
 
 AGridCase::AGridCase(){
-	//static ConstructorHelpers::FClassFinder<UStaticMesh> PlaneShape(TEXT("/Game/StarterContent/Shape/Shape_Plane.Shape_Plane"));
-	
 	ConstructorHelpers::FObjectFinder<UStaticMesh>PlaneShape(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Plane.Shape_Plane'"));
 	ConstructorHelpers::FObjectFinder<UMaterial>ShapeMaterial(TEXT("StaticMesh'/Game/Spline/M_GridNoir.M_GridNoir'"));
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Visuel"));
@@ -25,11 +24,6 @@ AGridCase::AGridCase(){
 		Mesh->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
 	}
 	RootComponent = Mesh;
-
-	//Set tick enable
-	PrimaryActorTick.bCanEverTick = true;
-	PrimaryActorTick.bStartWithTickEnabled = true;
-
 }
 
 int32 AGridCase::GetX() const {
@@ -69,24 +63,24 @@ TArray<AGridCase*> AGridCase::GetNeighbors() const {
 	return Neighbors;
 }
 
-void AGridCase::EnterCase() {
+void AGridCase::EnterCase(AGamePawn* Pawn) {
 	OnActivationDelegate.ExecuteIfBound();
 	UMaterial* MaterialBlue = Cast<UMaterial>(StaticLoadObject(UMaterial::StaticClass(), NULL, TEXT("Material'/Game/Spline/M_GridBleu.M_GridBleu'")));
 	UMaterial * MaterialRed = Cast<UMaterial>(StaticLoadObject(UMaterial::StaticClass(), NULL, TEXT("Material'/Game/Spline/M_GridRouge.M_GridRouge'")));
-	if (MaterialBlue != nullptr) {
+	if (Mesh != nullptr && MaterialBlue != nullptr) {
 		Mesh-> SetMaterial(0, MaterialBlue);
 	}
-	if (MaterialRed != nullptr) {
+	if (Mesh != nullptr && MaterialRed != nullptr) {
 		for (AGridCase * Neighbor : Neighbors) {
-
 			Neighbor->Mesh ->SetMaterial(0, MaterialRed);
 		}
 	}
+	AddPawn(Pawn);
 }
 
-void AGridCase::ExitCase() {
+void AGridCase::ExitCase(AGamePawn* Pawn) {
 	UMaterial* MaterialBlack = Cast<UMaterial>(StaticLoadObject(UMaterial::StaticClass(), NULL, TEXT("Material'/Game/Spline/M_GridNoir.M_GridNoir'")));
-	if (MaterialBlack != nullptr) {
+	if (Mesh != nullptr && MaterialBlack != nullptr) {
 		Mesh->SetMaterial(0, MaterialBlack);
 		for (AGridCase* Neighbor : Neighbors) {
 			if (!Neighbor) {
@@ -96,6 +90,7 @@ void AGridCase::ExitCase() {
 			Neighbor->Mesh->SetMaterial(0, MaterialBlack);
 		}
 	}
+	RemovePawn(Pawn);
 }
 
 void AGridCase::LinkCases(AGridCase* Case1, AGridCase* Case2) {
@@ -114,5 +109,17 @@ void AGridCase::UnlinkCases(AGridCase* Case1, AGridCase* Case2) {
 	}
 	Case1->RemoveNeighbor(Case2);
 	Case2->RemoveNeighbor(Case1);
+}
+
+void AGridCase::AddPawn(AGamePawn* Pawn) {
+	PawnsInCase.Add(Pawn);
+}
+
+void AGridCase::RemovePawn(AGamePawn* Pawn) {
+	PawnsInCase.Remove(Pawn);
+}
+
+TArray<AGamePawn*> AGridCase::GetPawnsInCase() const {
+	return PawnsInCase;
 }
 

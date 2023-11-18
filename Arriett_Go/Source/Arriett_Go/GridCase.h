@@ -4,6 +4,7 @@
 #include "GridCase.generated.h"
 
 DECLARE_DELEGATE(FOnActivation)
+class AGamePawn;
 UCLASS(BlueprintType)
 class AGridCase : public AActor
 {
@@ -26,15 +27,21 @@ class AGridCase : public AActor
     TArray<AGridCase*> GetNeighbors() const;
 
 
-    void EnterCase();
-    void ExitCase();
+    virtual void EnterCase(AGamePawn * Pawn);
+    virtual void ExitCase(AGamePawn* Pawn);
     static void LinkCases(AGridCase* CaseA, AGridCase* CaseB);
     static void UnlinkCases(AGridCase* CaseA, AGridCase* CaseB);
+    void AddPawn(AGamePawn* Pawn);
+    void RemovePawn(AGamePawn* Pawn);
+    TArray<AGamePawn*> GetPawnsInCase() const;
+
     
     FOnActivation OnActivationDelegate;
 protected :
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
     UStaticMeshComponent* Mesh = nullptr;
+    UPROPERTY()
+    TArray<AGamePawn*> PawnsInCase;
     int32 X;
     int32 Y;
     int32 Z;

@@ -15,8 +15,6 @@
             "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamestatebase.generated.h",
-            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\source\\arriett_go\\gridcase.h",
-            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\gridcase.generated.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystatics.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\kismet\\kismetsystemlibrary.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
@@ -27,6 +25,8 @@
             "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gameplaystaticstypes.generated.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gameplaystatics.generated.h",
             "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\arrietty_game_gamestate.generated.h",
+            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\source\\arriett_go\\gridcase.h",
+            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\gridcase.generated.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\aimodule\\classes\\blueprint\\aiblueprinthelperlibrary.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\aiblueprinthelperlibrary.generated.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\fx\\niagara\\source\\niagara\\classes\\niagarasystem.h",
@@ -125,7 +125,11 @@
             "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\playermappablekeyslot.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\playermappablekeyslot.generated.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\enhancedinputsubsysteminterface.generated.h",
-            "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\enhancedinputsubsystems.generated.h"
+            "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\enhancedinputsubsystems.generated.h",
+            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\source\\arriett_go\\julie.h",
+            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\source\\arriett_go\\gamepawn.h",
+            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\gamepawn.generated.h",
+            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\julie.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

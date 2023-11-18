@@ -6,6 +6,9 @@
 			"description": "Default Uncontrolled Changelist",
 			"files": [
 				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/TopDown/Maps/TopDownMap.umap",
+				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/TopDown/Blueprints/BP_Julie.uasset",
+				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/UI/UI_TurnNumber.uasset",
+				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/UI/UI_TurnNumberWidget.uasset",
 				"C:/Users/lemai/Desktop/NSM/Arriety_Go/Arriettty_go/Arriett_Go/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset"
 			]
 		}

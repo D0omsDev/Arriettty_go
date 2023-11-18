@@ -1,4 +1,10 @@
 #include "Arrietty_Game_GameState.h"
+#include "BearTrap.h"
+#include "Blueprint/UserWidget.h"
+#include "EnemyPawn.h"
+#include "EffectGridCase.h"
+#include "GridCase.h"	
+#include "Julie.h"	
 
 AArrietty_Game_GameState::AArrietty_Game_GameState() {
 	//Set the default grid size
@@ -32,26 +38,7 @@ void AArrietty_Game_GameState::SetGridCase(int32 X, int32 Y, AGridCase* GridCase
 	GridCase->SetCasePosition(X, Y);
 }
 
-void AArrietty_Game_GameState::SetCurrentGridCaseByPos(int32 X, int32 Y) {
-	SetCurrentGridCase(GetGridCase(X, Y));
-}
 
-void AArrietty_Game_GameState::SetCurrentGridCase(AGridCase * GridCase) {
-	if (CurrentGridCase != nullptr) {
-		CurrentGridCase->ExitCase();
-	}
-	CurrentGridCase = GridCase;
-	CurrentGridCasePosition = GridCase -> GetGridPosition();
-	CurrentGridCase->EnterCase();
-}
-
-FVector2D AArrietty_Game_GameState::GetCurrentGridCasePosition() const {
-	return CurrentGridCasePosition;
-}
-
-AGridCase* AArrietty_Game_GameState::GetCurrentGridCase() const {
-	return CurrentGridCase;
-}
 
 void AArrietty_Game_GameState::GridCasesVerification() {
 	TArray<AActor *> GridCasesActors;
@@ -77,7 +64,8 @@ void AArrietty_Game_GameState::GridCasesVerification() {
 void AArrietty_Game_GameState::Temporary_InitLevel1() {
 	posToCaseTmp(FVector(0, 0, 0));
 	posToCaseTmp(FVector(0, 1, 0));
-	posToCaseTmp(FVector(0, 2, 0));
+	//posToCaseTmp(FVector(0, 2, 0));
+	posToBearTrapTmp(FVector(0, 2, 0));
 	posToCaseTmp(FVector(0, 3, 0));
 	posToCaseTmp(FVector(0, 4, 0));
 	posToCaseTmp(FVector(0, 5, 0));
@@ -90,29 +78,24 @@ void AArrietty_Game_GameState::Temporary_InitLevel1() {
 	posToCaseTmp(FVector(1, 7, 1));
 	posToCaseTmp(FVector(2, 7, 2));
 	AutoLinkCases();
-	SetCurrentGridCaseByPos(0, 0);
-	GetGridCase(0,4) -> OnActivationDelegate.BindLambda([this]() {
+	GetGridCase(0, 4)->OnActivationDelegate.BindLambda([this]() {
 		AGridCase* CaseA = GetGridCase(1, 4);
 		AGridCase* CaseB = GetGridCase(1, 6);
-		if (CaseA -> GetNeighbors().Contains(CaseB)) {
-			AGridCase::UnlinkCases(CaseA,CaseB);
+		if (CaseA->GetNeighbors().Contains(CaseB)) {
+			AGridCase::UnlinkCases(CaseA, CaseB);
 		}
 		else {
-			AGridCase::LinkCases(CaseA,CaseB);
+			AGridCase::LinkCases(CaseA, CaseB);
 		}
-	});
-	auto Pawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
-	if (Pawn && Pawn->IsValidLowLevel()) 
-	{
-		FVector Origin;
-		FVector BoxExtent;
-		FVector Size = FVector(50, 50, 50);
-		Pawn -> GetActorBounds(true, Origin, BoxExtent);
-		FVector Pos = FVector(Offset.X + 25,Offset.Y + 25, Offset.Z + BoxExtent.Z);
-		Pawn->SetActorLocation(Pos);
+		});
+	APawn * Pawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
+	AJulie * Julie = Cast<AJulie>(Pawn);
+	if (!Julie || !Julie -> IsValidLowLevel()) {
+		UE_LOG(LogTemp, Warning, TEXT("Julie is not valid"));
+		return;
 	}
-
-
+	PlayerPawn = Julie;
+	Julie -> TeleportToCase(GetGridCase(0, 0));
 }
 
 void AArrietty_Game_GameState::AddCaseToLevel(int32 X, int32 Y, int32 Z) {
@@ -137,8 +120,27 @@ AGridCase * AArrietty_Game_GameState::AddCaseToLevel2(FVector WorldPosition,FVec
 
 }
 
+ABearTrap * AArrietty_Game_GameState::AddBearTrap(FVector WorldPosition, FVector2D GridPos) {
+	int32 X = GridPos.X;
+	int32 Y = GridPos.Y;
+	int32 Z = 0;
+	FVector Position = FVector(X, Y, Z);
+	ABearTrap * GridCase = GWorld->SpawnActor<ABearTrap >(WorldPosition + Offset, FRotator::ZeroRotator);
+	PositionToGridCase.Add(Position, GridCase);
+	GridCase->SetCasePosition(X, Y);
+	GridCase -> SetupTrap();
+	EffectGridCases.Add(GridCase);
+	return GridCase;
+
+}
+
 void AArrietty_Game_GameState::posToCaseTmp(FVector GridWorldPosition) {
 	AGridCase * Case = AddCaseToLevel2(GridWorldPosition * FVector(200,200,100), FVector2D(GridWorldPosition.X, GridWorldPosition.Y));
+	SetGridCase(GridWorldPosition.X, GridWorldPosition.Y, Case);
+}
+
+void AArrietty_Game_GameState::posToBearTrapTmp(FVector GridWorldPosition) {
+	AGridCase* Case = AddBearTrap(GridWorldPosition * FVector(200, 200, 100), FVector2D(GridWorldPosition.X, GridWorldPosition.Y));
 	SetGridCase(GridWorldPosition.X, GridWorldPosition.Y, Case);
 }
 
@@ -173,6 +175,51 @@ int32 AArrietty_Game_GameState::GridCaseDistance(FVector2D GridCase1, FVector2D 
 	return FMath::Abs(GridCase1.X - GridCase2.X) + FMath::Abs(GridCase1.Y - GridCase2.Y);
 }
 
+AJulie* AArrietty_Game_GameState::GetPlayerPawn() const {
+	return PlayerPawn;
+}
 
+int32 AArrietty_Game_GameState::GetNbTurn() const {
+	return NbTurn;
+}
+
+void AArrietty_Game_GameState::SetNbTurn(int32 NewNbTurn) {
+	NbTurn = NewNbTurn;
+	OnTurnNumberChanged.Broadcast();
+}
+
+void AArrietty_Game_GameState::AddTurn() {
+	NbTurn++;
+	OnTurnNumberChanged.Broadcast();
+}
+
+void AArrietty_Game_GameState::EnemiesActions() {
+	for (AEnemyPawn* Enemy : Enemies) {
+		Enemy->EnemyAction();
+	}
+	CheckEndGame();
+	EffectGridCasesActions();
+}
+
+void AArrietty_Game_GameState::EffectGridCasesActions() {
+	for (AEffectGridCase* EffectGridCase : EffectGridCases) {
+		EffectGridCase->ActivateEffect();
+	}
+	CheckEndGame();
+
+}
+
+
+void AArrietty_Game_GameState::CheckEndGame() const {
+	if (!PlayerPawn || !PlayerPawn->IsValidLowLevel() || PlayerPawn -> IsActorBeingDestroyed()) {
+		auto WidgetClass = LoadClass<UUserWidget>(nullptr, TEXT("WidgetBlueprint'/Game/UI/UI_DeathScreen.UI_DeathScreen_C'"));
+		if (!WidgetClass) {
+			UE_LOG(LogTemp, Warning, TEXT("Widget class not found"));
+			return;
+		}
+		 UUserWidget * Widget = CreateWidget(GetWorld(), WidgetClass);
+		 Widget->AddToViewport();
+	}
+}
 
 

@@ -34,6 +34,12 @@
     <Filter Include="Source\Arriett_Go">
       <UniqueIdentifier>{BE625901-E829-3D59-A390-A75E4460860E}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\Arrietty_Game_GameState.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\Arrietty_Game_GameState.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
     <None Include="..\..\Source\Arriett_Go\Arriett_Go.Build.cs">
       <Filter>Source\Arriett_Go</Filter>
     </None>
@@ -61,6 +67,30 @@
     <ClInclude Include="..\..\Source\Arriett_Go\Arriett_GoPlayerController.h">
       <Filter>Source\Arriett_Go</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\BearTrap.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\BearTrap.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\EffectGridCase.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\EffectGridCase.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\EnemyPawn.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\EnemyPawn.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\GamePawn.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\GamePawn.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Arriett_Go\GridCase.cpp">
       <Filter>Source\Arriett_Go</Filter>
     </ClCompile>
@@ -71,6 +101,18 @@
       <Filter>Source\Arriett_Go</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Arriett_Go\GridSpline.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\Julie.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\Julie.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\TurnNumber.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\TurnNumber.h">
       <Filter>Source\Arriett_Go</Filter>
     </ClInclude>
     <Filter Include="Source\Arriett_Go\AI">

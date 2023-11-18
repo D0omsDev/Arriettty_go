@@ -1,11 +1,15 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/GameStateBase.h"
-#include "GridCase.h"	
 #include "Kismet/GameplayStatics.h"
 #include "Arrietty_Game_GameState.generated.h"
 
-
+class ABearTrap;
+class AEffectGridCase;
+class AEnemyPawn;
+class AGridCase;
+class AJulie;
+DECLARE_MULTICAST_DELEGATE(FOnTurnNumberChanged)
 UCLASS(Blueprintable)
 class AArrietty_Game_GameState : public AGameStateBase
 {
@@ -21,14 +25,6 @@ AArrietty_Game_GameState();
 	UFUNCTION(BlueprintCallable)
 	void SetGridCase(int32 X, int32 Y, AGridCase * GridCase);
 	UFUNCTION(BlueprintCallable)
-	void SetCurrentGridCaseByPos(int32 X, int32 Y);
-	UFUNCTION(BlueprintCallable)
-	void SetCurrentGridCase(AGridCase * GridCase);
-	UFUNCTION(BlueprintCallable)
-	FVector2D GetCurrentGridCasePosition() const;
-	UFUNCTION(BlueprintCallable)
-	AGridCase * GetCurrentGridCase() const;
-	UFUNCTION(BlueprintCallable)
 	static int32 GridCaseDistance(FVector2D GridCase1, FVector2D GridCase2);
 	UFUNCTION(BlueprintCallable)
 	void GridCasesVerification();
@@ -37,15 +33,46 @@ AArrietty_Game_GameState();
 	void AddCaseToLevel(int32 X, int32 Y, int32 Z);	
 	AGridCase * AddCaseToLevel2(FVector WorldPosition, FVector2D GridPos);
 	void posToCaseTmp(FVector GridWorldPosition);
+	void posToBearTrapTmp(FVector GridWorldPosition);
 	void AutoLinkCases();
+	AJulie * GetPlayerPawn() const;
+	int32 GetNbTurn() const;
+	void SetNbTurn(int32 NewNbTurn);
+	void AddTurn();
 
+	void EnemiesActions();
+
+	void EffectGridCasesActions();
+
+	void CheckEndGame() const;
+
+
+
+	// The delegate that is called when the number of turn changes
+	FOnTurnNumberChanged OnTurnNumberChanged;
 protected :
+	//Function that add a bear trap to the level
+	ABearTrap* AddBearTrap(FVector WorldPosition, FVector2D GridPos);
+
+	//The offset of all the case from (0,0,0)
 	FVector Offset = FVector(600, 600, 5);
 
+	// The array containing all the grid cases
 	TArray<TArray<AGridCase *>> GridCases;
+	// A Map that can be used to find a grid case by its position
 	TMap<FVector, AGridCase*> PositionToGridCase;
-	FVector2D CurrentGridCasePosition;
-	AGridCase * CurrentGridCase;
+	// The player pawn
+	AJulie * PlayerPawn = nullptr;
 
+	// The enemies pawns
+	TArray<AEnemyPawn*> Enemies;
+
+	// The array containing all the effect grid cases
+	TArray <AEffectGridCase*> EffectGridCases;
+
+	// The number of turn since the beginning of the game
+	int32 NbTurn = 0;
+
+	
 };
 

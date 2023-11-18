@@ -9,6 +9,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 // Cross Module References
+	ARRIETT_GO_API UClass* Z_Construct_UClass_AGamePawn_NoRegister();
 	ARRIETT_GO_API UClass* Z_Construct_UClass_AGridCase();
 	ARRIETT_GO_API UClass* Z_Construct_UClass_AGridCase_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
@@ -33,6 +34,11 @@ void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Mesh_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_Mesh;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_PawnsInCase_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_PawnsInCase_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_PawnsInCase;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -57,8 +63,17 @@ void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridCase_Statics::NewProp_Mesh = { "Mesh", nullptr, (EPropertyFlags)0x002008000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridCase, Mesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGridCase_Statics::NewProp_Mesh_MetaData), Z_Construct_UClass_AGridCase_Statics::NewProp_Mesh_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridCase_Statics::NewProp_PawnsInCase_Inner = { "PawnsInCase", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_AGamePawn_NoRegister, METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGridCase_Statics::NewProp_PawnsInCase_MetaData[] = {
+		{ "ModuleRelativePath", "GridCase.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AGridCase_Statics::NewProp_PawnsInCase = { "PawnsInCase", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridCase, PawnsInCase), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGridCase_Statics::NewProp_PawnsInCase_MetaData), Z_Construct_UClass_AGridCase_Statics::NewProp_PawnsInCase_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGridCase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridCase_Statics::NewProp_Mesh,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridCase_Statics::NewProp_PawnsInCase_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridCase_Statics::NewProp_PawnsInCase,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AGridCase_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AGridCase>::IsAbstract,
@@ -98,9 +113,9 @@ void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGridCase, AGridCase::StaticClass, TEXT("AGridCase"), &Z_Registration_Info_UClass_AGridCase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGridCase), 2528714045U) },
+		{ Z_Construct_UClass_AGridCase, AGridCase::StaticClass, TEXT("AGridCase"), &Z_Registration_Info_UClass_AGridCase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGridCase), 3662410175U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_3807358488(TEXT("/Script/Arriett_Go"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_4194021221(TEXT("/Script/Arriett_Go"),
 		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
