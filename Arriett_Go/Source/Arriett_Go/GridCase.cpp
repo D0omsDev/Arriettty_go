@@ -1,5 +1,7 @@
 #include "GridCase.h"
+#include "Components/InstancedStaticMeshComponent.h"
 #include "GamePawn.h"
+#include "Kismet/KismetMathLibrary.h"
 
 void AGridCase::SetCasePosition(int32 NewX, int32 NewY)  {
 	X = NewX;
@@ -24,6 +26,17 @@ AGridCase::AGridCase(){
 		Mesh->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
 	}
 	RootComponent = Mesh;
+	ConstructorHelpers::FObjectFinder<UStaticMesh>LinkBoxShape(TEXT("StaticMesh'/Game/Spline/LinkBox.LinkBox'"));
+	LinkBoxInstancedMesh = CreateDefaultSubobject<UInstancedStaticMeshComponent>(TEXT("ISM"));
+	LinkBoxInstancedMesh->SetupAttachment(RootComponent);
+	LinkBoxInstancedMesh -> SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
+	if (LinkBoxShape.Succeeded()) {
+		LinkBoxInstancedMesh->SetStaticMesh(LinkBoxShape.Object);
+		LinkBoxInstancedMesh -> SetFlags(RF_Transactional);
+		AddInstanceComponent(LinkBoxInstancedMesh);
+		//LinkBox = LinkBoxShape.Object;
+	}
+
 }
 
 int32 AGridCase::GetX() const {
@@ -53,10 +66,14 @@ void AGridCase::SetZ(int32 NewZ) {
 
 void AGridCase::AddNeighbor(AGridCase* Neighbor) {
 	Neighbors.Add(Neighbor);
+	RefreshLinkCases();
+
+
 }
 
 void AGridCase::RemoveNeighbor(AGridCase* Neighbor) {
 	Neighbors.Remove(Neighbor);
+	RefreshLinkCases();
 }
 
 TArray<AGridCase*> AGridCase::GetNeighbors() const {
@@ -98,8 +115,10 @@ void AGridCase::LinkCases(AGridCase* Case1, AGridCase* Case2) {
 		UE_LOG(LogTemp, Warning, TEXT("Case1 or Case2 is null"));
 		return;
 	}
+	
 	Case1->AddNeighbor(Case2);
 	Case2->AddNeighbor(Case1);
+	//DrawDebugLine(GWorld, Case1 -> GetActorLocation(), Case2 -> GetActorLocation(), FColor::Red, false, 100.0f, 0, 5.0f);
 }
 
 void AGridCase::UnlinkCases(AGridCase* Case1, AGridCase* Case2) {
@@ -123,3 +142,15 @@ TArray<AGamePawn*> AGridCase::GetPawnsInCase() const {
 	return PawnsInCase;
 }
 
+void AGridCase::RefreshLinkCases() {
+	LinkBoxInstancedMesh->ClearInstances();
+	for (auto Neighbor : Neighbors) {
+		FVector VectorCase1 = FVector(this->GetX(), this->GetY(), this->GetZ());
+		FVector VectorCase2 = FVector(Neighbor->GetX(), Neighbor->GetY(), Neighbor->GetZ());
+		FTransform Transform = FTransform();
+		FVector Location = (Neighbor->GetActorLocation() - GetActorLocation()) / 2;
+		Transform.SetLocation(Location);
+		Transform.SetRotation(UKismetMathLibrary::FindLookAtRotation(this->GetActorLocation(), Neighbor->GetActorLocation()).Quaternion());
+		LinkBoxInstancedMesh->AddInstance(Transform);
+	}
+}

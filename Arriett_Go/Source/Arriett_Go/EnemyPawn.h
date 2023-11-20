@@ -15,6 +15,6 @@ class ARRIETT_GO_API AEnemyPawn : public AGamePawn
 	GENERATED_BODY()
 
 public :
-	void EnemyAction();
+	virtual void EnemyAction();
 	
 };

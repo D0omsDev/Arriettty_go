@@ -38,5 +38,7 @@ public:
 	}
 
 	void Death();
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	AGridCase* StartCase = nullptr;
 
 };

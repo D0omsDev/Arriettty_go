@@ -17,7 +17,9 @@ AGamePawn::AGamePawn()
 void AGamePawn::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	if (StartCase != nullptr) {
+		TeleportToCase(StartCase);
+	}
 }
 
 // Called every frame

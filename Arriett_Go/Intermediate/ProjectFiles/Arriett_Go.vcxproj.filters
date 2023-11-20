@@ -103,6 +103,12 @@
     <ClInclude Include="..\..\Source\Arriett_Go\GridSpline.h">
       <Filter>Source\Arriett_Go</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\Hunter.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\Hunter.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Arriett_Go\Julie.cpp">
       <Filter>Source\Arriett_Go</Filter>
     </ClCompile>

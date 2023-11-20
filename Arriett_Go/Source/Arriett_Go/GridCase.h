@@ -34,6 +34,7 @@ class AGridCase : public AActor
     void AddPawn(AGamePawn* Pawn);
     void RemovePawn(AGamePawn* Pawn);
     TArray<AGamePawn*> GetPawnsInCase() const;
+    void RefreshLinkCases();
 
     
     FOnActivation OnActivationDelegate;
@@ -42,11 +43,20 @@ protected :
     UStaticMeshComponent* Mesh = nullptr;
     UPROPERTY()
     TArray<AGamePawn*> PawnsInCase;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
     int32 X;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
     int32 Y;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
     int32 Z;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
     TArray<AGridCase*> Neighbors;
-
+    UPROPERTY()
+    UStaticMesh * LinkBox;
+    UPROPERTY()
+    UStaticMeshComponent* LinkBoxMesh;
+    UPROPERTY()
+    UInstancedStaticMeshComponent* LinkBoxInstancedMesh;
    
 
 };
