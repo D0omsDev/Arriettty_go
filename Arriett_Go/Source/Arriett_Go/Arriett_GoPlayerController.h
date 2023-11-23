@@ -54,10 +54,8 @@ protected:
 	/** Input handlers for SetDestination action. */
 	void OnInputStarted();
 	void OnSetDestinationTriggered();
-	void OnSetDestinationReleased();
 	void OnTouchTriggered();
-	void OnTouchReleased();
-
+	void OnInputEnded();
 private:
 	FVector CachedDestination;
 

@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "PatroPath.generated.h"
+#include "PatrolPath.generated.h"
 
 UCLASS()
 class ARRIETT_GO_API APatroPath : public AActor
