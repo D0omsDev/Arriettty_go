@@ -42,8 +42,11 @@ class ARRIETT_GO_API AHunter : public AEnemyPawn
 	
 public : 
 	virtual void EnemyAction() override;
+	void AutomaticHunterSetup(float Degrees);
 
 private : 
 	TArray <FHunterLine> HunterLines;
 	int32 HunterLineIndex = 0;
+	void KillCheck();
+	void RotateToCaseNear();
 };

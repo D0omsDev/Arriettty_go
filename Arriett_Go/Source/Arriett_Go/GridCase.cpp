@@ -1,6 +1,7 @@
-#include "GridCase.h"
+#include "GridCase.h"	
 #include "Components/InstancedStaticMeshComponent.h"
 #include "GamePawn.h"
+#include "Julie.h"
 #include "Kismet/KismetMathLibrary.h"
 
 void AGridCase::SetCasePosition(int32 NewX, int32 NewY)  {
@@ -82,32 +83,39 @@ TArray<AGridCase*> AGridCase::GetNeighbors() const {
 
 void AGridCase::EnterCase(AGamePawn* Pawn) {
 	OnActivationDelegate.ExecuteIfBound();
-	UMaterial* MaterialBlue = Cast<UMaterial>(StaticLoadObject(UMaterial::StaticClass(), NULL, TEXT("Material'/Game/Spline/M_GridBleu.M_GridBleu'")));
-	UMaterial * MaterialRed = Cast<UMaterial>(StaticLoadObject(UMaterial::StaticClass(), NULL, TEXT("Material'/Game/Spline/M_GridRouge.M_GridRouge'")));
-	if (Mesh != nullptr && MaterialBlue != nullptr) {
-		Mesh-> SetMaterial(0, MaterialBlue);
-	}
-	if (Mesh != nullptr && MaterialRed != nullptr) {
-		for (AGridCase * Neighbor : Neighbors) {
-			Neighbor->Mesh ->SetMaterial(0, MaterialRed);
+	AddPawn(Pawn);
+
+	if (Pawn->IsA(AJulie::StaticClass())) {
+		UMaterial* MaterialBlue = Cast<UMaterial>(StaticLoadObject(UMaterial::StaticClass(), NULL, TEXT("Material'/Game/Spline/M_GridBleu.M_GridBleu'")));
+		UMaterial * MaterialRed = Cast<UMaterial>(StaticLoadObject(UMaterial::StaticClass(), NULL, TEXT("Material'/Game/Spline/M_GridRouge.M_GridRouge'")));
+		if (Mesh != nullptr && MaterialBlue != nullptr) {
+			Mesh-> SetMaterial(0, MaterialBlue);
+		}
+		if (Mesh != nullptr && MaterialRed != nullptr) {
+			for (AGridCase * Neighbor : Neighbors) {
+				Neighbor->Mesh ->SetMaterial(0, MaterialRed);
+			}
 		}
 	}
-	AddPawn(Pawn);
+
 }
 
-void AGridCase::ExitCase(AGamePawn* Pawn) {
-	UMaterial* MaterialBlack = Cast<UMaterial>(StaticLoadObject(UMaterial::StaticClass(), NULL, TEXT("Material'/Game/Spline/M_GridNoir.M_GridNoir'")));
-	if (Mesh != nullptr && MaterialBlack != nullptr) {
-		Mesh->SetMaterial(0, MaterialBlack);
-		for (AGridCase* Neighbor : Neighbors) {
-			if (!Neighbor) {
-				UE_LOG(LogTemp, Warning, TEXT("Neighbor is null"));
-				continue;
+void AGridCase::ExitCase(AGamePawn* Pawn) {	
+	RemovePawn(Pawn);
+	if (Pawn->IsA(AJulie::StaticClass())) {
+		UMaterial* MaterialBlack = Cast<UMaterial>(StaticLoadObject(UMaterial::StaticClass(), NULL, TEXT("Material'/Game/Spline/M_GridNoir.M_GridNoir'")));
+	
+		if (Mesh != nullptr && MaterialBlack != nullptr) {
+			Mesh->SetMaterial(0, MaterialBlack);
+			for (AGridCase* Neighbor : Neighbors) {
+				if (!Neighbor) {
+					UE_LOG(LogTemp, Warning, TEXT("Neighbor is null"));
+					continue;
+				}
+				Neighbor->Mesh->SetMaterial(0, MaterialBlack);
 			}
-			Neighbor->Mesh->SetMaterial(0, MaterialBlack);
 		}
 	}
-	RemovePawn(Pawn);
 }
 
 void AGridCase::LinkCases(AGridCase* Case1, AGridCase* Case2) {
@@ -152,5 +160,15 @@ void AGridCase::RefreshLinkCases() {
 		Transform.SetLocation(Location);
 		Transform.SetRotation(UKismetMathLibrary::FindLookAtRotation(this->GetActorLocation(), Neighbor->GetActorLocation()).Quaternion());
 		LinkBoxInstancedMesh->AddInstance(Transform);
+	}
+}
+
+bool AGridCase::IsStartCase() const {
+	return bIsStartCase;
+}
+
+void AGridCase::SetMeshMaterial(UMaterial* NewMaterial) {
+	if (Mesh != nullptr && NewMaterial != nullptr) {
+		Mesh->SetMaterial(0, NewMaterial);
 	}
 }

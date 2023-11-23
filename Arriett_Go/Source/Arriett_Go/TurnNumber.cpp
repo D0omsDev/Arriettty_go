@@ -2,7 +2,8 @@
 
 
 #include "TurnNumber.h"
-#include "Arrietty_Game_GameState.h"
+#include "Kismet/GameplayStatics.h"
+#include "Arriett_GoGameMode.h"
 
 void UTurnNumber::NativeConstruct()
 {
@@ -10,10 +11,10 @@ void UTurnNumber::NativeConstruct()
 	auto World = GetWorld();
 	if (World != nullptr) {
 		auto GameState = World->GetGameState();
-		if (GameState != nullptr) {
-			A_GameState = Cast< AArrietty_Game_GameState>(GameState);
-			if (A_GameState != nullptr) {
-				A_GameState->OnTurnNumberChanged.AddUObject(this, &UTurnNumber::RefreshTurnNumber);
+		if (UGameplayStatics::GetGameMode(GetWorld())) {
+			A_GameMode = Cast< AArriett_GoGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+			if (A_GameMode != nullptr) {
+				A_GameMode->OnTurnNumberChanged.AddUObject(this, &UTurnNumber::RefreshTurnNumber);
 			}
 		}
 	}
@@ -22,9 +23,9 @@ void UTurnNumber::NativeConstruct()
 
 void UTurnNumber::RefreshTurnNumber()
 {
-	A_GameState = Cast< AArrietty_Game_GameState>(A_GameState);
-	if (A_GameState != nullptr) {
-		TurnNumber = A_GameState->GetNbTurn();
+	A_GameMode = Cast< AArriett_GoGameMode>(A_GameMode);
+	if (A_GameMode != nullptr) {
+		TurnNumber = A_GameMode->GetNbTurn();
 	}
 	if (TurnNumberText != nullptr) {
 		TurnNumberText->SetText(FText::FromString(FString::FromInt(TurnNumber)));

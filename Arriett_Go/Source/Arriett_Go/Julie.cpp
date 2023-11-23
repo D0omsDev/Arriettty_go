@@ -11,6 +11,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Materials/Material.h"
 #include "Engine/World.h"
+#include "EngineUtils.h"
 
 
 AJulie::AJulie()
@@ -48,10 +49,20 @@ AJulie::AJulie()
 
 }
 
+void AJulie::BeginPlay()
+{
+	Super::BeginPlay();
+}
+
 void AJulie::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
 }
+
+//void AJulie::TimelineFinishedCallback()
+//{
+//	Super::TimelineFinishedCallback();
+//}
 
 //void AJulie::MoveToCase(AGridCase* Case) {
 //	Super::MoveToCase(Case);

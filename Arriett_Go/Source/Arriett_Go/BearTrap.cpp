@@ -2,18 +2,19 @@
 
 
 #include "BearTrap.h"
-#include "Arrietty_Game_GameState.h"
+#include "Arriett_GoGameMode.h"
+#include "Kismet/GameplayStatics.h"
 #include "GamePawn.h"
 
 ABearTrap::ABearTrap() {
 }
 
 void ABearTrap::SetupTrap() {
-	AArrietty_Game_GameState* A_GameState = nullptr;
-	if (GWorld->GetGameState()) {
-		A_GameState = Cast<AArrietty_Game_GameState>(GWorld->GetGameState());
-		if (A_GameState != nullptr) {
-			A_GameState->OnTurnNumberChanged.AddUObject(this, &ABearTrap::RefreshTrap);
+	AArriett_GoGameMode* A_GameMode = nullptr;
+	if (UGameplayStatics::GetGameMode(GetWorld())) {
+		A_GameMode = Cast<AArriett_GoGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+		if (A_GameMode != nullptr) {
+			A_GameMode->OnTurnNumberChanged.AddUObject(this, &ABearTrap::RefreshTrap);
 		}
 	}
 }

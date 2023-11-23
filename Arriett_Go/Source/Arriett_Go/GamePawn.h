@@ -4,8 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Components/TimelineComponent.h"
 #include "GamePawn.generated.h"
-
+DECLARE_DELEGATE(FOnMovementEnded);
 class AGridCase;
 UCLASS(ABSTRACT)
 class ARRIETT_GO_API AGamePawn : public ACharacter
@@ -19,9 +20,16 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	// The Current case of the pawn
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	AGridCase * CurrentCase = nullptr;
+
+	UFUNCTION()
+	virtual void TimelineCallback(float TimeValue);
+
+	UFUNCTION()
+	virtual void TimelineFinishedCallback();
+
+	void PlayTimeline();
+
+	void ChangeCase(AGridCase * NewCase);
 
 
 public:	
@@ -40,5 +48,32 @@ public:
 	void Death();
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AGridCase* StartCase = nullptr;
+
+	FOnMovementEnded OnMovementEnded;
+protected :
+
+	// The Current case of the pawn
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	AGridCase* CurrentCase = nullptr;
+	// The Next case of the pawn
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	AGridCase* NextCase = nullptr;
+
+	FRotator CurrentRotation = FRotator::ZeroRotator;
+	FRotator TargetRotation = FRotator::ZeroRotator;
+	//Timeline Components
+	UPROPERTY()
+	UTimelineComponent* MyTimeline;
+
+	UPROPERTY()
+	UCurveFloat* FloatXCurve;
+	UPROPERTY()
+	UCurveFloat* FloatYCurve;
+	UPROPERTY()
+	UCurveFloat* FloatZCurve;
+
+	UPROPERTY()
+	TEnumAsByte<ETimelineDirection::Type> TimelineDirection;
+
 
 };

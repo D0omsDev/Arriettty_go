@@ -1,7 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "Arriett_GoPlayerController.h"
-#include "Arrietty_Game_GameState.h"
+#include "Arriett_GoGameMode.h"
 #include "GameFramework/Pawn.h"
 #include "GridCase.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
@@ -13,7 +13,9 @@
 #include "InputActionValue.h"
 #include "EnhancedInputSubsystems.h"
 #include "Engine/LocalPlayer.h"
+#include "Kismet/GameplayStatics.h"
 #include "Julie.h"
+#include "EngineUtils.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -34,6 +36,10 @@ void AArriett_GoPlayerController::BeginPlay()
 	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
 	{
 		Subsystem->AddMappingContext(DefaultMappingContext, 0);
+	}
+	else
+	{
+		UE_LOG(LogTemplateCharacter, Error, TEXT("'%s' Failed to find an Enhanced Input Subsystem! This template is built to use the Enhanced Input system. If you intend to use the legacy system, then you will need to update this C++ file."), *GetNameSafe(this));
 	}
 }
 
@@ -68,22 +74,23 @@ void AArriett_GoPlayerController::OnInputStarted()
 // Triggered every frame when the input is held down
 void AArriett_GoPlayerController::OnSetDestinationTriggered()
 {
+	UE_LOG(LogTemp, Warning, TEXT("OnSetDestinationTriggered"));
 	AJulie* ControlledPawn = Cast<AJulie>(GetPawn());
 	if (!ControlledPawn || ControlledPawn->GetVelocity() != FVector(0, 0, 0)) {
 		return;
 	}
 
 
-	AArrietty_Game_GameState* A_GameState = nullptr;
-	if (GWorld->GetGameState()) {
-		A_GameState = Cast<AArrietty_Game_GameState>(GWorld->GetGameState());
-		if (!A_GameState) {
-			UE_LOG(LogTemp, Warning, TEXT("GameState is not valid"));
+	AArriett_GoGameMode* A_GameMode = nullptr;
+ if (UGameplayStatics::GetGameMode(GetWorld())){
+		A_GameMode = Cast<AArriett_GoGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+		if (!A_GameMode) {
+			UE_LOG(LogTemp, Warning, TEXT("GameMode is not valid"));
 			return;
 		}
 	}
 	else {
-		UE_LOG(LogTemp, Warning, TEXT("GameState is not valid"));
+		UE_LOG(LogTemp, Warning, TEXT("GameMode is not valid"));
 	}
 	// We flag that the input is being pressed
 	FollowTime += GetWorld()->GetDeltaSeconds();
@@ -110,7 +117,7 @@ void AArriett_GoPlayerController::OnSetDestinationTriggered()
 		if (GridCaseHit)
 		{
 			GridCasePosition = GridCaseHit->GetGridPosition();
-			//CurrentGridCasePosition = A_GameState->GetCurrentGridCasePosition();
+			//CurrentGridCasePosition = A_GameMode->GetCurrentGridCasePosition();
 		}
 		else
 		{
@@ -131,9 +138,9 @@ void AArriett_GoPlayerController::OnSetDestinationTriggered()
 	else {
 		// Move towards case hit
 		ControlledPawn->MoveToCase(GridCaseHit);
-		//A_GameState -> EnemiesActions();
-		A_GameState->EffectGridCasesActions();
-		A_GameState->AddTurn();
+		//A_GameMode -> EnemiesActions();SetPlaybackPosition: No float property 'None'
+		A_GameMode->EffectGridCasesActions();
+		A_GameMode->AddTurn();
 	}
 
 }

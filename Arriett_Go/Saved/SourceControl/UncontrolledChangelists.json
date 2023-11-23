@@ -5,22 +5,9 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
-				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/TopDown/Maps/TopDownMap.umap",
-				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/TopDown/Blueprints/BP_Julie.uasset",
-				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/UI/UI_TurnNumberWidget.uasset",
-				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/Spline/M_LinkMat.uasset",
-				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/Spline/LinkBox.uasset",
-				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/Spline/LinkBox2.uasset",
-				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/Spline/MyGridCase.uasset",
-				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/TopDown/Maps/TestMap.umap",
-				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/TopDown/Maps/_GENERATED/mykud/LinkBox2.uasset",
-				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/TopDown/Maps/_GENERATED/mykud/LinkB.uasset",
-				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/Spline/LinkB.uasset",
-				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/TopDown/Maps/_GENERATED/mykud/Box.uasset",
-				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/TopDown/Maps/_GENERATED/mykud/LineBox.uasset",
-				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/Spline/LineBox.uasset",
-				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/UI/UI_TurnNumber.uasset",
-				"C:/Users/lemai/Desktop/NSM/Arriety_Go/Arriettty_go/Arriett_Go/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset"
+				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/Levels/TestMapLevelInitialized.umap",
+				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/TopDown/Blueprints/BP_ArriettyGoController.uasset",
+				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/TopDown/Blueprints/BP_TopDownPlayerController.uasset"
 			]
 		}
 	]

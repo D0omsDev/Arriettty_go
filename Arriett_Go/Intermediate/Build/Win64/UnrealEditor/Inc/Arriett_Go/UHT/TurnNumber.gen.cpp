@@ -9,7 +9,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeTurnNumber() {}
 // Cross Module References
-	ARRIETT_GO_API UClass* Z_Construct_UClass_AArrietty_Game_GameState_NoRegister();
+	ARRIETT_GO_API UClass* Z_Construct_UClass_AArriett_GoGameMode_NoRegister();
 	ARRIETT_GO_API UClass* Z_Construct_UClass_UTurnNumber();
 	ARRIETT_GO_API UClass* Z_Construct_UClass_UTurnNumber_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
@@ -35,9 +35,9 @@ void EmptyLinkFunctionForGeneratedCodeTurnNumber() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_TurnNumberText;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_A_GameState_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_A_GameMode_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_A_GameState;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_A_GameMode;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -65,14 +65,14 @@ void EmptyLinkFunctionForGeneratedCodeTurnNumber() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTurnNumber_Statics::NewProp_TurnNumberText = { "TurnNumberText", nullptr, (EPropertyFlags)0x001000000008000c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UTurnNumber, TurnNumberText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UTurnNumber_Statics::NewProp_TurnNumberText_MetaData), Z_Construct_UClass_UTurnNumber_Statics::NewProp_TurnNumberText_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTurnNumber_Statics::NewProp_A_GameState_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTurnNumber_Statics::NewProp_A_GameMode_MetaData[] = {
 		{ "ModuleRelativePath", "TurnNumber.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTurnNumber_Statics::NewProp_A_GameState = { "A_GameState", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UTurnNumber, A_GameState), Z_Construct_UClass_AArrietty_Game_GameState_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UTurnNumber_Statics::NewProp_A_GameState_MetaData), Z_Construct_UClass_UTurnNumber_Statics::NewProp_A_GameState_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTurnNumber_Statics::NewProp_A_GameMode = { "A_GameMode", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UTurnNumber, A_GameMode), Z_Construct_UClass_AArriett_GoGameMode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UTurnNumber_Statics::NewProp_A_GameMode_MetaData), Z_Construct_UClass_UTurnNumber_Statics::NewProp_A_GameMode_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UTurnNumber_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTurnNumber_Statics::NewProp_TurnNumberText,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTurnNumber_Statics::NewProp_A_GameState,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTurnNumber_Statics::NewProp_A_GameMode,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UTurnNumber_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UTurnNumber>::IsAbstract,
@@ -113,9 +113,9 @@ void EmptyLinkFunctionForGeneratedCodeTurnNumber() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_TurnNumber_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UTurnNumber, UTurnNumber::StaticClass, TEXT("UTurnNumber"), &Z_Registration_Info_UClass_UTurnNumber, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTurnNumber), 3417514908U) },
+		{ Z_Construct_UClass_UTurnNumber, UTurnNumber::StaticClass, TEXT("UTurnNumber"), &Z_Registration_Info_UClass_UTurnNumber, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTurnNumber), 2076334689U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_TurnNumber_h_2099278930(TEXT("/Script/Arriett_Go"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_TurnNumber_h_3116419537(TEXT("/Script/Arriett_Go"),
 		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_TurnNumber_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_TurnNumber_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

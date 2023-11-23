@@ -35,9 +35,14 @@ class AGridCase : public AActor
     void RemovePawn(AGamePawn* Pawn);
     TArray<AGamePawn*> GetPawnsInCase() const;
     void RefreshLinkCases();
+    bool IsStartCase() const;
+    void SetMeshMaterial(UMaterial * NewMaterial);
 
     
     FOnActivation OnActivationDelegate;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    bool bIsStartCase = false;
 protected :
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
     UStaticMeshComponent* Mesh = nullptr;
@@ -57,6 +62,8 @@ protected :
     UStaticMeshComponent* LinkBoxMesh;
     UPROPERTY()
     UInstancedStaticMeshComponent* LinkBoxInstancedMesh;
+
+   
    
 
 };

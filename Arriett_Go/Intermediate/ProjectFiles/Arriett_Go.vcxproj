@@ -27,7 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{8307A09B-47AB-3034-854C-16FCD46CF37B}</ProjectGuid>
+    <ProjectGuid>{FBEEDB5A-7488-3BEA-B10C-0F97F09BE1D7}</ProjectGuid>
     <RootNamespace>Arriett_Go</RootNamespace>
   </PropertyGroup>
   <Import Project="UECommon.props" />
@@ -111,11 +111,6 @@
     <None Include="..\..\Source\Arriett_GoEditor.Target.cs"/>
     <None Include="..\..\.vsconfig"/>
     <None Include="..\..\Arriett_Go.sln.DotSettings.user"/>
-    <None Include="..\..\Config\DefaultEditor.ini"/>
-    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini"/>
-    <None Include="..\..\Config\DefaultEngine.ini"/>
-    <None Include="..\..\Config\DefaultGame.ini"/>
-    <None Include="..\..\Config\DefaultInput.ini"/>
     <ClCompile Include="..\..\Source\Arriett_Go\Arrietty_Game_GameState.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -165,6 +160,12 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\Arriett_Go\EnemyPawn.h"/>
+    <ClCompile Include="..\..\Source\Arriett_Go\FiniteStateMachine.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\FiniteStateMachine.h"/>
     <ClCompile Include="..\..\Source\Arriett_Go\GamePawn.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -195,6 +196,12 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\Arriett_Go\Julie.h"/>
+    <ClCompile Include="..\..\Source\Arriett_Go\State.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\State.h"/>
     <ClCompile Include="..\..\Source\Arriett_Go\TurnNumber.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>

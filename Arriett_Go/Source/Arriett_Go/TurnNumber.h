@@ -10,7 +10,7 @@
 /**
  * 
  */
-class AArrietty_Game_GameState;
+class AArriett_GoGameMode;
 UCLASS(Blueprintable)
 class ARRIETT_GO_API UTurnNumber : public UUserWidget
 {
@@ -24,7 +24,7 @@ public :
 
 private : 
 	UPROPERTY()
-	AArrietty_Game_GameState * A_GameState;
+	AArriett_GoGameMode * A_GameMode;
 	void RefreshTurnNumber();
 	int32 TurnNumber = 0;
 };

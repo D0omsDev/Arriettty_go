@@ -13,24 +13,6 @@
     </None>
     <None Include="..\..\.vsconfig" />
     <None Include="..\..\Arriett_Go.sln.DotSettings.user" />
-    <Filter Include="Config">
-      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Config\DefaultEditor.ini">
-      <Filter>Config</Filter>
-    </None>
-    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
-      <Filter>Config</Filter>
-    </None>
-    <None Include="..\..\Config\DefaultEngine.ini">
-      <Filter>Config</Filter>
-    </None>
-    <None Include="..\..\Config\DefaultGame.ini">
-      <Filter>Config</Filter>
-    </None>
-    <None Include="..\..\Config\DefaultInput.ini">
-      <Filter>Config</Filter>
-    </None>
     <Filter Include="Source\Arriett_Go">
       <UniqueIdentifier>{BE625901-E829-3D59-A390-A75E4460860E}</UniqueIdentifier>
     </Filter>
@@ -85,6 +67,12 @@
     <ClInclude Include="..\..\Source\Arriett_Go\EnemyPawn.h">
       <Filter>Source\Arriett_Go</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\FiniteStateMachine.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\FiniteStateMachine.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Arriett_Go\GamePawn.cpp">
       <Filter>Source\Arriett_Go</Filter>
     </ClCompile>
@@ -113,6 +101,12 @@
       <Filter>Source\Arriett_Go</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Arriett_Go\Julie.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\State.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\State.h">
       <Filter>Source\Arriett_Go</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Arriett_Go\TurnNumber.cpp">

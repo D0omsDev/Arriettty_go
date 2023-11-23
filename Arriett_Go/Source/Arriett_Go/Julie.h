@@ -10,6 +10,7 @@
 /**
  * 
  */
+
 UCLASS()
 class ARRIETT_GO_API AJulie : public AGamePawn
 {
@@ -17,6 +18,7 @@ class ARRIETT_GO_API AJulie : public AGamePawn
 
 	public:
 		AJulie();
+		virtual void BeginPlay() override;
 
 		// Called every frame.
 		virtual void Tick(float DeltaSeconds) override;
@@ -25,6 +27,8 @@ class ARRIETT_GO_API AJulie : public AGamePawn
 		FORCEINLINE class UCameraComponent* GetTopDownCameraComponent() const { return TopDownCameraComponent; }
 		/** Returns CameraBoom subobject **/
 		FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
+
+		//virtual void TimelineFinishedCallback() override;
 
 	private:
 		/** Top down camera */
