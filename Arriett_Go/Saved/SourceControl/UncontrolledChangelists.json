@@ -5,6 +5,8 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"D:/GitHub/Chaperon rouge/Arriettty_go/Arriett_Go/Content/Levels/Level1.umap",
+				"D:/GitHub/Chaperon rouge/Arriettty_go/Arriett_Go/Content/Levels/blank.umap",
 				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/Levels/TestMapLevelInitialized.umap",
 				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/TopDown/Blueprints/BP_ArriettyGoController.uasset",
 				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/TopDown/Blueprints/BP_TopDownPlayerController.uasset"
