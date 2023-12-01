@@ -2,8 +2,7 @@
 	"RemapUnityFiles": 
 	{
 		"Module.Arriett_Go.cpp.obj": [
-			"FiniteStateMachine.gen.cpp.obj",
-			"State.gen.cpp.obj",
+			"Wolf.gen.cpp.obj",
 			"EnemyController.cpp.obj",
 			"EnnemyAnimInstance.cpp.obj",
 			"HeroAnimInstance.cpp.obj",
@@ -12,14 +11,13 @@
 			"EnnemyCharacter.cpp.obj",
 			"HeroCharacter.cpp.obj",
 			"Tourelles.cpp.obj",
-			"EffectGridCase.cpp.obj",
-			"EnemyPawn.cpp.obj",
 			"GridSpline.cpp.obj",
 			"BasPickUp.cpp.obj",
 			"NodeBase.cpp.obj",
 			"PatrolPath.cpp.obj",
 			"PierreJetable.cpp.obj",
 			"TurnBaseMode.cpp.obj",
+			"TurnNumber.cpp.obj",
 			"Arriett_Go.init.gen.cpp.obj",
 			"Arriett_GoCharacter.gen.cpp.obj",
 			"Arriett_GoGameMode.gen.cpp.obj",
@@ -31,6 +29,7 @@
 			"EnemyPawn.gen.cpp.obj",
 			"EnnemyAnimInstance.gen.cpp.obj",
 			"EnnemyCharacter.gen.cpp.obj",
+			"FiniteStateMachine.gen.cpp.obj",
 			"GamePawn.gen.cpp.obj",
 			"GridCase.gen.cpp.obj",
 			"GridSpline.gen.cpp.obj",
@@ -41,20 +40,22 @@
 			"NodeBase.gen.cpp.obj",
 			"PatrolPath.gen.cpp.obj",
 			"PierreJetable.gen.cpp.obj",
+			"State.gen.cpp.obj",
 			"Tourelles.gen.cpp.obj",
 			"TurnBaseMode.gen.cpp.obj",
 			"TurnNumber.gen.cpp.obj",
-			"Arrietty_Game_GameState.cpp.obj",
 			"Arriett_GoGameMode.cpp.obj",
 			"Arriett_GoPlayerController.cpp.obj",
 			"BearTrap.cpp.obj",
+			"EffectGridCase.cpp.obj",
+			"EnemyPawn.cpp.obj",
 			"FiniteStateMachine.cpp.obj",
 			"GamePawn.cpp.obj",
 			"GridCase.cpp.obj",
 			"Hunter.cpp.obj",
 			"Julie.cpp.obj",
 			"State.cpp.obj",
-			"TurnNumber.cpp.obj"
+			"Wolf.cpp.obj"
 		]
 	}
 }

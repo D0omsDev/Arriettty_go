@@ -30,6 +30,9 @@ class ARRIETT_GO_API AJulie : public AGamePawn
 
 		//virtual void TimelineFinishedCallback() override;
 
+		virtual void UpdateCasesColor() override;
+
+
 	private:
 		/** Top down camera */
 		UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))

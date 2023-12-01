@@ -4,12 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "State.h"
 #include "FiniteStateMachine.generated.h"
 
 /**
  * 
  */
+class UState;
 UCLASS()
 class ARRIETT_GO_API UFiniteStateMachine : public UObject
 {
@@ -18,9 +18,10 @@ class ARRIETT_GO_API UFiniteStateMachine : public UObject
 public :
 	UFiniteStateMachine() {};
 	UFiniteStateMachine(UObject * Owner);
+	UPROPERTY()
 	UState * CurrentState;
-	void Update();
+	void UpdateState();
 	void ChangeState(UState * NewState);
-
+	UPROPERTY()
 	UObject * Owner;
 };

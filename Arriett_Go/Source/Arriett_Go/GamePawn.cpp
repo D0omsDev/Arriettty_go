@@ -51,7 +51,7 @@ void AGamePawn::BeginPlay()
 		//Add the float curve to the timeline and connect it to your timelines's interpolation function
 		onTimelineCallback.BindUFunction(this, FName{ TEXT("TimelineCallback") });
 		onTimelineFinishedCallback.BindUFunction(this, FName{ TEXT("TimelineFinishedCallback") });
-		MyTimeline->AddInterpFloat(FloatXCurve, onTimelineCallback);
+		MyTimeline->AddInterpFloat(FloatXCurve, onTimelineCallback, FName{ TEXT("CurveFloatValue") });
 		MyTimeline->SetTimelineFinishedFunc(onTimelineFinishedCallback);
 
 		MyTimeline->RegisterComponent();
@@ -66,12 +66,12 @@ void AGamePawn::BeginPlay()
 void AGamePawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if (!CurrentRotation.Equals(TargetRotation,0.1)) {
-		CurrentRotation = FQuat::Slerp(CurrentRotation.Quaternion(), TargetRotation.Quaternion(), DeltaTime * 5).Rotator();
-		UE_LOG (LogTemp, Warning, TEXT("Rotation from %s /  %s  / %s "), *(GetName()) , *(CurrentRotation.ToString()), *(TargetRotation.ToString()));
-		SetActorRotation(CurrentRotation);
+	//if (!CurrentRotation.Equals(TargetRotation,0.1)) {
+	//	CurrentRotation = FQuat::Slerp(CurrentRotation.Quaternion(), TargetRotation.Quaternion(), DeltaTime * 5).Rotator();
+	//	//UE_LOG (LogTemp, Warning, TEXT("Rotation from %s /  %s  / %s "), *(GetName()) , *(CurrentRotation.ToString()), *(TargetRotation.ToString()));
+	//	SetActorRotation(CurrentRotation);
 
-	}
+	//}
 
 
 	if (MyTimeline != NULL)
@@ -100,23 +100,12 @@ void AGamePawn::ChangeCase(AGridCase* NewCase)
 
 void AGamePawn::MoveToCase(AGridCase* Case) {
 	if (Case == nullptr) {
+		TimelineFinishedCallback();
 		return;
 	}
 	ChangeCase(Case);
 	// Move towards case hit
 	PlayTimeline();
-	/*FVector CaseHitOrigin;
-	FVector BoxExtent;
-	Case->GetActorBounds(false, CaseHitOrigin, BoxExtent);
-
-	FVector PawnOrigin;
-	FVector PawnExtent;
-	GetActorBounds(true, PawnOrigin, PawnExtent);
-
-	FVector WorldDirection = (CaseHitOrigin - GetActorLocation()).GetSafeNormal();
-	CaseHitOrigin += WorldDirection * (PawnExtent.Y);*/
-	//UAIBlueprintHelperLibrary::SimpleMoveToLocation(GetController(), CaseHitOrigin);
-
 }
 
 void AGamePawn::TeleportToCase(AGridCase* Case) {
@@ -143,12 +132,14 @@ AGridCase* AGamePawn::GetCurrentCase() const
 
 void AGamePawn::Death() {
 	UE_LOG(LogTemp, Warning, TEXT("Death"));
+	if (OnDeath.IsBound()) {
+		OnDeath.Broadcast(this);
+	}
 	Destroy();
 }
 
 void AGamePawn::TimelineCallback(float TimeValue)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Timeline Callback "));
 	if (CurrentCase == nullptr || NextCase == nullptr) {
 		return;
 	}
@@ -156,7 +147,7 @@ void AGamePawn::TimelineCallback(float TimeValue)
 	double AlphaValueX = FloatXCurve->GetFloatValue(TimeValue);
 	double AlphaValueY = FloatYCurve->GetFloatValue(TimeValue);
 	double AlphaValueZ = FloatZCurve->GetFloatValue(TimeValue);
-	UE_LOG (LogTemp, Warning, TEXT("Val Original %f / AlphaValueX %f / AlphaValueY %f / AlphaValueZ %f "), TimeValue ,AlphaValueX, AlphaValueY, AlphaValueZ);
+	//UE_LOG (LogTemp, Warning, TEXT("Val Original %f / AlphaValueX %f / lphaValueY %f / AlphaValueZ %f "), TimeValue ,AlphaValueX, AlphaValueY, AlphaValueZ);
 	int32 HalfSize = 50; // Todo : Get the size of the pawn
 	double NewX = FMath::Lerp(GetActorLocation().X, NextCase -> GetActorLocation().X + HalfCaseSize, AlphaValueX);
 	double NewY = FMath::Lerp(GetActorLocation().Y, NextCase->GetActorLocation().Y + HalfCaseSize, AlphaValueY);
@@ -167,14 +158,19 @@ void AGamePawn::TimelineCallback(float TimeValue)
 
 void AGamePawn::TimelineFinishedCallback()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Timeline Finished"));
 	if (CurrentCase != nullptr) {
 		CurrentCase->ExitCase(this);
 	}
-	CurrentCase = NextCase;
-	CurrentCase->EnterCase(this);
-	NextCase = nullptr;
-	OnMovementEnded.ExecuteIfBound();
+	if (NextCase != nullptr) {
+		CurrentCase = NextCase;
+		CurrentCase->EnterCase(this);
+		NextCase = nullptr;
+	}
+	UE_LOG(LogTemp, Warning, TEXT("TimelineFinishedCallback %s") , *GetName());
+	if (OnMovementEnded.IsBound()) {
+			UE_LOG(LogTemp, Warning, TEXT("	OnMovementEnded %s"), *GetName());
+			OnMovementEnded.Broadcast(this);
+	}
 }
 
 void AGamePawn::PlayTimeline()
@@ -184,3 +180,8 @@ void AGamePawn::PlayTimeline()
 		MyTimeline->PlayFromStart();
 	}
 }
+
+void AGamePawn::UpdateCasesColor() {
+
+}
+

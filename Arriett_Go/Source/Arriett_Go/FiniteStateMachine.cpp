@@ -11,11 +11,11 @@ UFiniteStateMachine::UFiniteStateMachine(UObject* Owner)
 	CurrentState = nullptr;
 };
 
-void UFiniteStateMachine::Update()
+void UFiniteStateMachine::UpdateState()
 {
 	if (CurrentState)
 	{
-		CurrentState->Update();
+		CurrentState->UpdateState();
 	}
 };
 
@@ -26,6 +26,7 @@ void UFiniteStateMachine::ChangeState(UState* NewState)
 		CurrentState->ExitState();
 	}
 	CurrentState = NewState;
+	UE_LOG (LogTemp, Warning, TEXT("ChangeState %s"), *(NewState -> GetName()));
 	CurrentState->EnterState();
 };
 

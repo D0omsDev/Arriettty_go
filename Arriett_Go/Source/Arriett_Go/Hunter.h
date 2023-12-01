@@ -41,11 +41,16 @@ class ARRIETT_GO_API AHunter : public AEnemyPawn
 	GENERATED_BODY()
 	
 public : 
+	virtual void BeginPlay() override;	
 	virtual void EnemyAction() override;
 	void AutomaticHunterSetup(float Degrees);
-
-private : 
+	virtual void UpdateCasesColor() override;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray <FHunterLine> HunterLines;
+	virtual void TimelineCallback(float TimeValue) override;
+private : 
+
+	UPROPERTY()
 	int32 HunterLineIndex = 0;
 	void KillCheck();
 	void RotateToCaseNear();

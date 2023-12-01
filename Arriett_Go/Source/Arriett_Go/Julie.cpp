@@ -11,6 +11,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Materials/Material.h"
 #include "Engine/World.h"
+#include "GridCase.h"
 #include "EngineUtils.h"
 
 
@@ -52,6 +53,7 @@ AJulie::AJulie()
 void AJulie::BeginPlay()
 {
 	Super::BeginPlay();
+	UpdateCasesColor();
 }
 
 void AJulie::Tick(float DeltaSeconds)
@@ -67,3 +69,13 @@ void AJulie::Tick(float DeltaSeconds)
 //void AJulie::MoveToCase(AGridCase* Case) {
 //	Super::MoveToCase(Case);
 //}
+
+
+void AJulie::UpdateCasesColor() {
+	Super::UpdateCasesColor();
+	//Paint the case where the player is in blue and the neighbors in red
+	CurrentCase -> ChangeColor(ECaseColor::CaseColor_Blue);
+	for (int i = 0; i < CurrentCase->GetNeighbors().Num(); i++) {
+		CurrentCase->GetNeighbors()[i]->ChangeColor(ECaseColor::CaseColor_Red);
+	}
+}

@@ -6,7 +6,8 @@
 #include "GameFramework/Character.h"
 #include "Components/TimelineComponent.h"
 #include "GamePawn.generated.h"
-DECLARE_DELEGATE(FOnMovementEnded);
+DECLARE_MULTICAST_DELEGATE_OneParam(FOnMovementEnded,AGamePawn *);
+DECLARE_MULTICAST_DELEGATE_OneParam(FOnDeath, AGamePawn*);
 class AGridCase;
 UCLASS(ABSTRACT)
 class ARRIETT_GO_API AGamePawn : public ACharacter
@@ -16,6 +17,8 @@ class ARRIETT_GO_API AGamePawn : public ACharacter
 public:
 	// Sets default values for this pawn's properties
 	AGamePawn();
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	AGridCase* StartCase = nullptr;
 
 protected:
 	// Called when the game starts or when spawned
@@ -46,12 +49,13 @@ public:
 	}
 
 	void Death();
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	AGridCase* StartCase = nullptr;
 
+
+	virtual void UpdateCasesColor();
 	FOnMovementEnded OnMovementEnded;
+	FOnDeath OnDeath;
 protected :
-
+	
 	// The Current case of the pawn
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AGridCase* CurrentCase = nullptr;
@@ -71,9 +75,10 @@ protected :
 	UCurveFloat* FloatYCurve;
 	UPROPERTY()
 	UCurveFloat* FloatZCurve;
+	
+	UPROPERTY()
+	float CurveFloatValue;
 
 	UPROPERTY()
 	TEnumAsByte<ETimelineDirection::Type> TimelineDirection;
-
-
 };

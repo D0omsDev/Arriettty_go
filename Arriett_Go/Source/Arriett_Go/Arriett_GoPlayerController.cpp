@@ -74,7 +74,6 @@ void AArriett_GoPlayerController::OnInputStarted()
 // Triggered every frame when the input is held down
 void AArriett_GoPlayerController::OnSetDestinationTriggered()
 {
-	UE_LOG(LogTemp, Warning, TEXT("OnSetDestinationTriggered"));
 	AJulie* ControlledPawn = Cast<AJulie>(GetPawn());
 	if (!ControlledPawn || ControlledPawn->GetVelocity() != FVector(0, 0, 0)) {
 		return;
@@ -132,15 +131,16 @@ void AArriett_GoPlayerController::OnSetDestinationTriggered()
 		return;
 	}
 	if (!CurrentGridCase->GetNeighbors().Contains(GridCaseHit)) {
-		UE_LOG(LogTemp, Warning, TEXT("GridCase is not a neighbor %s"), *(CurrentGridCase->GetGridPosition().ToString()));
+		UE_LOG(LogTemp, Warning, TEXT("GridCase is not a neighbor %s"), (*CurrentGridCase->GetName()));
 		return;
 	}
 	else {
 		// Move towards case hit
-		ControlledPawn->MoveToCase(GridCaseHit);
+		//ControlledPawn->MoveToCase(GridCaseHit);
+		A_GameMode -> SetSelectedCase(GridCaseHit);
 		//A_GameMode -> EnemiesActions();SetPlaybackPosition: No float property 'None'
-		A_GameMode->EffectGridCasesActions();
-		A_GameMode->AddTurn();
+		/*A_GameMode->EffectGridCasesActions();
+		A_GameMode->AddTurn();*/
 	}
 
 }

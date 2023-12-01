@@ -111,12 +111,8 @@
     <None Include="..\..\Source\Arriett_GoEditor.Target.cs"/>
     <None Include="..\..\.vsconfig"/>
     <None Include="..\..\Arriett_Go.sln.DotSettings.user"/>
-    <ClCompile Include="..\..\Source\Arriett_Go\Arrietty_Game_GameState.cpp">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
-      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\Arrietty_Game_GameState.h"/>
+    <None Include="..\..\Config\DefaultEngine.ini"/>
+    <None Include="..\..\Config\DefaultInput.ini"/>
     <None Include="..\..\Source\Arriett_Go\Arriett_Go.Build.cs"/>
     <ClCompile Include="..\..\Source\Arriett_Go\Arriett_Go.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -208,6 +204,18 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\Arriett_Go\TurnNumber.h"/>
+    <ClCompile Include="..\..\Source\Arriett_Go\Wolf.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\Wolf.h"/>
+    <ClCompile Include="..\..\Source\Arriett_Go\WoodStick.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\WoodStick.h"/>
     <ClCompile Include="..\..\Source\Arriett_Go\AI\EnemyController.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>

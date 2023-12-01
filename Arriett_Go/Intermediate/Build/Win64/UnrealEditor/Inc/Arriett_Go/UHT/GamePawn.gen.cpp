@@ -139,6 +139,10 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_FloatZCurve;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurveFloatValue_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_CurveFloatValue;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_TimelineDirection_MetaData[];
 #endif
 		static const UECodeGen_Private::FBytePropertyParams NewProp_TimelineDirection;
@@ -228,6 +232,12 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatZCurve = { "FloatZCurve", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, FloatZCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatZCurve_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatZCurve_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_CurveFloatValue_MetaData[] = {
+		{ "ModuleRelativePath", "GamePawn.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_CurveFloatValue = { "CurveFloatValue", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, CurveFloatValue), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_CurveFloatValue_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_CurveFloatValue_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_TimelineDirection_MetaData[] = {
 		{ "ModuleRelativePath", "GamePawn.h" },
 	};
@@ -241,6 +251,7 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatXCurve,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatYCurve,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatZCurve,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGamePawn_Statics::NewProp_CurveFloatValue,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGamePawn_Statics::NewProp_TimelineDirection,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AGamePawn_Statics::StaticCppClassTypeInfo = {
@@ -276,15 +287,15 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AGamePawn);
 	AGamePawn::~AGamePawn() {}
-	struct Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGamePawn, AGamePawn::StaticClass, TEXT("AGamePawn"), &Z_Registration_Info_UClass_AGamePawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGamePawn), 3776819963U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AGamePawn, AGamePawn::StaticClass, TEXT("AGamePawn"), &Z_Registration_Info_UClass_AGamePawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGamePawn), 3316714873U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_2889748455(TEXT("/Script/Arriett_Go"),
-		Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_2736978637(TEXT("/Script/Arriett_Go"),
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

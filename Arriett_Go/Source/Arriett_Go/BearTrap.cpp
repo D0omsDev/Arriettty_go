@@ -6,6 +6,19 @@
 #include "Kismet/GameplayStatics.h"
 #include "GamePawn.h"
 
+
+
+FString ETrapStateToString(ETrapState EnumValue) {
+	switch (EnumValue) {
+		case ETrapState::Idle: return "Idle";
+			case ETrapState::FirstTrigger: return "FirstTrigger";
+				case ETrapState::Prepared: return "Prepared";
+					case ETrapState::Active: return "Active";
+						case ETrapState::Disabled: return "Disabled";
+							default: return "Invalid";
+	}
+}	
+
 ABearTrap::ABearTrap() {
 }
 
@@ -19,33 +32,32 @@ void ABearTrap::SetupTrap() {
 	}
 }
 void ABearTrap::ActivateEffect() {
-	UE_LOG(LogTemp, Warning, TEXT("BearTrap Activated effect"));
+	UE_LOG(LogTemp, Warning, TEXT("BearTrap Activated effect : State %s "),*(ETrapStateToString(TrapState)));
 	if (TrapState == ETrapState::Active) {
 		TrapState = ETrapState::Disabled;
 		UE_LOG(LogTemp, Warning, TEXT("Kill lance"));
-		for (auto Pawn : PawnsInCase) {
+		for (auto Pawn : PawnsOnCase) {
 			if (Pawn != nullptr) {
 				Pawn->Death();
 			}
 		}
 	}
+	Super::ActivateEffect();
 }
 
 
 void ABearTrap::RefreshTrap() {
-	bHasBeenActivatedThisTurn = false;
+	bIsTurnActivable = false;
 }
 
 void ABearTrap::EnterCase(AGamePawn* Pawn) {
 	Super::EnterCase(Pawn);
-	if (!bHasBeenActivatedThisTurn) {
+	if (bIsTurnActivable) {
 		ConeShape = Cast<UStaticMesh>(StaticLoadObject(UStaticMesh::StaticClass(), NULL, TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cone.Shape_Cone'")));
-		bHasBeenActivatedThisTurn = true;
+		bIsTurnActivable = false;
 		switch (TrapState) {
 		case ETrapState::Idle:
 			TrapState = ETrapState::FirstTrigger;
-			//Mesh ->SetStaticMesh(ConeShape);
-			//SetupMesh();
 			UE_LOG(LogTemp, Warning, TEXT("Trap Prepared"));
 			break;
 		case ETrapState::Prepared:
@@ -75,7 +87,7 @@ void ABearTrap::SetupMesh() {
 
 void ABearTrap::ExitCase(AGamePawn* Pawn) {
 	Super::ExitCase(Pawn);
-	if (TrapState == ETrapState::FirstTrigger && PawnsInCase.IsEmpty()) {
+	if (TrapState == ETrapState::FirstTrigger && PawnsOnCase.IsEmpty()) {
 		PrepareTrap();
 	}
 }

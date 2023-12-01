@@ -19,7 +19,7 @@ void AGridCase::Tick(float DeltaTime) {
 
 AGridCase::AGridCase(){
 	ConstructorHelpers::FObjectFinder<UStaticMesh>PlaneShape(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Plane.Shape_Plane'"));
-	ConstructorHelpers::FObjectFinder<UMaterial>ShapeMaterial(TEXT("StaticMesh'/Game/Spline/M_GridNoir.M_GridNoir'"));
+	ConstructorHelpers::FObjectFinder<UMaterial>ShapeMaterial(TEXT("StaticMesh'/Game/Cases/Textures/M_GridNoir.M_GridNoir'"));
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Visuel"));
 	if (PlaneShape.Succeeded()) {
 		Mesh->SetStaticMesh(PlaneShape.Object);
@@ -27,7 +27,7 @@ AGridCase::AGridCase(){
 		Mesh->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
 	}
 	RootComponent = Mesh;
-	ConstructorHelpers::FObjectFinder<UStaticMesh>LinkBoxShape(TEXT("StaticMesh'/Game/Spline/LinkBox.LinkBox'"));
+	ConstructorHelpers::FObjectFinder<UStaticMesh>LinkBoxShape(TEXT("StaticMesh'/Game/Cases/Meshes/LinkBox.LinkBox'"));
 	LinkBoxInstancedMesh = CreateDefaultSubobject<UInstancedStaticMeshComponent>(TEXT("ISM"));
 	LinkBoxInstancedMesh->SetupAttachment(RootComponent);
 	LinkBoxInstancedMesh -> SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
@@ -84,38 +84,10 @@ TArray<AGridCase*> AGridCase::GetNeighbors() const {
 void AGridCase::EnterCase(AGamePawn* Pawn) {
 	OnActivationDelegate.ExecuteIfBound();
 	AddPawn(Pawn);
-
-	if (Pawn->IsA(AJulie::StaticClass())) {
-		UMaterial* MaterialBlue = Cast<UMaterial>(StaticLoadObject(UMaterial::StaticClass(), NULL, TEXT("Material'/Game/Spline/M_GridBleu.M_GridBleu'")));
-		UMaterial * MaterialRed = Cast<UMaterial>(StaticLoadObject(UMaterial::StaticClass(), NULL, TEXT("Material'/Game/Spline/M_GridRouge.M_GridRouge'")));
-		if (Mesh != nullptr && MaterialBlue != nullptr) {
-			Mesh-> SetMaterial(0, MaterialBlue);
-		}
-		if (Mesh != nullptr && MaterialRed != nullptr) {
-			for (AGridCase * Neighbor : Neighbors) {
-				Neighbor->Mesh ->SetMaterial(0, MaterialRed);
-			}
-		}
-	}
-
 }
 
 void AGridCase::ExitCase(AGamePawn* Pawn) {	
 	RemovePawn(Pawn);
-	if (Pawn->IsA(AJulie::StaticClass())) {
-		UMaterial* MaterialBlack = Cast<UMaterial>(StaticLoadObject(UMaterial::StaticClass(), NULL, TEXT("Material'/Game/Spline/M_GridNoir.M_GridNoir'")));
-	
-		if (Mesh != nullptr && MaterialBlack != nullptr) {
-			Mesh->SetMaterial(0, MaterialBlack);
-			for (AGridCase* Neighbor : Neighbors) {
-				if (!Neighbor) {
-					UE_LOG(LogTemp, Warning, TEXT("Neighbor is null"));
-					continue;
-				}
-				Neighbor->Mesh->SetMaterial(0, MaterialBlack);
-			}
-		}
-	}
 }
 
 void AGridCase::LinkCases(AGridCase* Case1, AGridCase* Case2) {
@@ -139,15 +111,15 @@ void AGridCase::UnlinkCases(AGridCase* Case1, AGridCase* Case2) {
 }
 
 void AGridCase::AddPawn(AGamePawn* Pawn) {
-	PawnsInCase.Add(Pawn);
+	PawnsOnCase.Add(Pawn);
 }
 
 void AGridCase::RemovePawn(AGamePawn* Pawn) {
-	PawnsInCase.Remove(Pawn);
+	PawnsOnCase.Remove(Pawn);
 }
 
-TArray<AGamePawn*> AGridCase::GetPawnsInCase() const {
-	return PawnsInCase;
+TArray<AGamePawn*> AGridCase::GetPawnsOnCase() const {
+	return PawnsOnCase;
 }
 
 void AGridCase::RefreshLinkCases() {
@@ -170,5 +142,27 @@ bool AGridCase::IsStartCase() const {
 void AGridCase::SetMeshMaterial(UMaterial* NewMaterial) {
 	if (Mesh != nullptr && NewMaterial != nullptr) {
 		Mesh->SetMaterial(0, NewMaterial);
+	}
+}
+
+void AGridCase::ChangeColor(ECaseColor NewColor) {
+	switch (NewColor) {
+	case ECaseColor::CaseColor_Black:
+		SetMeshMaterial(MaterialBlack);
+		break;
+	case ECaseColor::CaseColor_Blue:
+		SetMeshMaterial(MaterialBlue);
+		break;
+	case ECaseColor::CaseColor_Red:
+		SetMeshMaterial(MaterialRed);
+		break;
+	case ECaseColor::CaseColor_Green:
+		SetMeshMaterial(MaterialGreen);
+		break;
+	case ECaseColor::CaseColor_Yellow:
+		SetMeshMaterial(MaterialYellow);
+		break;
+	default:
+		break;
 	}
 }

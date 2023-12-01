@@ -14,6 +14,8 @@
 #include "EngineUtils.h"
 #include "Kismet/GameplayStatics.h"
 #include "Hunter.h"
+#include "Wolf.h"
+#include "State.h"
 
 
 AArriett_GoGameMode::AArriett_GoGameMode()
@@ -22,7 +24,7 @@ AArriett_GoGameMode::AArriett_GoGameMode()
 	PlayerControllerClass = AArriett_GoPlayerController::StaticClass();
 
 	// set default pawn class to our Blueprinted character
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/TopDown/Blueprints/BP_Julie"));
+	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Pawns/BP_Julie"));
 	if (PlayerPawnBPClass.Class != nullptr)
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
@@ -38,199 +40,62 @@ AArriett_GoGameMode::AArriett_GoGameMode()
 		PlayerControllerClass = PlayerControllerBPClass.Class;
 	}
 
-	//Set the default grid size
-	int32 GridSizeX = 10;
-	int32 GridSizeY = 10;
-	//Init the grid
-	InitGridCases(GridSizeX, GridSizeY);
+	FSM = CreateDefaultSubobject<UGameModeStateMachine>(TEXT("FSM"));
+	FSM->SetOwner(this);
 
+}
+
+UGameModeStateMachine::UGameModeStateMachine(AArriett_GoGameMode* Owner) {
+	this->Owner = Owner;
 }
 
 void AArriett_GoGameMode::BeginPlay() {
 	Super::BeginPlay();
 
+	// Detection of all the pawns
+	TArray <AActor*> Pawns;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AGamePawn::StaticClass(), Pawns);
+	for (AActor* Pawn : Pawns) {
+		AJulie * Julie = Cast<AJulie>(Pawn);
+		if (Julie != nullptr) {
+			SetPlayerPawn(Julie);
+		}
+		else {
+			AEnemyPawn * EnemyPawn = Cast<AEnemyPawn>(Pawn);
+			if (EnemyPawn!= nullptr) {
+				AddEnemy(EnemyPawn);
+			}
+		}
+	}
 
-	APawn* Pawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
+	/*APawn* Pawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
 	AJulie* Julie = Cast<AJulie>(Pawn);
 	if (!Julie || !Julie->IsValidLowLevel()) {
 		UE_LOG(LogTemp, Warning, TEXT("Julie is not valid"));
 		return;
 	}
-	PlayerPawn = Julie;
-	TArray<AActor* > GridCases2;
-	//Temporary_InitLevel2();
-	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AGridCase::StaticClass(), GridCases2);
+	SetPlayerPawn(Julie);*/
+	TArray<AActor* > MapGridCases;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AGridCase::StaticClass(), MapGridCases);
 	TArray <AGridCase*> TempGridCases;
-	for (int i = 0; i < GridCases2.Num(); i++) {
-		AGridCase* Case = Cast<AGridCase>(GridCases2[i]);
+	for (int i = 0; i < MapGridCases.Num(); i++) {
+		AGridCase* Case = Cast<AGridCase>(MapGridCases[i]);
 		if (Case != nullptr) {
 			TempGridCases.Add(Case);
 			if (Case->IsStartCase()) {
 				PlayerPawn->TeleportToCase(Case);
 			}
 		}
-	}
-	GridCases[0] = TempGridCases;
-}
-
-void AArriett_GoGameMode::InitGridCases(int32 GridSizeX, int32 GridSizeY) {
-	//Init the grid
-	GridCases.Init(TArray<AGridCase*>(), GridSizeY);
-	//Init the grid cases
-	for (int32 i = 0; i < GridSizeX; i++) {
-		GridCases[i].Init(nullptr, GridSizeX);
-	}
-}
-
-
-AGridCase* AArriett_GoGameMode::GetGridCase(int32 X, int32 Y) const {
-	if (Y < 0 || Y >= GridCases.Num() || X < 0 || X >= GridCases[Y].Num()) {
-		return nullptr;
-	}
-	return GridCases[Y][X];
-}
-void AArriett_GoGameMode::SetGridCase(int32 X, int32 Y, AGridCase* GridCase) {
-	if (Y < 0 || Y >= GridCases.Num() || X < 0 || X >= GridCases[Y].Num()) {
-		return;
-	}
-	GridCases[Y][X] = GridCase;
-	GridCase->SetCasePosition(X, Y);
-}
-
-
-
-void AArriett_GoGameMode::GridCasesVerification() {
-	TArray<AActor*> GridCasesActors;
-	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AGridCase::StaticClass(), GridCasesActors);
-	for (auto Actor : GridCasesActors) {
-		AGridCase* GridCase = Cast<AGridCase>(Actor);
-		int32 X = GridCase->GetX();
-		int32 Y = GridCase->GetY();
-		int32 Z = GridCase->GetZ();
-
-		FVector Position = FVector(X, Y, Z);
-		AGridCase* GridCaseAtPosition = PositionToGridCase.FindRef(Position);
-		if (GridCaseAtPosition != GridCase) {
-			UE_LOG(LogTemp, Warning, TEXT(" Double Grid case at position %s | GridCase1 %p , Gridcase2 %p"), *Position.ToString());
-		}
-		else {
-			PositionToGridCase.Add(Position, GridCase);
+		AEffectGridCase * EffectGridCase = Cast<AEffectGridCase>(MapGridCases[i]);
+		if (EffectGridCase) {
+			AddEffectGridCase(EffectGridCase);
 		}
 
 	}
-}
-
-void AArriett_GoGameMode::Temporary_InitLevel1() {
-	GridCases.Empty();
-	PositionToGridCase.Empty();
-	InitGridCases(10, 10);
-	posToCaseTmp(FVector(0, 0, 0));
-	posToCaseTmp(FVector(0, 1, 0));
-	//posToCaseTmp(FVector(0, 2, 0));
-	posToBearTrapTmp(FVector(0, 2, 0));
-	posToCaseTmp(FVector(0, 3, 0));
-	posToCaseTmp(FVector(0, 4, 0));
-	posToCaseTmp(FVector(0, 5, 0));
-	posToCaseTmp(FVector(0, 6, 0));
-	posToCaseTmp(FVector(0, 7, 0));
-	posToCaseTmp(FVector(1, 2, 0));
-	posToCaseTmp(FVector(1, 3, 0));
-	posToCaseTmp(FVector(1, 4, 0));
-	posToCaseTmp(FVector(1, 6, 0));
-	posToCaseTmp(FVector(1, 7, 1));
-	posToCaseTmp(FVector(2, 7, 2));
-	AutoLinkCases();
-	GetGridCase(0, 4)->OnActivationDelegate.BindLambda([this]() {
-		AGridCase* CaseA = GetGridCase(1, 4);
-		AGridCase* CaseB = GetGridCase(1, 6);
-		if (CaseA->GetNeighbors().Contains(CaseB)) {
-			AGridCase::UnlinkCases(CaseA, CaseB);
-		}
-		else {
-			AGridCase::LinkCases(CaseA, CaseB);
-		}
-		});
-	APawn* Pawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
-	AJulie* Julie = Cast<AJulie>(Pawn);
-	if (!Julie || !Julie->IsValidLowLevel()) {
-		UE_LOG(LogTemp, Warning, TEXT("Julie is not valid"));
-		return;
-	}
-	PlayerPawn = Julie;
-	Julie->TeleportToCase(GetGridCase(0, 0));
-}
-
-void AArriett_GoGameMode::AddCaseToLevel(int32 X, int32 Y, int32 Z) {
-	FVector Position = FVector(X, Y, Z);
-	FVector WorldPosition = FVector(X * 100, Y * 100, Z * 100) + Offset;
-	WorldPosition += FVector(50, 50, 50);
-	AGridCase* GridCase = GWorld->SpawnActor<AGridCase>(WorldPosition, FRotator::ZeroRotator);
-	PositionToGridCase.Add(Position, GridCase);
-
-
-}
-
-AGridCase* AArriett_GoGameMode::AddCaseToLevel2(FVector WorldPosition, FVector2D GridPos) {
-	int32 X = GridPos.X;
-	int32 Y = GridPos.Y;
-	int32 Z = 0;
-	FVector Position = FVector(X, Y, Z);
-	AGridCase* GridCase = GWorld->SpawnActor<AGridCase>(WorldPosition + Offset, FRotator::ZeroRotator);
-	PositionToGridCase.Add(Position, GridCase);
-	GridCase->SetCasePosition(X, Y);
-	return GridCase;
-
-}
-
-ABearTrap* AArriett_GoGameMode::AddBearTrap(FVector WorldPosition, FVector2D GridPos) {
-	int32 X = GridPos.X;
-	int32 Y = GridPos.Y;
-	int32 Z = 0;
-	FVector Position = FVector(X, Y, Z);
-	ABearTrap* GridCase = GWorld->SpawnActor<ABearTrap >(WorldPosition + Offset, FRotator::ZeroRotator);
-	PositionToGridCase.Add(Position, GridCase);
-	GridCase->SetCasePosition(X, Y);
-	GridCase->SetupTrap();
-	EffectGridCases.Add(GridCase);
-	return GridCase;
-
-}
-
-void AArriett_GoGameMode::posToCaseTmp(FVector GridWorldPosition) {
-	AGridCase* Case = AddCaseToLevel2(GridWorldPosition * FVector(200, 200, 100), FVector2D(GridWorldPosition.X, GridWorldPosition.Y));
-	SetGridCase(GridWorldPosition.X, GridWorldPosition.Y, Case);
-}
-
-void AArriett_GoGameMode::posToBearTrapTmp(FVector GridWorldPosition) {
-	AGridCase* Case = AddBearTrap(GridWorldPosition * FVector(200, 200, 100), FVector2D(GridWorldPosition.X, GridWorldPosition.Y));
-	SetGridCase(GridWorldPosition.X, GridWorldPosition.Y, Case);
-}
-
-void AArriett_GoGameMode::AutoLinkCases() {
-	for (auto& Elem : PositionToGridCase) {
-		AGridCase* GridCase = Elem.Value;
-		int32 X = GridCase->GetX();
-		int32 Y = GridCase->GetY();
-		int32 Z = GridCase->GetZ();
-		//Get the 4 cases around the current case
-		AGridCase* CaseUp = GetGridCase(X, Y + 1);
-		AGridCase* CaseDown = GetGridCase(X, Y - 1);
-		AGridCase* CaseLeft = GetGridCase(X - 1, Y);
-		AGridCase* CaseRight = GetGridCase(X + 1, Y);
-		//Link the cases
-		if (CaseUp != nullptr) {
-			GridCase->AddNeighbor(CaseUp);
-		}
-		if (CaseDown != nullptr) {
-			GridCase->AddNeighbor(CaseDown);
-		}
-		if (CaseLeft != nullptr) {
-			GridCase->AddNeighbor(CaseLeft);
-		}
-		if (CaseRight != nullptr) {
-			GridCase->AddNeighbor(CaseRight);
-		}
-	}
+	GridCases = TempGridCases;
+	auto NewState = NewObject<UState_GameModeInputWait>();
+	NewState -> SetGamemode(this);
+	FSM -> ChangeState(NewState);
 }
 
 int32 AArriett_GoGameMode::GridCaseDistance(FVector2D GridCase1, FVector2D GridCase2) {
@@ -260,6 +125,7 @@ void AArriett_GoGameMode::EnemiesActions() {
 		Enemy->EnemyAction();
 	}
 	CheckEndGame();
+	AddTurn();
 }
 
 void AArriett_GoGameMode::EffectGridCasesActions() {
@@ -267,7 +133,6 @@ void AArriett_GoGameMode::EffectGridCasesActions() {
 		EffectGridCase->ActivateEffect();
 	}
 	CheckEndGame();
-	EnemiesActions();
 }
 
 
@@ -285,31 +150,125 @@ void AArriett_GoGameMode::CheckEndGame() const {
 
 void AArriett_GoGameMode::SetPlayerPawn(AJulie* NewPlayerPawn) {
 	PlayerPawn = NewPlayerPawn;
+	UE_LOG(LogTemp, Warning, TEXT("SetPlayerPawn"));
+	NewPlayerPawn->OnMovementEnded.AddLambda([this](AGamePawn * Pawn) {
+		PlayerMovementEnd();
+	});
+}
+
+void AArriett_GoGameMode::AddEnemy(AEnemyPawn* NewEnemy) {
+	Enemies.Add(NewEnemy);
+	NewEnemy->OnMovementEnded.AddLambda([this](AGamePawn * Pawn) {
+		AEnemyPawn* Enemy = Cast<AEnemyPawn>(Pawn);
+		if (Enemy) {
+			RemoveEnemyToMove(Enemy);
+		}
+	});
+	NewEnemy->OnDeath.AddLambda([this](AGamePawn* Pawn) {
+		AEnemyPawn* Enemy = Cast<AEnemyPawn>(Pawn);
+		if (Enemy) {
+			Enemies.Remove(Enemy);
+		}
+	});
 }
 
 
+TArray <AGridCase *> AArriett_GoGameMode::GetGridCases() const {
+	return GridCases;
+}
 
-void AArriett_GoGameMode::Temporary_InitLevel2() {
-	GridCases.Empty();
-	PositionToGridCase.Empty();
-	InitGridCases(10, 10);
-	for (int i = 0; i < 10; i++) {
-		for (int j = 0; j < 10; j++) {
-			posToCaseTmp(FVector(i, j, 0));
-		}
+void AArriett_GoGameMode::ResetGridCasesColor() {
+	for (auto& Elem : GridCases) {
+		Elem ->ChangeColor(ECaseColor::CaseColor_Black);
 	}
-	AutoLinkCases();
-	APawn* Pawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
-	AJulie* Julie = Cast<AJulie>(Pawn);
-	if (!Julie || !Julie->IsValidLowLevel()) {
-		UE_LOG(LogTemp, Warning, TEXT("Julie is not valid"));
-		return;
+}
+
+void AArriett_GoGameMode::PawnColorCases() {
+	PlayerPawn -> UpdateCasesColor();
+	for (AEnemyPawn* Enemy : Enemies) {
+		Enemy->UpdateCasesColor();
 	}
-	PlayerPawn = Julie;
-	Julie->TeleportToCase(GetGridCase(0, 0));
-	auto HunterClass = LoadClass<AHunter>(nullptr, TEXT("Blueprint'/Game/TopDown/Blueprints/BP_Hunter.BP_Hunter_C'"));
-	auto Hunter = GWorld->SpawnActor<AHunter>(HunterClass, FVector(0, 0, 0), FRotator::ZeroRotator);
-	Hunter->TeleportToCase(GetGridCase(2, 2));
-	Enemies.Add(Hunter);
-	Hunter->AutomaticHunterSetup(0);
+}
+
+TArray<AEffectGridCase*> AArriett_GoGameMode::GetEffectGridCases() const {
+	return EffectGridCases;
+}
+
+void AArriett_GoGameMode::AddEffectGridCase(AEffectGridCase* NewEffectGridCase) {
+	EffectGridCases.Add(NewEffectGridCase);
+	NewEffectGridCase->OnGridEffectCompleted.BindUObject(this, &AArriett_GoGameMode::RemoveEffectGridCaseToActivate);
+	FSM->UpdateState();
+}
+
+void AArriett_GoGameMode::RemoveEffectGridCaseToActivate(AEffectGridCase* EffectGridCaseToRemove) {
+	EffectGridCasesToActivate.Remove(EffectGridCaseToRemove);
+	FSM->UpdateState();
+}
+// Set SelectedCase
+void AArriett_GoGameMode::SetSelectedCase(AGridCase* NewSelectedCase) {
+	SelectedCase = NewSelectedCase;
+	//FSM update
+	FSM->UpdateState();
+}
+
+void AArriett_GoGameMode::ColorGrid() {
+	ResetGridCasesColor();
+	PawnColorCases();
+}
+
+//State Functions
+
+// Get SelectedCase
+AGridCase* AArriett_GoGameMode::GetSelectedCase() const {
+	return SelectedCase;
+}
+
+UGameModeStateMachine* AArriett_GoGameMode::GetFSM() const {
+	return FSM;
+}
+
+bool AArriett_GoGameMode::GetPlayerMovementEnded() const {
+	return PlayerMovementEnded;
+}
+
+void AArriett_GoGameMode::ResetPlayerMovement() {
+	PlayerMovementEnded = false;
+}
+
+void AArriett_GoGameMode::PlayerMovementEnd() {
+	PlayerMovementEnded = true;
+	FSM->UpdateState();
+}
+
+TArray<AEffectGridCase*> AArriett_GoGameMode::GetEffectGridCasesToActivate() const {
+	return EffectGridCasesToActivate;
+}
+
+void AArriett_GoGameMode::ResetEffectGridCasesToActivate() {
+	EffectGridCasesToActivate.Empty();
+	for (AEffectGridCase* EffectGridCase : EffectGridCases) {
+		EffectGridCasesToActivate.Add(EffectGridCase);
+	}
+}
+
+TArray<AEnemyPawn*> AArriett_GoGameMode::GetEnemiesToMove() const {
+	return EnemiesToMove;
+}
+
+void AArriett_GoGameMode::ResetEnemiesToMove() {
+	EnemiesToMove.Empty();
+	for (AEnemyPawn* Enemy : Enemies) {
+		EnemiesToMove.Add(Enemy);
+	}
+}
+
+void AArriett_GoGameMode::RemoveEnemyToMove(AEnemyPawn* EnemyToRemove) {
+	EnemiesToMove.Remove(EnemyToRemove);
+	FSM->UpdateState();
+}
+
+void AArriett_GoGameMode::ResetTurnActivables() {
+	for (AEffectGridCase* EffectGridCase : EffectGridCases) {
+		EffectGridCase->ResetTurnActivable();
+	}
 }
