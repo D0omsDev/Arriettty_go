@@ -45,14 +45,11 @@ class AGridCase : public AActor
     void RemovePawn(AGamePawn* Pawn);
     TArray<AGamePawn*> GetPawnsOnCase() const;
     void RefreshLinkCases();
-    bool IsStartCase() const;
     void SetMeshMaterial(UMaterial * NewMaterial);
     void ChangeColor(ECaseColor NewColor);
     
     FOnActivation OnActivationDelegate;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
-    bool bIsStartCase = false;
 protected :
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
     UStaticMeshComponent* Mesh = nullptr;

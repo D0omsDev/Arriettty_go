@@ -93,11 +93,6 @@ void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_bIsStartCase_MetaData[];
-#endif
-		static void NewProp_bIsStartCase_SetBit(void* Obj);
-		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsStartCase;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Mesh_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_Mesh;
@@ -171,17 +166,6 @@ void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 		{ "ModuleRelativePath", "GridCase.h" },
 	};
 #endif
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGridCase_Statics::NewProp_bIsStartCase_MetaData[] = {
-		{ "Category", "GridCase" },
-		{ "ModuleRelativePath", "GridCase.h" },
-	};
-#endif
-	void Z_Construct_UClass_AGridCase_Statics::NewProp_bIsStartCase_SetBit(void* Obj)
-	{
-		((AGridCase*)Obj)->bIsStartCase = 1;
-	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AGridCase_Statics::NewProp_bIsStartCase = { "bIsStartCase", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AGridCase), &Z_Construct_UClass_AGridCase_Statics::NewProp_bIsStartCase_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGridCase_Statics::NewProp_bIsStartCase_MetaData), Z_Construct_UClass_AGridCase_Statics::NewProp_bIsStartCase_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGridCase_Statics::NewProp_Mesh_MetaData[] = {
 		{ "Category", "GridCase" },
@@ -277,7 +261,6 @@ void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialYellow = { "MaterialYellow", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridCase, MaterialYellow), Z_Construct_UClass_UMaterial_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialYellow_MetaData), Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialYellow_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGridCase_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridCase_Statics::NewProp_bIsStartCase,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridCase_Statics::NewProp_Mesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridCase_Statics::NewProp_PawnsOnCase_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGridCase_Statics::NewProp_PawnsOnCase,
@@ -337,9 +320,9 @@ void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 		{ ECaseColor_StaticEnum, TEXT("ECaseColor"), &Z_Registration_Info_UEnum_ECaseColor, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3596984818U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGridCase, AGridCase::StaticClass, TEXT("AGridCase"), &Z_Registration_Info_UClass_AGridCase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGridCase), 1316878320U) },
+		{ Z_Construct_UClass_AGridCase, AGridCase::StaticClass, TEXT("AGridCase"), &Z_Registration_Info_UClass_AGridCase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGridCase), 2236592670U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_3064939368(TEXT("/Script/Arriett_Go"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_4030727616(TEXT("/Script/Arriett_Go"),
 		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_Statics::EnumInfo));

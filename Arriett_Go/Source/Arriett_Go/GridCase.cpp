@@ -140,9 +140,7 @@ void AGridCase::RefreshLinkCases() {
 	}
 }
 
-bool AGridCase::IsStartCase() const {
-	return bIsStartCase;
-}
+
 
 void AGridCase::SetMeshMaterial(UMaterial* NewMaterial) {
 	if (Mesh != nullptr && NewMaterial != nullptr) {

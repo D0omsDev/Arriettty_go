@@ -82,6 +82,11 @@ protected :
 	float TMPY;
 	float TMPZ;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite , Category = "Animation")
+	bool bPawnAnimation = true;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation")
+	int32 JumpHeight = 150;
+	
 	UPROPERTY()
 	float CurveFloatValue;
 

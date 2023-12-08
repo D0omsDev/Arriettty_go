@@ -1,9 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
+#include "Hunter.h"
 #include "Arriett_GoGameMode.h"
 #include "GridCase.h"
-#include "Hunter.h"
 #include "Julie.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Kismet/GameplayStatics.h"
@@ -21,7 +21,7 @@ void AHunter::BeginPlay() {
 
 	FOnTimelineFloat onAttackTimelineCallback;
 	FOnTimelineEventStatic onAttackTimelineFinishedCallback;
-
+	
 	if (FloatXCurve != NULL)
 	{
 		AttackTimeline = NewObject<UTimelineComponent>(this, FName("AttackTimelineAnimation"));

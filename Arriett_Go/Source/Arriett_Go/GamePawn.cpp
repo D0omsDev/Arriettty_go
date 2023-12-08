@@ -150,7 +150,7 @@ void AGamePawn::TimelineCallback(float TimeValue)
 	double AlphaValueY = FloatYCurve->GetFloatValue(TimeValue);
 	double AlphaValueZ = FloatZCurve->GetFloatValue(TimeValue);
 	double ZOffset = ZOffsetCurve->GetFloatValue(AlphaValueX);
-	if (IsA(AWolf::StaticClass())) {
+	if (!bPawnAnimation) {
 		ZOffset = 0;
 	}
 
@@ -158,7 +158,7 @@ void AGamePawn::TimelineCallback(float TimeValue)
 	double NewX = FMath::Lerp(TMPX, NextCase -> GetActorLocation().X + HalfCaseSize, AlphaValueX);
 	double NewY = FMath::Lerp(TMPY, NextCase->GetActorLocation().Y + HalfCaseSize, AlphaValueY);
 	double NewZ = FMath::Lerp(TMPZ, NextCase->GetActorLocation().Z + HalfSize, AlphaValueZ) +
-		FMath::Lerp(0, 150, ZOffset);
+		FMath::Lerp(0, JumpHeight, ZOffset);
 	FVector NewLocation = FVector(NewX, NewY, NewZ);
 	SetActorLocation(NewLocation);
 }

@@ -29,6 +29,8 @@ AArriett_GoPlayerController::AArriett_GoPlayerController()
 
 void AArriett_GoPlayerController::BeginPlay()
 {
+	
+
 	// Call the base class  
 	Super::BeginPlay();
 
@@ -40,6 +42,14 @@ void AArriett_GoPlayerController::BeginPlay()
 	else
 	{
 		UE_LOG(LogTemplateCharacter, Error, TEXT("'%s' Failed to find an Enhanced Input Subsystem! This template is built to use the Enhanced Input system. If you intend to use the legacy system, then you will need to update this C++ file."), *GetNameSafe(this));
+	}
+	
+	// Possess the player pawn
+	AActor * JuliePawn = UGameplayStatics::GetActorOfClass(GetWorld(), AJulie::StaticClass());
+	AJulie* Julie = Cast<AJulie>(JuliePawn);
+	if (Julie != nullptr) {
+		GetPawn()->Destroy();
+		Possess(Julie);
 	}
 }
 
