@@ -75,6 +75,12 @@ protected :
 	UCurveFloat* FloatYCurve;
 	UPROPERTY()
 	UCurveFloat* FloatZCurve;
+	UPROPERTY()
+	UCurveFloat * ZOffsetCurve;
+
+	float TMPX;
+	float TMPY;
+	float TMPZ;
 	
 	UPROPERTY()
 	float CurveFloatValue;

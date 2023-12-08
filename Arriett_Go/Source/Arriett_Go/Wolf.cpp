@@ -38,14 +38,14 @@ void AWolf::Djikstra(AGridCase* Start, AGridCase* End) {
 	auto Gamemode  = UGameplayStatics::GetGameMode(this);
 	auto A_GameMode = Cast< AArriett_GoGameMode>(Gamemode);
 	Cases = A_GameMode->GetGridCases();
-	Distance.Init(MAX_int32, Cases.Num());
+	Distance.Init(MAX_int32 - 1, Cases.Num());
 	Precedent.Init(nullptr, Cases.Num());
 
 	int32 StartIndex = Cases.Find(Start);
 	Distance[StartIndex] = 0;
 	while (CasesAnalyzed.Num() != Cases.Num()) {
 		int index = -1;
-		int value = MAX_int32;
+		int value = MAX_int32 - 1;
 		for (int i = 0; i < Distance.Num(); i++) {
 			if (!CasesAnalyzed.Contains(Cases[i]) && Distance[i] <= value) {
 				index = i;
@@ -55,19 +55,34 @@ void AWolf::Djikstra(AGridCase* Start, AGridCase* End) {
 		AGridCase * DjikstraCurrentCase = Cases[index];
 		CasesAnalyzed.Add(DjikstraCurrentCase);
 		for (AGridCase* Neighbor : DjikstraCurrentCase->GetNeighbors()) {
+		
 			int NeighborIndex = Cases.Find(Neighbor);
+
 			if (Distance[NeighborIndex] > Distance[index] + 1) {
 				Distance[NeighborIndex] = Distance[index] + 1;
 				Precedent[NeighborIndex] = DjikstraCurrentCase;
 			}
 		}
 	}
+
 	TArray<AGridCase*> PCC;
 	AGridCase* CCase = End;
 	int CIndex = Cases.Find(CCase);
 	while (CCase != Start) {
 		PCC.Add(CCase);
 		CIndex = Cases.Find(CCase);
+		if (CIndex == -1) {
+			//Print all PCC cases in the log
+			FString PathString = "";
+			for (int i = 0; i < PCC.Num(); i++) {
+				if (PCC[i]) {
+
+				PathString += PCC[i]->GetName();
+				PathString += " ";
+				}
+			}
+			return;
+		}
 		CCase = Precedent[CIndex];
 	}
 	UE_LOG(LogTemp, Warning, TEXT("Path found size %d"), PCC.Num());

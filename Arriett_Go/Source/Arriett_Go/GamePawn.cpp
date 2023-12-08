@@ -6,16 +6,23 @@
 #include "Blueprint/AIBlueprintHelperLibrary.h"
 #include "UObject/ConstructorHelpers.h"
 
+
+#include "Julie.h"
+#include "Wolf.h"
+
 // Sets default values
 AGamePawn::AGamePawn()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	static ConstructorHelpers::FObjectFinder< UCurveFloat > Curve  (TEXT("/Game/Curves/C_LinearDeplacementCurve.C_LinearDeplacementCurve"));
+	static ConstructorHelpers::FObjectFinder< UCurveFloat > Curve(TEXT("/Game/Curves/C_LinearDeplacementCurve.C_LinearDeplacementCurve"));
 	check(Curve.Succeeded());
 	FloatXCurve = Curve.Object;
 	FloatYCurve = Curve.Object;
 	FloatZCurve = Curve.Object;
+	static ConstructorHelpers::FObjectFinder< UCurveFloat > OffsetCurve(TEXT("/Game/Curves/C_ZOffsetCurve.C_ZOffsetCurve"));
+	check(OffsetCurve.Succeeded());
+	ZOffsetCurve = OffsetCurve.Object;
 
 
 
@@ -43,7 +50,8 @@ void AGamePawn::BeginPlay()
 		MyTimeline->SetDirectionPropertyName(FName("TimelineDirection"));
 
 		MyTimeline->SetLooping(false);
-		MyTimeline->SetTimelineLength(1.0f);
+		//MyTimeline->SetTimelineLength(0.5f);
+		MyTimeline -> SetPlayRate(1.5f);
 		MyTimeline->SetTimelineLengthMode(ETimelineLengthMode::TL_LastKeyFrame);
 		MyTimeline->SetPlaybackPosition(0.0f, false);
 
@@ -66,12 +74,6 @@ void AGamePawn::BeginPlay()
 void AGamePawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	//if (!CurrentRotation.Equals(TargetRotation,0.1)) {
-	//	CurrentRotation = FQuat::Slerp(CurrentRotation.Quaternion(), TargetRotation.Quaternion(), DeltaTime * 5).Rotator();
-	//	//UE_LOG (LogTemp, Warning, TEXT("Rotation from %s /  %s  / %s "), *(GetName()) , *(CurrentRotation.ToString()), *(TargetRotation.ToString()));
-	//	SetActorRotation(CurrentRotation);
-
-	//}
 
 
 	if (MyTimeline != NULL)
@@ -147,11 +149,16 @@ void AGamePawn::TimelineCallback(float TimeValue)
 	double AlphaValueX = FloatXCurve->GetFloatValue(TimeValue);
 	double AlphaValueY = FloatYCurve->GetFloatValue(TimeValue);
 	double AlphaValueZ = FloatZCurve->GetFloatValue(TimeValue);
-	//UE_LOG (LogTemp, Warning, TEXT("Val Original %f / AlphaValueX %f / lphaValueY %f / AlphaValueZ %f "), TimeValue ,AlphaValueX, AlphaValueY, AlphaValueZ);
+	double ZOffset = ZOffsetCurve->GetFloatValue(AlphaValueX);
+	if (IsA(AWolf::StaticClass())) {
+		ZOffset = 0;
+	}
+
 	int32 HalfSize = 50; // Todo : Get the size of the pawn
-	double NewX = FMath::Lerp(GetActorLocation().X, NextCase -> GetActorLocation().X + HalfCaseSize, AlphaValueX);
-	double NewY = FMath::Lerp(GetActorLocation().Y, NextCase->GetActorLocation().Y + HalfCaseSize, AlphaValueY);
-	double NewZ = FMath::Lerp(GetActorLocation().Z, NextCase->GetActorLocation().Z + HalfSize, AlphaValueZ);
+	double NewX = FMath::Lerp(TMPX, NextCase -> GetActorLocation().X + HalfCaseSize, AlphaValueX);
+	double NewY = FMath::Lerp(TMPY, NextCase->GetActorLocation().Y + HalfCaseSize, AlphaValueY);
+	double NewZ = FMath::Lerp(TMPZ, NextCase->GetActorLocation().Z + HalfSize, AlphaValueZ) +
+		FMath::Lerp(0, 150, ZOffset);
 	FVector NewLocation = FVector(NewX, NewY, NewZ);
 	SetActorLocation(NewLocation);
 }
@@ -177,6 +184,9 @@ void AGamePawn::PlayTimeline()
 {
 	if (MyTimeline != NULL)
 	{
+		TMPX = GetActorLocation().X;
+		TMPY = GetActorLocation().Y;
+		TMPZ = GetActorLocation().Z;
 		MyTimeline->PlayFromStart();
 	}
 }

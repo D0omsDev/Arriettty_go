@@ -10,6 +10,7 @@
  * 
  */
 
+class AJulie;
 USTRUCT(BlueprintType)
 struct FHunterLine {
 	GENERATED_BODY()
@@ -41,6 +42,7 @@ class ARRIETT_GO_API AHunter : public AEnemyPawn
 	GENERATED_BODY()
 	
 public : 
+	AHunter();
 	virtual void BeginPlay() override;	
 	virtual void EnemyAction() override;
 	void AutomaticHunterSetup(float Degrees);
@@ -48,10 +50,26 @@ public :
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray <FHunterLine> HunterLines;
 	virtual void TimelineCallback(float TimeValue) override;
+	virtual void TimelineFinishedCallback() override;
 private : 
 
 	UPROPERTY()
 	int32 HunterLineIndex = 0;
-	void KillCheck();
+	bool KillCheck();
 	void RotateToCaseNear();
+
+	//Timeline Components
+	UPROPERTY()
+	UTimelineComponent* AttackTimeline;
+
+	UPROPERTY()
+	float AttackCurveFloatValue;
+
+	UFUNCTION()
+	virtual void AttackTimelineCallback(float TimeValue);
+
+	UFUNCTION()
+	virtual void AttackTimelineFinishedCallback();
+
+	AJulie* Julie = nullptr;
 };
