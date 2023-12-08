@@ -73,6 +73,9 @@ void AJulie::Tick(float DeltaSeconds)
 
 void AJulie::UpdateCasesColor() {
 	Super::UpdateCasesColor();
+	if (CurrentCase == nullptr) {
+		return;
+	}
 	//Paint the case where the player is in blue and the neighbors in red
 	CurrentCase -> ChangeColor(ECaseColor::CaseColor_Blue);
 	for (int i = 0; i < CurrentCase->GetNeighbors().Num(); i++) {

@@ -13,6 +13,7 @@
     </None>
     <None Include="..\..\.vsconfig" />
     <None Include="..\..\Arriett_Go.sln.DotSettings.user" />
+    <None Include="..\..\UpgradeLog.htm" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -58,10 +59,22 @@
     <ClInclude Include="..\..\Source\Arriett_Go\BearTrap.h">
       <Filter>Source\Arriett_Go</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\CollectibleCase.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\CollectibleCase.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Arriett_Go\EffectGridCase.cpp">
       <Filter>Source\Arriett_Go</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Arriett_Go\EffectGridCase.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\EndCase.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\EndCase.h">
       <Filter>Source\Arriett_Go</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Arriett_Go\EnemyPawn.cpp">

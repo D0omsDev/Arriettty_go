@@ -40,6 +40,11 @@ AGridCase::AGridCase(){
 
 }
 
+void AGridCase::BeginPlay() {
+	Super::BeginPlay();
+	RefreshLinkCases();
+}
+
 int32 AGridCase::GetX() const {
 	return X;
 }
@@ -166,3 +171,4 @@ void AGridCase::ChangeColor(ECaseColor NewColor) {
 		break;
 	}
 }
+

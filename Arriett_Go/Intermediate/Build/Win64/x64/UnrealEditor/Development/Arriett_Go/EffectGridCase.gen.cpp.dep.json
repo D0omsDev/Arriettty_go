@@ -1,15 +1,15 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "d:\\github\\chaperon rouge\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\effectgridcase.gen.cpp",
+        "Source": "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\effectgridcase.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "d:\\github\\chaperon rouge\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\x64\\arriett_goeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "PCH": "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\x64\\arriett_goeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
         "Includes": [
-            "d:\\github\\chaperon rouge\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\arriett_go\\definitions.arriett_go.h",
-            "d:\\github\\chaperon rouge\\arriettty_go\\arriett_go\\source\\arriett_go\\effectgridcase.h",
-            "d:\\github\\chaperon rouge\\arriettty_go\\arriett_go\\source\\arriett_go\\gridcase.h",
-            "d:\\github\\chaperon rouge\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\gridcase.generated.h",
-            "d:\\github\\chaperon rouge\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\effectgridcase.generated.h"
+            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\arriett_go\\definitions.arriett_go.h",
+            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\source\\arriett_go\\effectgridcase.h",
+            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\source\\arriett_go\\gridcase.h",
+            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\gridcase.generated.h",
+            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\effectgridcase.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

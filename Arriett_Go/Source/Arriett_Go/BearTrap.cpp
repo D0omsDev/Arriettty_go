@@ -41,6 +41,7 @@ void ABearTrap::ActivateEffect() {
 				Pawn->Death();
 			}
 		}
+		TrapMesh->SetVisibility(false);
 	}
 	Super::ActivateEffect();
 }

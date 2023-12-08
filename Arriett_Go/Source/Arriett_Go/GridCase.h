@@ -20,6 +20,7 @@ class AGridCase : public AActor
     GENERATED_BODY()
     public:
     AGridCase();
+    virtual void BeginPlay() override;
     virtual void Tick(float DeltaTime) override;
 
     void SetCasePosition(int32 NewX, int32 NewY) ;

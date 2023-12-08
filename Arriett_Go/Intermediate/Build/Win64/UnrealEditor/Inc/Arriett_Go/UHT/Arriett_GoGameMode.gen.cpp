@@ -18,7 +18,6 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoGameMode() {}
 	ARRIETT_GO_API UClass* Z_Construct_UClass_UFiniteStateMachine();
 	ARRIETT_GO_API UClass* Z_Construct_UClass_UGameModeStateMachine();
 	ARRIETT_GO_API UClass* Z_Construct_UClass_UGameModeStateMachine_NoRegister();
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 	ENGINE_API UClass* Z_Construct_UClass_AGameModeBase();
 	UPackage* Z_Construct_UPackage__Script_Arriett_Go();
 // End Cross Module References
@@ -82,33 +81,122 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoGameMode() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UGameModeStateMachine);
 	UGameModeStateMachine::~UGameModeStateMachine() {}
-	DEFINE_FUNCTION(AArriett_GoGameMode::execGridCaseDistance)
+	DEFINE_FUNCTION(AArriett_GoGameMode::execGetCollectible)
 	{
-		P_GET_STRUCT(FVector2D,Z_Param_GridCase1);
-		P_GET_STRUCT(FVector2D,Z_Param_GridCase2);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		*(int32*)Z_Param__Result=AArriett_GoGameMode::GridCaseDistance(Z_Param_GridCase1,Z_Param_GridCase2);
+		*(bool*)Z_Param__Result=P_THIS->GetCollectible();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AArriett_GoGameMode::execSetCollectible)
+	{
+		P_GET_UBOOL(Z_Param_NewCollectible);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetCollectible(Z_Param_NewCollectible);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AArriett_GoGameMode::execAddTurn)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AddTurn();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AArriett_GoGameMode::execGetNbTurn)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetNbTurn();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AArriett_GoGameMode::execSetNbTurn)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_NewNbTurn);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetNbTurn(Z_Param_NewNbTurn);
 		P_NATIVE_END;
 	}
 	void AArriett_GoGameMode::StaticRegisterNativesAArriett_GoGameMode()
 	{
 		UClass* Class = AArriett_GoGameMode::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "GridCaseDistance", &AArriett_GoGameMode::execGridCaseDistance },
+			{ "AddTurn", &AArriett_GoGameMode::execAddTurn },
+			{ "GetCollectible", &AArriett_GoGameMode::execGetCollectible },
+			{ "GetNbTurn", &AArriett_GoGameMode::execGetNbTurn },
+			{ "SetCollectible", &AArriett_GoGameMode::execSetCollectible },
+			{ "SetNbTurn", &AArriett_GoGameMode::execSetNbTurn },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
-	struct Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics
+	struct Z_Construct_UFunction_AArriett_GoGameMode_AddTurn_Statics
 	{
-		struct Arriett_GoGameMode_eventGridCaseDistance_Parms
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AArriett_GoGameMode_AddTurn_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Arriett_GoGameMode.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AArriett_GoGameMode_AddTurn_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AArriett_GoGameMode, nullptr, "AddTurn", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AArriett_GoGameMode_AddTurn_Statics::Function_MetaDataParams), Z_Construct_UFunction_AArriett_GoGameMode_AddTurn_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_AArriett_GoGameMode_AddTurn()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
 		{
-			FVector2D GridCase1;
-			FVector2D GridCase2;
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AArriett_GoGameMode_AddTurn_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible_Statics
+	{
+		struct Arriett_GoGameMode_eventGetCollectible_Parms
+		{
+			bool ReturnValue;
+		};
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((Arriett_GoGameMode_eventGetCollectible_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Arriett_GoGameMode_eventGetCollectible_Parms), &Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Arriett_GoGameMode.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AArriett_GoGameMode, nullptr, "GetCollectible", nullptr, nullptr, Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible_Statics::PropPointers), sizeof(Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible_Statics::Arriett_GoGameMode_eventGetCollectible_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible_Statics::Function_MetaDataParams), Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible_Statics::Arriett_GoGameMode_eventGetCollectible_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn_Statics
+	{
+		struct Arriett_GoGameMode_eventGetNbTurn_Parms
+		{
 			int32 ReturnValue;
 		};
-		static const UECodeGen_Private::FStructPropertyParams NewProp_GridCase1;
-		static const UECodeGen_Private::FStructPropertyParams NewProp_GridCase2;
 		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
@@ -116,28 +204,109 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoGameMode() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics::NewProp_GridCase1 = { "GridCase1", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Arriett_GoGameMode_eventGridCaseDistance_Parms, GridCase1), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics::NewProp_GridCase2 = { "GridCase2", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Arriett_GoGameMode_eventGridCaseDistance_Parms, GridCase2), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Arriett_GoGameMode_eventGridCaseDistance_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics::NewProp_GridCase1,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics::NewProp_GridCase2,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics::NewProp_ReturnValue,
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Arriett_GoGameMode_eventGetNbTurn_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn_Statics::NewProp_ReturnValue,
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Arriett_GoGameMode.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AArriett_GoGameMode, nullptr, "GridCaseDistance", nullptr, nullptr, Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics::PropPointers), sizeof(Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics::Arriett_GoGameMode_eventGridCaseDistance_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04822401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics::Function_MetaDataParams), Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics::PropPointers) < 2048);
-	static_assert(sizeof(Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics::Arriett_GoGameMode_eventGridCaseDistance_Parms) < MAX_uint16);
-	UFunction* Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AArriett_GoGameMode, nullptr, "GetNbTurn", nullptr, nullptr, Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn_Statics::PropPointers), sizeof(Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn_Statics::Arriett_GoGameMode_eventGetNbTurn_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn_Statics::Function_MetaDataParams), Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn_Statics::Arriett_GoGameMode_eventGetNbTurn_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible_Statics
+	{
+		struct Arriett_GoGameMode_eventSetCollectible_Parms
+		{
+			bool NewCollectible;
+		};
+		static void NewProp_NewCollectible_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_NewCollectible;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible_Statics::NewProp_NewCollectible_SetBit(void* Obj)
+	{
+		((Arriett_GoGameMode_eventSetCollectible_Parms*)Obj)->NewCollectible = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible_Statics::NewProp_NewCollectible = { "NewCollectible", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Arriett_GoGameMode_eventSetCollectible_Parms), &Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible_Statics::NewProp_NewCollectible_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible_Statics::NewProp_NewCollectible,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible_Statics::Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/***********************************************************************\n*                COLLECTIBLES FUNCTIONS                                *\n***********************************************************************/" },
+#endif
+		{ "ModuleRelativePath", "Arriett_GoGameMode.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "COLLECTIBLES FUNCTIONS                                *" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AArriett_GoGameMode, nullptr, "SetCollectible", nullptr, nullptr, Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible_Statics::PropPointers), sizeof(Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible_Statics::Arriett_GoGameMode_eventSetCollectible_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible_Statics::Function_MetaDataParams), Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible_Statics::Arriett_GoGameMode_eventSetCollectible_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AArriett_GoGameMode_SetNbTurn_Statics
+	{
+		struct Arriett_GoGameMode_eventSetNbTurn_Parms
+		{
+			int32 NewNbTurn;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_NewNbTurn;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AArriett_GoGameMode_SetNbTurn_Statics::NewProp_NewNbTurn = { "NewNbTurn", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Arriett_GoGameMode_eventSetNbTurn_Parms, NewNbTurn), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AArriett_GoGameMode_SetNbTurn_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AArriett_GoGameMode_SetNbTurn_Statics::NewProp_NewNbTurn,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AArriett_GoGameMode_SetNbTurn_Statics::Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/***********************************************************************\n*                TURN FUNCTIONS                                        *\n***********************************************************************/" },
+#endif
+		{ "ModuleRelativePath", "Arriett_GoGameMode.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "TURN FUNCTIONS                                        *" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AArriett_GoGameMode_SetNbTurn_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AArriett_GoGameMode, nullptr, "SetNbTurn", nullptr, nullptr, Z_Construct_UFunction_AArriett_GoGameMode_SetNbTurn_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AArriett_GoGameMode_SetNbTurn_Statics::PropPointers), sizeof(Z_Construct_UFunction_AArriett_GoGameMode_SetNbTurn_Statics::Arriett_GoGameMode_eventSetNbTurn_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AArriett_GoGameMode_SetNbTurn_Statics::Function_MetaDataParams), Z_Construct_UFunction_AArriett_GoGameMode_SetNbTurn_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AArriett_GoGameMode_SetNbTurn_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AArriett_GoGameMode_SetNbTurn_Statics::Arriett_GoGameMode_eventSetNbTurn_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AArriett_GoGameMode_SetNbTurn()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AArriett_GoGameMode_SetNbTurn_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -173,6 +342,11 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoGameMode() {}
 #endif
 		static const UECodeGen_Private::FArrayPropertyParams NewProp_EffectGridCases;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bHasCollectible_MetaData[];
+#endif
+		static void NewProp_bHasCollectible_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bHasCollectible;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SelectedCase_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_SelectedCase;
@@ -205,7 +379,11 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoGameMode() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AArriett_GoGameMode_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AArriett_GoGameMode_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AArriett_GoGameMode_GridCaseDistance, "GridCaseDistance" }, // 3394368946
+		{ &Z_Construct_UFunction_AArriett_GoGameMode_AddTurn, "AddTurn" }, // 3728083133
+		{ &Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible, "GetCollectible" }, // 1195466653
+		{ &Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn, "GetNbTurn" }, // 4220196460
+		{ &Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible, "SetCollectible" }, // 3263410587
+		{ &Z_Construct_UFunction_AArriett_GoGameMode_SetNbTurn, "SetNbTurn" }, // 3883303368
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AArriett_GoGameMode_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -270,13 +448,29 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoGameMode() {}
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_EffectGridCases = { "EffectGridCases", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AArriett_GoGameMode, EffectGridCases), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_EffectGridCases_MetaData), Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_EffectGridCases_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_SelectedCase_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_bHasCollectible_MetaData[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "//States Variables\n" },
+		{ "Comment", "// The bool that indicates if the player has gotten the collectible\n" },
 #endif
 		{ "ModuleRelativePath", "Arriett_GoGameMode.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "States Variables" },
+		{ "ToolTip", "The bool that indicates if the player has gotten the collectible" },
+#endif
+	};
+#endif
+	void Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_bHasCollectible_SetBit(void* Obj)
+	{
+		((AArriett_GoGameMode*)Obj)->bHasCollectible = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_bHasCollectible = { "bHasCollectible", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AArriett_GoGameMode), &Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_bHasCollectible_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_bHasCollectible_MetaData), Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_bHasCollectible_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_SelectedCase_MetaData[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/***********************************************************************\n*\x09\x09\x09\x09STATES VARIABLES                                       *\n***********************************************************************/" },
+#endif
+		{ "ModuleRelativePath", "Arriett_GoGameMode.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "STATES VARIABLES                                       *" },
 #endif
 	};
 #endif
@@ -319,6 +513,7 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoGameMode() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_Enemies,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_EffectGridCases_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_EffectGridCases,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_bHasCollectible,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_SelectedCase,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_PlayerMovementEnded,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AArriett_GoGameMode_Statics::NewProp_EffectGridCasesToActivate_Inner,
@@ -360,16 +555,16 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoGameMode() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AArriett_GoGameMode);
 	AArriett_GoGameMode::~AArriett_GoGameMode() {}
-	struct Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_Statics::ClassInfo[] = {
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UGameModeStateMachine, UGameModeStateMachine::StaticClass, TEXT("UGameModeStateMachine"), &Z_Registration_Info_UClass_UGameModeStateMachine, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGameModeStateMachine), 1834762063U) },
-		{ Z_Construct_UClass_AArriett_GoGameMode, AArriett_GoGameMode::StaticClass, TEXT("AArriett_GoGameMode"), &Z_Registration_Info_UClass_AArriett_GoGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AArriett_GoGameMode), 2122318548U) },
+		{ Z_Construct_UClass_AArriett_GoGameMode, AArriett_GoGameMode::StaticClass, TEXT("AArriett_GoGameMode"), &Z_Registration_Info_UClass_AArriett_GoGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AArriett_GoGameMode), 2974633071U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_1769393312(TEXT("/Script/Arriett_Go"),
-		Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_90692609(TEXT("/Script/Arriett_Go"),
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
