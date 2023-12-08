@@ -5,6 +5,8 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"C:/Users/lucie/Documents/Chaperon/Github/Arriettty_go/Arriett_Go/Content/Pawns/BP_Julie.uasset",
+				"C:/Users/lucie/Documents/Chaperon/Github/Arriettty_go/Arriett_Go/Content/Levels/Level1.umap",
 				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/Levels/TestMapLevelInitialized.umap",
 				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/TopDown/Blueprints/BP_ArriettyGoController.uasset",
 				"C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Content/Cases/BP_GridCase.uasset",
