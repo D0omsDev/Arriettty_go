@@ -9,6 +9,7 @@
 /**
  * 
  */
+DECLARE_DELEGATE(FOnWolfTurnEnd)
 UCLASS()
 class ARRIETT_GO_API AWolf : public AEnemyPawn
 {
@@ -25,6 +26,11 @@ protected :
 	virtual void UpdateCasesColor() override;
 	void WolfAttack();
 	virtual void BeginPlay() override;
-
+	virtual void TimelineFinishedCallback() override;
+	void WolfTurnEnd();
+	virtual void EndAction() override;
+	virtual void MoveToCase(AGridCase* Case) override;
 	bool bIsAwaken = false;
+
+	FOnWolfTurnEnd OnWolfTurnEnd;
 };

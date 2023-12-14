@@ -21,7 +21,7 @@ void AHunter::BeginPlay() {
 
 	FOnTimelineFloat onAttackTimelineCallback;
 	FOnTimelineEventStatic onAttackTimelineFinishedCallback;
-	
+
 	if (FloatXCurve != NULL)
 	{
 		AttackTimeline = NewObject<UTimelineComponent>(this, FName("AttackTimelineAnimation"));
@@ -33,7 +33,8 @@ void AHunter::BeginPlay() {
 		//AttackTimeline->SetDirectionPropertyName(FName("TimelineDirection"));
 
 		AttackTimeline->SetLooping(false);
-		AttackTimeline->SetTimelineLength(1.0f);
+		//AttackTimeline->SetTimelineLength(0.33f);
+		AttackTimeline->SetPlayRate(3.0f);
 		AttackTimeline->SetTimelineLengthMode(ETimelineLengthMode::TL_LastKeyFrame);
 		AttackTimeline->SetPlaybackPosition(0.0f, false);
 
@@ -53,11 +54,13 @@ void AHunter::EnemyAction()
 {
 	Super::EnemyAction();
 	KillCheck();
-	FHunterLine HunterLine = HunterLines[HunterLineIndex];
-	HunterLineIndex = (HunterLineIndex + 1) % HunterLines.Num();
-	FHunterLine HunterLine2 = HunterLines[HunterLineIndex];
-	RotateToCaseNear();
-	KillCheck();
+	if (!Julie) {
+		FHunterLine HunterLine = HunterLines[HunterLineIndex];
+		HunterLineIndex = (HunterLineIndex + 1) % HunterLines.Num();
+		FHunterLine HunterLine2 = HunterLines[HunterLineIndex];
+		RotateToCaseNear();
+		KillCheck();
+	}
 }
 
 bool AHunter::KillCheck() {
@@ -72,54 +75,24 @@ bool AHunter::KillCheck() {
 				}
 				Julie = Cast<AJulie>(Pawn);
 				if (Julie != nullptr) {
-					//Julie->Death();
-					Kill = true;	
+					Kill = true;
+					TemporaryLocation = GetActorLocation();
 					AttackTimeline->PlayFromStart();
 				}
-			} 
+			}
 		}
 	}
 	return Kill;
 }
 
-void AHunter::AutomaticHunterSetup(float Degrees) {
-	//auto A_GameMode = Cast<AArriett_GoGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
-	//if (A_GameMode == nullptr) {
-	//	return;
-	//}
-	//for (int i = 0; i < 4; i++) {
-	//	auto X = CurrentCase -> GetX();
-	//	auto Y = CurrentCase -> GetY();
-	//	auto XIncrement = 0;
-	//	auto YIncrement = 0;
-	//	if (i == 0) {
-	//		YIncrement += 1;
-	//	}
-	//	else if (i == 1) {
-	//		XIncrement -= 1;
-	//	}
-	//	else if (i == 2) {
-	//		YIncrement -= 1;
-	//	}
-	//	else if (i == 3) {
-	//		XIncrement += 1;
-	//	}
-	//	FHunterLine HunterLine;
-
-	//	HunterLine.CaseNear = A_GameMode->GetGridCase(X + XIncrement, Y + YIncrement);
-	//	HunterLine.CaseFar = A_GameMode->GetGridCase(X + XIncrement * 2, Y + YIncrement * 2);
-	//	HunterLines.Add(HunterLine);
-	//}
-	//RotateToCaseNear();
-}
-
-void AHunter::RotateToCaseNear() {	
-	AGridCase * CaseNear = HunterLines[HunterLineIndex].CaseNear;
+void AHunter::RotateToCaseNear() {
+	AGridCase* CaseNear = HunterLines[HunterLineIndex].CaseNear;
 	FVector CaseVector = CaseNear->GetActorLocation();
 	CaseVector.Z = GetActorLocation().Z;
 	auto DirectionVector = CaseVector - this->GetActorLocation();
 	DirectionVector.Normalize();
-	TargetRotation = UKismetMathLibrary::MakeRotFromX(DirectionVector);
+	TemporaryRotation = GetActorRotation();
+	NextRotation = UKismetMathLibrary::MakeRotFromX(DirectionVector);
 	PlayTimeline();
 }
 
@@ -134,9 +107,9 @@ void AHunter::UpdateCasesColor() {
 }
 
 void AHunter::TimelineCallback(float Timevalue) {
-	//Super::TimelineCallback(Timevalue);
-	FRotator Rot = FMath::Lerp(GetActorRotation(), TargetRotation, Timevalue);
-	SetActorRotation(Rot);
+	RotationTransition(Timevalue);
+	//FRotator Rot = FMath::Lerp(GetActorRotation(), TargetRotation, Timevalue);
+	//SetActorRotation(Rot);
 }
 
 void AHunter::TimelineFinishedCallback() {
@@ -154,17 +127,22 @@ void AHunter::AttackTimelineCallback(float TimeValue) {
 		double AlphaValueZ = FloatZCurve->GetFloatValue(TimeValue);
 		//UE_LOG (LogTemp, Warning, TEXT("Val Original %f / AlphaValueX %f / lphaValueY %f / AlphaValueZ %f "), TimeValue ,AlphaValueX, AlphaValueY, AlphaValueZ);
 		int32 HalfSize = 50; // Todo : Get the size of the pawn
-		double NewX = FMath::Lerp(GetActorLocation().X, Julie->GetActorLocation().X + HalfCaseSize, AlphaValueX);
-		double NewY = FMath::Lerp(GetActorLocation().Y, Julie->GetActorLocation().Y + HalfCaseSize, AlphaValueY);
-		double NewZ = FMath::Lerp(GetActorLocation().Z, Julie->GetActorLocation().Z + HalfSize, AlphaValueZ);
+		double NewX = FMath::Lerp(TemporaryLocation.X, Julie->GetActorLocation().X + HalfCaseSize, AlphaValueX);
+		double NewY = FMath::Lerp(TemporaryLocation.Y, Julie->GetActorLocation().Y + HalfCaseSize, AlphaValueY);
+		double NewZ = FMath::Lerp(TemporaryLocation.Z, Julie->GetActorLocation().Z + HalfSize, AlphaValueZ);
 		FVector NewLocation = FVector(NewX, NewY, NewZ);
 		SetActorLocation(NewLocation);
+	}
+	else {
+		AttackTimelineFinishedCallback();
 	}
 
 }
 
 void AHunter::AttackTimelineFinishedCallback() {
-	Julie->Death();
-	Super::TimelineFinishedCallback();
-	//UpdateCasesColor();
+	Julie->Death(this);
+	Julie->OnDeath.AddLambda([this](AGamePawn* JuliePawn) {
+		Super::TimelineFinishedCallback();
+		});
 }
+

@@ -2,18 +2,22 @@
 
 
 #include "Julie.h"
-#include "UObject/ConstructorHelpers.h"
 #include "Camera/CameraComponent.h"
 #include "Components/DecalComponent.h"
 #include "Components/CapsuleComponent.h"
+#include "Engine/World.h"
+#include "EngineUtils.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/SpringArmComponent.h"
-#include "Materials/Material.h"
-#include "Engine/World.h"
 #include "GridCase.h"
-#include "EngineUtils.h"
+#include "Hunter.h"
+#include "Kismet/KismetMathLibrary.h"
+#include "Materials/Material.h"
 
+#include "UObject/ConstructorHelpers.h"
+#include "Arriett_GoGameMode.h"
+#include "Kismet/GameplayStatics.h"
 
 AJulie::AJulie()
 {
@@ -48,6 +52,17 @@ AJulie::AJulie()
 	PrimaryActorTick.bCanEverTick = true;
 	PrimaryActorTick.bStartWithTickEnabled = true;
 
+	// Setting of the Julie mesh
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> JulieMeshFinder(TEXT("/Game/GA_asset/Characters/chaperon_Cube_008.chaperon_Cube_008"));
+	check(JulieMeshFinder.Succeeded());
+	JulieMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("VisuelJulie"));
+	if (JulieMesh) {
+		JulieMesh->SetStaticMesh(JulieMeshFinder.Object);
+		JulieMesh->SetupAttachment(GetMesh());
+	}
+
+	
+
 }
 
 void AJulie::BeginPlay()
@@ -61,15 +76,30 @@ void AJulie::Tick(float DeltaSeconds)
 	Super::Tick(DeltaSeconds);
 }
 
-//void AJulie::TimelineFinishedCallback()
-//{
-//	Super::TimelineFinishedCallback();
-//}
-
-//void AJulie::MoveToCase(AGridCase* Case) {
-//	Super::MoveToCase(Case);
-//}
-
+/***********************************************************************
+*				FUNCTIONS OVERRIDES								       *
+***********************************************************************/
+void AJulie::TimelineFinishedCallback()
+{
+	switch (MovementType) {
+	case EPawnMovementType::PawnMovementType_Travel:
+		if (CurrentCase != nullptr) {
+			CurrentCase->ExitCase(this);
+		}
+		if (NextCase != nullptr) {
+			CurrentCase = NextCase;
+			CurrentCase->EnterCase(this);
+			NextCase = nullptr;
+		}
+		EndAction();
+		break;
+	case EPawnMovementType::PawnMovementType_Rotate:
+		StartTravel();
+		break;
+	default:
+		break;
+	}
+}
 
 void AJulie::UpdateCasesColor() {
 	Super::UpdateCasesColor();
@@ -77,8 +107,62 @@ void AJulie::UpdateCasesColor() {
 		return;
 	}
 	//Paint the case where the player is in blue and the neighbors in red
-	CurrentCase -> ChangeColor(ECaseColor::CaseColor_Blue);
+	CurrentCase->ChangeColor(ECaseColor::CaseColor_Blue);
 	for (int i = 0; i < CurrentCase->GetNeighbors().Num(); i++) {
 		CurrentCase->GetNeighbors()[i]->ChangeColor(ECaseColor::CaseColor_Red);
 	}
+}
+
+/***********************************************************************
+*				DEATH FUNCTIONS OVERRIDE                               *
+***********************************************************************/
+
+void AJulie::Death(AActor* Cause) {
+	if (Cause != nullptr) {
+		if (Cause->IsA(AHunter::StaticClass())) {
+			AHunter* Killer = Cast<AHunter>(Cause);
+			AGridCase* KillerCase = Killer->GetCurrentCase();
+			DeathAnimation = EJulieDeathAnimation::JDA_Flying;
+			FVector DirectionVector = GetActorLocation() - KillerCase->GetActorLocation();
+			DeathDirection = FVector(DirectionVector.X, DirectionVector.Y, 0).GetSafeNormal();
+
+		}
+	}
+	Super::Death(Cause);
+}
+
+void AJulie::PlayDeathTimeline() {
+	if (DeathAnimation == EJulieDeathAnimation::JDA_Confetti) {
+		Super::PlayDeathTimeline();
+	}
+	else {
+		DeathTimeline->PlayFromStart();
+	}
+}
+
+void AJulie::DeathTimelineCallback(float val)
+{
+	switch (DeathAnimation) {
+	case EJulieDeathAnimation::JDA_Flying:
+	{
+		float DeathTimelineValue = fmod((DeathFloatXCurve->GetFloatValue(val) * 5.0f), 1.0f);
+		JulieMesh->AddWorldRotation(FRotator(20, 0, 0));
+		int32 ThrowForce = 100;
+		FVector Offset = FVector(DeathDirection.X * ThrowForce, DeathDirection.Y * ThrowForce, 50.0f);
+		JulieMesh->AddWorldOffset(Offset);
+	}
+	break;
+	default:
+		break;
+	}
+
+}
+
+void AJulie::DeathTimelineFinishedCallback()
+{
+	auto Gamemode = Cast<AArriett_GoGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+	if (Gamemode != nullptr) {
+		Gamemode->PlayerDeath(this);
+	}
+	Super::DeathTimelineFinishedCallback();
 }

@@ -9,6 +9,7 @@
 /**
  * 
  */
+class AJulie;
 UCLASS()
 class ARRIETT_GO_API AEnemyPawn : public AGamePawn
 {
@@ -16,5 +17,9 @@ class ARRIETT_GO_API AEnemyPawn : public AGamePawn
 
 public :
 	virtual void EnemyAction();
+
+protected : 
+	AJulie* Julie = nullptr;
+
 	
 };

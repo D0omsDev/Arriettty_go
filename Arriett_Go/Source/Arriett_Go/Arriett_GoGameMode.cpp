@@ -22,6 +22,23 @@ UGameModeStateMachine::UGameModeStateMachine(AArriett_GoGameMode* Owner) {
 	this->Owner = Owner;
 }
 
+void UGameModeStateMachine::SetOwner(AArriett_GoGameMode* NewOwner) {
+	Owner = NewOwner;
+}
+void UGameModeStateMachine::SetNextState(UState_GameMode*  NewState) {
+	UE_LOG(LogTemp, Warning, TEXT("SetNextState Current State : %s"), *CurrentState->GetName());
+
+	UState_GameMode* GM_State = Cast<UState_GameMode>(CurrentState);
+	if (GM_State) {
+		//auto GameModeStateClass = Cast<UState_GameMode>(NewStateClass);
+		GM_State->SetNextState(NewState);
+	}
+	else {
+		UE_LOG(LogTemp, Warning, TEXT("CurrentState is not a UState_GameMode"));
+	}
+
+}
+
 
 AArriett_GoGameMode::AArriett_GoGameMode()
 {
@@ -137,8 +154,11 @@ void AArriett_GoGameMode::ResetGridCasesColor() {
 void AArriett_GoGameMode::SetPlayerPawn(AJulie* NewPlayerPawn) {
 	PlayerPawn = NewPlayerPawn;
 	UE_LOG(LogTemp, Warning, TEXT("SetPlayerPawn"));
-	NewPlayerPawn->OnMovementEnded.AddLambda([this](AGamePawn* Pawn) {
+	NewPlayerPawn->OnActionEnded.AddLambda([this](AGamePawn* Pawn) {
 		PlayerMovementEnd();
+		});
+	NewPlayerPawn->OnDeath.AddLambda([this](AGamePawn* Pawn) {
+		PlayerDeath(Pawn);
 		});
 }
 
@@ -148,7 +168,7 @@ AJulie* AArriett_GoGameMode::GetPlayerPawn() const {
 
 void AArriett_GoGameMode::AddEnemy(AEnemyPawn* NewEnemy) {
 	Enemies.Add(NewEnemy);
-	NewEnemy->OnMovementEnded.AddLambda([this](AGamePawn* Pawn) {
+	NewEnemy->OnActionEnded.AddLambda([this](AGamePawn* Pawn) {
 		AEnemyPawn* Enemy = Cast<AEnemyPawn>(Pawn);
 		if (Enemy) {
 			RemoveEnemyToMove(Enemy);
@@ -169,6 +189,10 @@ void AArriett_GoGameMode::PawnColorCases() {
 	}
 }
 
+void AArriett_GoGameMode::PlayerDeath(AGamePawn * DeadPawn) {
+	bIsPlayerPawnDead = true;
+	FSM->SetNextState(NewObject<UState_GameModeEndGame>());
+}
 /***********************************************************************
 *                TURN FUNCTIONS                                        *
 ***********************************************************************/
@@ -239,7 +263,10 @@ void AArriett_GoGameMode::EffectGridCasesActions() {
 }
 
 void AArriett_GoGameMode::CheckEndGame() const {
-	if (!PlayerPawn || !PlayerPawn->IsValidLowLevel() || PlayerPawn->IsActorBeingDestroyed()) {
+	if (!PlayerPawn || !PlayerPawn->IsValidLowLevel() || PlayerPawn->IsActorBeingDestroyed() || bIsPlayerPawnDead) {
+		//Print on screen "Lose"
+		GEngine -> AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Lose"));
+
 		auto WidgetClass = LoadClass<UUserWidget>(nullptr, TEXT("WidgetBlueprint'/Game/UI/UI_DeathScreen.UI_DeathScreen_C'"));
 		if (!WidgetClass) {
 			UE_LOG(LogTemp, Warning, TEXT("Widget class not found"));
@@ -247,6 +274,7 @@ void AArriett_GoGameMode::CheckEndGame() const {
 		}
 		UUserWidget* Widget = CreateWidget(GetWorld(), WidgetClass);
 		Widget->AddToViewport();
+		
 	}
 	else {
 		if (PlayerPawn->GetCurrentCase()->IsA(AEndCase::StaticClass())) {
@@ -287,7 +315,6 @@ void AArriett_GoGameMode::EnemiesActions() {
 	for (AEnemyPawn* Enemy : Enemies) {
 		Enemy->EnemyAction();
 	}
-	CheckEndGame();
 	AddTurn();
 }
 

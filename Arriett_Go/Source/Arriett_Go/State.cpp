@@ -31,9 +31,16 @@ void UState_GameModeInputWait::EnterState() {
 
 void UState_GameModeInputWait::UpdateState() {
 	if (Gamemode->GetSelectedCase() != nullptr) {
-		auto State = NewObject<UState_GameModePlayerMovement>();
-		State -> SetGamemode(Gamemode);
-		State -> SetSelectedCase(Gamemode->GetSelectedCase());
+		UState_GameMode * State = nullptr;
+		if (NextState) {
+			State = NextState;
+		}
+		else {
+			auto NewStateTMP = NewObject<UState_GameModePlayerMovement>();
+			NewStateTMP -> SetGamemode(Gamemode);
+			NewStateTMP -> SetSelectedCase(Gamemode->GetSelectedCase());
+			State = NewStateTMP;
+		}
 		Gamemode->GetFSM()->ChangeState(State);
 	}
 }
@@ -55,13 +62,21 @@ void UState_GameModePlayerMovement::EnterState() {
 
 void UState_GameModePlayerMovement::UpdateState() {
 	if (Gamemode->GetPlayerMovementEnded()) {
-		auto State = NewObject<UState_GameModeCaseEffect>();
-		State->SetGamemode(Gamemode);
-		State ->SetNextState(UState_GameModeEnemyMovement::StaticClass());
+		UState_GameMode* State = nullptr;
+		if (NextState) {
+			State = NextState;
+		}
+		else {
+			auto NewStateTmp = NewObject<UState_GameModeCaseEffect>();
+			NewStateTmp->SetGamemode(Gamemode);
+			NewStateTmp->SetNextStateClass(UState_GameModeEnemyMovement::StaticClass());
+			State = NewStateTmp;
+		}
 		Gamemode->GetFSM()->ChangeState(State);
 	}
 }
 void UState_GameModePlayerMovement::ExitState() {
+	Gamemode->CheckEndGame();
 	Gamemode -> ResetPlayerMovement();
 }
 
@@ -75,13 +90,21 @@ void UState_GameModeCaseEffect::EnterState() {
 
 void UState_GameModeCaseEffect::UpdateState() {
 	if (Gamemode->GetEffectGridCasesToActivate().IsEmpty()) {
-		auto State = NewObject<UState_GameMode>(Gamemode,NextState);
-		State->SetGamemode(Gamemode);
+		UState_GameMode* State = nullptr;
+		if (NextState) {
+			State = NextState;
+		}
+		else {
+			UState_GameMode *  NewStateTMP = NewObject<UState_GameMode>(Gamemode, NextStateClass);
+			NewStateTMP->SetGamemode(Gamemode);
+			State = NewStateTMP;
+		}
 		Gamemode->GetFSM()->ChangeState(State);
 	}
 	UE_LOG(LogTemp, Warning, TEXT("UpdateState EC size %d"), Gamemode -> GetEffectGridCasesToActivate().Num()	);
 }
 void UState_GameModeCaseEffect::ExitState() {
+	Gamemode->CheckEndGame();
 	Gamemode -> ResetEffectGridCasesToActivate();
 }
 
@@ -96,14 +119,23 @@ void UState_GameModeEnemyMovement::EnterState() {
 void UState_GameModeEnemyMovement::UpdateState() {
 	UE_LOG(LogTemp, Warning, TEXT("UpdateState EM size %d"), Gamemode->GetEnemiesToMove().Num());
 	if (Gamemode->GetEnemiesToMove().IsEmpty()) {
-
-		auto State = NewObject<UState_GameModeCaseEffect>();
-		State->SetGamemode(Gamemode);
-		State->SetNextState(UState_GameModeEndTurn::StaticClass());
+		UState_GameMode* State = nullptr;
+		if (NextState) {
+			State = NextState;
+		}
+		else {
+			//Print NextState null
+			UE_LOG(LogTemp, Warning, TEXT("NextState null"));
+			auto NewStateTMP = NewObject<UState_GameModeCaseEffect>();
+			NewStateTMP->SetGamemode(Gamemode);
+			NewStateTMP->SetNextStateClass(UState_GameModeEndTurn::StaticClass());
+			State = NewStateTMP;
+		}
 		Gamemode->GetFSM()->ChangeState(State);
 	}
 }
 void UState_GameModeEnemyMovement::ExitState() {
+	Gamemode->CheckEndGame();
 	Gamemode->ResetEnemiesToMove();
 }
 
@@ -116,10 +148,19 @@ void UState_GameModeEndTurn::EnterState() {
 
 
 void UState_GameModeEndTurn::UpdateState() {
-	auto State = NewObject<UState_GameModeInputWait>();
-	State->SetGamemode(Gamemode);
+
+	UState_GameMode* State = nullptr;
+	if (NextState) {
+		State = NextState;
+	}
+	else {
+		auto NewStateTMP = NewObject<UState_GameModeInputWait>();
+		NewStateTMP->SetGamemode(Gamemode);
+		State = NewStateTMP;
+	}
 	Gamemode->GetFSM()->ChangeState(State);
 }
 void UState_GameModeEndTurn::ExitState() {
 }
+
 

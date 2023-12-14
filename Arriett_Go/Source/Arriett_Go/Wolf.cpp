@@ -2,10 +2,11 @@
 
 
 #include "Wolf.h"
+#include "Arriett_GoGameMode.h"
 #include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "GridCase.h"
 #include "Julie.h"
-#include "Arriett_GoGameMode.h"
 
 int32 FindMin(TArray<int32> Array) {
 	int index = -1;
@@ -21,13 +22,7 @@ int32 FindMin(TArray<int32> Array) {
 
 void AWolf::BeginPlay() {
 	Super::BeginPlay();
-	OnMovementEnded.AddLambda([this](AGamePawn * Pawn) {
-		WolfAttack();
-		AJulie* Player = Cast<AJulie>(UGameplayStatics::GetPlayerPawn(this, 0));
-		if (bIsAwaken && Player != nullptr) {
-			Djikstra(GetCurrentCase(), Player->GetCurrentCase());
-		}
-	});
+	MovementType = EPawnMovementType::PawnMovementType_Travel;
 }
 
 void AWolf::Djikstra(AGridCase* Start, AGridCase* End) {
@@ -95,7 +90,8 @@ void AWolf::Djikstra(AGridCase* Start, AGridCase* End) {
 }
 
 void AWolf::EnemyAction() {
-	if (bIsAwaken)  {
+	WolfAttack();
+	if (bIsAwaken && Julie == nullptr)  {
 		if (Path.Num() != 0) {
 			//I want to concat the names of all the cases in the path to display it in the log
 			FString PathString = "";
@@ -108,12 +104,7 @@ void AWolf::EnemyAction() {
 			UE_LOG(LogTemp, Warning, TEXT("[p] Current case %s"), *CurrentCase->GetName());
 			UE_LOG(LogTemp, Warning, TEXT("[p] Move to case %s"), *NextCase->GetName());
 			MoveToCase(NextCase);
-
-			AJulie* Player = Cast<AJulie>(UGameplayStatics::GetPlayerPawn(this, 0));
-			if (CurrentCase->GetPawnsOnCase().Contains(Player)) {
-				UE_LOG(LogTemp, Warning, TEXT("Player killed"));
-				Player->Death();
-			}
+			WolfAttack();
 			Path.RemoveAt(0);
 		}
 		else {
@@ -128,6 +119,15 @@ void AWolf::EnemyAction() {
 	
 }
 
+void AWolf::MoveToCase(AGridCase* Case) {
+	if (Case == nullptr) {
+		TimelineFinishedCallback();
+		return;
+	}
+	ChangeCase(Case);
+	StartTravel();
+}
+
 void AWolf::UpdateCasesColor() {
 	for (int i = 0; i < Path.Num(); i++) {
 		//Color cases in Yellow
@@ -138,8 +138,12 @@ void AWolf::UpdateCasesColor() {
 void AWolf::WolfAttack() {
 	AJulie* Player = Cast<AJulie>(UGameplayStatics::GetPlayerPawn(this, 0));
 	if (CurrentCase->GetPawnsOnCase().Contains(Player)) {
-		UE_LOG(LogTemp, Warning, TEXT("Player killed"));
-		Player->Death();
+		Julie = Player;
+		Player->Death(this);
+		
+		/*Julie->OnDeath.AddLambda([this](AGamePawn* JuliePawn) {
+			Super::TimelineFinishedCallback();
+		});*/
 	}
 }
 
@@ -147,3 +151,51 @@ void AWolf::Awake() {
 	bIsAwaken = true;
 }
 
+void AWolf::TimelineFinishedCallback()
+{
+	switch (MovementType) {
+	case EPawnMovementType::PawnMovementType_Travel:
+		if (CurrentCase != nullptr) {
+			CurrentCase->ExitCase(this);
+		}
+		if (NextCase != nullptr) {
+			CurrentCase = NextCase;
+			CurrentCase->EnterCase(this);
+			NextCase = nullptr;
+		}
+		EndAction();
+		break;
+	default:
+		break;
+	}
+}
+
+void AWolf::WolfTurnEnd() {
+	WolfAttack();
+	AJulie* Player = Cast<AJulie>(UGameplayStatics::GetPlayerPawn(this, 0));
+	if (bIsAwaken && Player != nullptr) {
+		Djikstra(GetCurrentCase(), Player->GetCurrentCase());
+		if (Path.Num() != 0) {
+			NextCase = Path[0];
+			FVector LookAtPosition = FVector(NextCase->GetActorLocation().X, NextCase->GetActorLocation().Y, GetActorLocation().Z);
+			NextRotation = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), LookAtPosition);
+			StartRotation();
+		}
+	}
+}
+
+void AWolf::EndAction() {
+	WolfTurnEnd();
+	if (Julie) {
+		Julie->OnDeath.AddLambda([this](AGamePawn* JuliePawn) {
+			if (OnActionEnded.IsBound()) {
+				OnActionEnded.Broadcast(this);
+			}
+		});
+	}
+	else{
+		if (OnActionEnded.IsBound()) {
+			OnActionEnded.Broadcast(this);
+		}
+	}
+}

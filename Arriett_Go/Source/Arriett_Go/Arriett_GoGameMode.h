@@ -11,10 +11,12 @@
 
 
 class ABearTrap;
+class AGamePawn;
 class AEffectGridCase;
 class AEnemyPawn;
 class AGridCase;
 class AJulie;
+class UState_GameMode;
 DECLARE_MULTICAST_DELEGATE(FOnTurnNumberChanged)
 
 UCLASS()
@@ -25,9 +27,8 @@ class UGameModeStateMachine : public UFiniteStateMachine
 public:
 	UGameModeStateMachine() {};
 	UGameModeStateMachine(AArriett_GoGameMode* Owner);
-	void SetOwner(AArriett_GoGameMode* NewOwner) {
-				Owner = NewOwner;
-	}
+	void SetOwner(AArriett_GoGameMode* NewOwner);
+	void SetNextState(UState_GameMode* NewState);
 
 };
 
@@ -72,6 +73,8 @@ public:
 	void AddEnemy(AEnemyPawn* NewEnemy);
 
 	void PawnColorCases();
+
+	void PlayerDeath(AGamePawn * DeadPawn);
 
 
 /***********************************************************************
@@ -154,6 +157,8 @@ protected:
 	// The player pawn
 	UPROPERTY()
 	AJulie* PlayerPawn = nullptr;
+
+	bool bIsPlayerPawnDead = false;
 
 	// The enemies pawns
 	UPROPERTY()

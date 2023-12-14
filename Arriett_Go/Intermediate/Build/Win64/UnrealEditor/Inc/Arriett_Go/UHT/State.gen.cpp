@@ -17,6 +17,8 @@ void EmptyLinkFunctionForGeneratedCodeState() {}
 	ARRIETT_GO_API UClass* Z_Construct_UClass_UState_GameMode_NoRegister();
 	ARRIETT_GO_API UClass* Z_Construct_UClass_UState_GameModeCaseEffect();
 	ARRIETT_GO_API UClass* Z_Construct_UClass_UState_GameModeCaseEffect_NoRegister();
+	ARRIETT_GO_API UClass* Z_Construct_UClass_UState_GameModeEndGame();
+	ARRIETT_GO_API UClass* Z_Construct_UClass_UState_GameModeEndGame_NoRegister();
 	ARRIETT_GO_API UClass* Z_Construct_UClass_UState_GameModeEndTurn();
 	ARRIETT_GO_API UClass* Z_Construct_UClass_UState_GameModeEndTurn_NoRegister();
 	ARRIETT_GO_API UClass* Z_Construct_UClass_UState_GameModeEnemyMovement();
@@ -26,6 +28,7 @@ void EmptyLinkFunctionForGeneratedCodeState() {}
 	ARRIETT_GO_API UClass* Z_Construct_UClass_UState_GameModePlayerMovement();
 	ARRIETT_GO_API UClass* Z_Construct_UClass_UState_GameModePlayerMovement_NoRegister();
 	ARRIETT_GO_API UClass* Z_Construct_UClass_UState_NoRegister();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
 	UPackage* Z_Construct_UPackage__Script_Arriett_Go();
 // End Cross Module References
@@ -330,6 +333,11 @@ void EmptyLinkFunctionForGeneratedCodeState() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_NextStateClass_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_NextStateClass;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
@@ -344,6 +352,15 @@ void EmptyLinkFunctionForGeneratedCodeState() {}
 		{ "ModuleRelativePath", "State.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UState_GameModeCaseEffect_Statics::NewProp_NextStateClass_MetaData[] = {
+		{ "ModuleRelativePath", "State.h" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UState_GameModeCaseEffect_Statics::NewProp_NextStateClass = { "NextStateClass", nullptr, (EPropertyFlags)0x0024080000000000, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UState_GameModeCaseEffect, NextStateClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UState_GameMode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UState_GameModeCaseEffect_Statics::NewProp_NextStateClass_MetaData), Z_Construct_UClass_UState_GameModeCaseEffect_Statics::NewProp_NextStateClass_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UState_GameModeCaseEffect_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UState_GameModeCaseEffect_Statics::NewProp_NextStateClass,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UState_GameModeCaseEffect_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UState_GameModeCaseEffect>::IsAbstract,
 	};
@@ -353,15 +370,16 @@ void EmptyLinkFunctionForGeneratedCodeState() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_UState_GameModeCaseEffect_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_UState_GameModeCaseEffect_Statics::PropPointers),
 		0,
 		0x001000A0u,
 		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UState_GameModeCaseEffect_Statics::Class_MetaDataParams), Z_Construct_UClass_UState_GameModeCaseEffect_Statics::Class_MetaDataParams)
 	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UState_GameModeCaseEffect_Statics::PropPointers) < 2048);
 	UClass* Z_Construct_UClass_UState_GameModeCaseEffect()
 	{
 		if (!Z_Registration_Info_UClass_UState_GameModeCaseEffect.OuterSingleton)
@@ -498,21 +516,83 @@ void EmptyLinkFunctionForGeneratedCodeState() {}
 	UState_GameModeEndTurn::UState_GameModeEndTurn() {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UState_GameModeEndTurn);
 	UState_GameModeEndTurn::~UState_GameModeEndTurn() {}
-	struct Z_CompiledInDeferFile_FID_Users_lucie_Documents_Chaperon_Github_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_Statics
+	void UState_GameModeEndGame::StaticRegisterNativesUState_GameModeEndGame()
+	{
+	}
+	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UState_GameModeEndGame);
+	UClass* Z_Construct_UClass_UState_GameModeEndGame_NoRegister()
+	{
+		return UState_GameModeEndGame::StaticClass();
+	}
+	struct Z_Construct_UClass_UState_GameModeEndGame_Statics
+	{
+		static UObject* (*const DependentSingletons[])();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
+#endif
+		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
+		static const UECodeGen_Private::FClassParams ClassParams;
+	};
+	UObject* (*const Z_Construct_UClass_UState_GameModeEndGame_Statics::DependentSingletons[])() = {
+		(UObject* (*)())Z_Construct_UClass_UState_GameMode,
+		(UObject* (*)())Z_Construct_UPackage__Script_Arriett_Go,
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UState_GameModeEndGame_Statics::DependentSingletons) < 16);
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UState_GameModeEndGame_Statics::Class_MetaDataParams[] = {
+		{ "IncludePath", "State.h" },
+		{ "ModuleRelativePath", "State.h" },
+	};
+#endif
+	const FCppClassTypeInfoStatic Z_Construct_UClass_UState_GameModeEndGame_Statics::StaticCppClassTypeInfo = {
+		TCppClassTypeTraits<UState_GameModeEndGame>::IsAbstract,
+	};
+	const UECodeGen_Private::FClassParams Z_Construct_UClass_UState_GameModeEndGame_Statics::ClassParams = {
+		&UState_GameModeEndGame::StaticClass,
+		nullptr,
+		&StaticCppClassTypeInfo,
+		DependentSingletons,
+		nullptr,
+		nullptr,
+		nullptr,
+		UE_ARRAY_COUNT(DependentSingletons),
+		0,
+		0,
+		0,
+		0x001000A0u,
+		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UState_GameModeEndGame_Statics::Class_MetaDataParams), Z_Construct_UClass_UState_GameModeEndGame_Statics::Class_MetaDataParams)
+	};
+	UClass* Z_Construct_UClass_UState_GameModeEndGame()
+	{
+		if (!Z_Registration_Info_UClass_UState_GameModeEndGame.OuterSingleton)
+		{
+			UECodeGen_Private::ConstructUClass(Z_Registration_Info_UClass_UState_GameModeEndGame.OuterSingleton, Z_Construct_UClass_UState_GameModeEndGame_Statics::ClassParams);
+		}
+		return Z_Registration_Info_UClass_UState_GameModeEndGame.OuterSingleton;
+	}
+	template<> ARRIETT_GO_API UClass* StaticClass<UState_GameModeEndGame>()
+	{
+		return UState_GameModeEndGame::StaticClass();
+	}
+	UState_GameModeEndGame::UState_GameModeEndGame() {}
+	DEFINE_VTABLE_PTR_HELPER_CTOR(UState_GameModeEndGame);
+	UState_GameModeEndGame::~UState_GameModeEndGame() {}
+	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_lucie_Documents_Chaperon_Github_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_Statics::ClassInfo[] = {
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UState, UState::StaticClass, TEXT("UState"), &Z_Registration_Info_UClass_UState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UState), 838781463U) },
 		{ Z_Construct_UClass_UState_GameMode, UState_GameMode::StaticClass, TEXT("UState_GameMode"), &Z_Registration_Info_UClass_UState_GameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UState_GameMode), 2884070091U) },
 		{ Z_Construct_UClass_UState_GameModeInputWait, UState_GameModeInputWait::StaticClass, TEXT("UState_GameModeInputWait"), &Z_Registration_Info_UClass_UState_GameModeInputWait, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UState_GameModeInputWait), 1575741558U) },
 		{ Z_Construct_UClass_UState_GameModePlayerMovement, UState_GameModePlayerMovement::StaticClass, TEXT("UState_GameModePlayerMovement"), &Z_Registration_Info_UClass_UState_GameModePlayerMovement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UState_GameModePlayerMovement), 565850382U) },
-		{ Z_Construct_UClass_UState_GameModeCaseEffect, UState_GameModeCaseEffect::StaticClass, TEXT("UState_GameModeCaseEffect"), &Z_Registration_Info_UClass_UState_GameModeCaseEffect, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UState_GameModeCaseEffect), 4079462047U) },
+		{ Z_Construct_UClass_UState_GameModeCaseEffect, UState_GameModeCaseEffect::StaticClass, TEXT("UState_GameModeCaseEffect"), &Z_Registration_Info_UClass_UState_GameModeCaseEffect, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UState_GameModeCaseEffect), 3654658877U) },
 		{ Z_Construct_UClass_UState_GameModeEnemyMovement, UState_GameModeEnemyMovement::StaticClass, TEXT("UState_GameModeEnemyMovement"), &Z_Registration_Info_UClass_UState_GameModeEnemyMovement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UState_GameModeEnemyMovement), 784904336U) },
 		{ Z_Construct_UClass_UState_GameModeEndTurn, UState_GameModeEndTurn::StaticClass, TEXT("UState_GameModeEndTurn"), &Z_Registration_Info_UClass_UState_GameModeEndTurn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UState_GameModeEndTurn), 1990005972U) },
+		{ Z_Construct_UClass_UState_GameModeEndGame, UState_GameModeEndGame::StaticClass, TEXT("UState_GameModeEndGame"), &Z_Registration_Info_UClass_UState_GameModeEndGame, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UState_GameModeEndGame), 1945520590U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_lucie_Documents_Chaperon_Github_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_1465028318(TEXT("/Script/Arriett_Go"),
-		Z_CompiledInDeferFile_FID_Users_lucie_Documents_Chaperon_Github_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_lucie_Documents_Chaperon_Github_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_2063872145(TEXT("/Script/Arriett_Go"),
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

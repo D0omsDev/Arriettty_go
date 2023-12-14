@@ -11,13 +11,21 @@
  * 
  */
 
+
+UENUM()
+enum class EJulieDeathAnimation : uint8 {
+	JDA_Confetti,
+	JDA_Flying
+};
 UCLASS()
 class ARRIETT_GO_API AJulie : public AGamePawn
 {
 	GENERATED_BODY()
 
 	public:
+
 		AJulie();
+		
 		virtual void BeginPlay() override;
 
 		// Called every frame.
@@ -27,10 +35,29 @@ class ARRIETT_GO_API AJulie : public AGamePawn
 		FORCEINLINE class UCameraComponent* GetTopDownCameraComponent() const { return TopDownCameraComponent; }
 		/** Returns CameraBoom subobject **/
 		FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
+		
+		/***********************************************************************
+		*				FUNCTIONS OVERRIDES								       *
+		***********************************************************************/
 
-		//virtual void TimelineFinishedCallback() override;
+		virtual void TimelineFinishedCallback() override;
 
 		virtual void UpdateCasesColor() override;
+
+			
+		/***********************************************************************
+		*				DEATH FUNCTIONS OVERRIDE                               *
+		***********************************************************************/
+		
+		virtual void Death(AActor * Cause) override;
+
+		virtual void PlayDeathTimeline() override;
+
+		virtual void DeathTimelineCallback(float val) override;
+
+		virtual void DeathTimelineFinishedCallback() override;
+
+		
 
 
 	private:
@@ -42,8 +69,14 @@ class ARRIETT_GO_API AJulie : public AGamePawn
 		UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 		class USpringArmComponent* CameraBoom;
 
-protected :
-	 //virtual void MoveToCase(AGridCase* Case) override;
-	 //virtual void TeleportToCase(AGridCase* Case) override;
+		UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
+		class UStaticMeshComponent* JulieMesh;
+
+		// Death Animation
+		EJulieDeathAnimation DeathAnimation = EJulieDeathAnimation::JDA_Confetti;
+
+		// Direction of the Death Animation
+		FVector DeathDirection;
+	
 	
 };

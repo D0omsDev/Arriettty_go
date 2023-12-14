@@ -45,7 +45,6 @@ public :
 	AHunter();
 	virtual void BeginPlay() override;	
 	virtual void EnemyAction() override;
-	void AutomaticHunterSetup(float Degrees);
 	virtual void UpdateCasesColor() override;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray <FHunterLine> HunterLines;
@@ -71,5 +70,6 @@ private :
 	UFUNCTION()
 	virtual void AttackTimelineFinishedCallback();
 
-	AJulie* Julie = nullptr;
+
+	FVector TemporaryLocation;
 };

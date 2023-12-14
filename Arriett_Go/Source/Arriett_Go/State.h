@@ -23,6 +23,8 @@ public :
 	virtual void EnterState() {}
 	virtual void UpdateState() {}
 	virtual void ExitState() {}
+protected :
+
 	
 };
 
@@ -39,6 +41,9 @@ public:
 	virtual void EnterState() override;
 	virtual void UpdateState() override;
 	virtual void ExitState() override;
+	void SetNextState(UState_GameMode * NewNextState) { NextState = NewNextState; };
+protected : 
+	UState_GameMode * NextState;
 };	
 
 UCLASS()
@@ -77,10 +82,12 @@ public:
 	virtual void EnterState() override;
 	virtual void UpdateState() override;
 	virtual void ExitState() override;
-	void SetNextState(TSubclassOf<UState_GameMode> NewNextState) { NextState = NewNextState; };
+	void SetNextStateClass(TSubclassOf<UState_GameMode> NewNextState) { NextStateClass = NewNextState; };
 protected :
-	TSubclassOf<UState_GameMode> NextState;
+	UPROPERTY()
+	TSubclassOf<UState_GameMode> NextStateClass;
 };
+
 
 UCLASS()
 class ARRIETT_GO_API UState_GameModeEnemyMovement : public UState_GameMode
@@ -100,4 +107,13 @@ public:
 	virtual void EnterState() override;
 	virtual void UpdateState() override;
 	virtual void ExitState() override;
+};
+
+
+UCLASS()
+class ARRIETT_GO_API UState_GameModeEndGame : public UState_GameMode
+{
+	GENERATED_BODY()
+public:
+
 };

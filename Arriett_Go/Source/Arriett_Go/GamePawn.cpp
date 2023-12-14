@@ -5,15 +5,14 @@
 #include "GridCase.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
 #include "UObject/ConstructorHelpers.h"
+#include "Kismet/KismetMathLibrary.h"
 
-
-#include "Julie.h"
-#include "Wolf.h"
-
+#include "NiagaraSystem.h"
+#include "NiagaraFunctionLibrary.h"
 // Sets default values
 AGamePawn::AGamePawn()
 {
- 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	static ConstructorHelpers::FObjectFinder< UCurveFloat > Curve(TEXT("/Game/Curves/C_LinearDeplacementCurve.C_LinearDeplacementCurve"));
 	check(Curve.Succeeded());
@@ -24,6 +23,15 @@ AGamePawn::AGamePawn()
 	check(OffsetCurve.Succeeded());
 	ZOffsetCurve = OffsetCurve.Object;
 
+	static ConstructorHelpers::FObjectFinder< UCurveFloat > DeathCurve(TEXT("/Game/Curves/C_DeathCurveAnimation.C_DeathCurveAnimation"));
+	check(DeathCurve.Succeeded());
+	DeathFloatXCurve = DeathCurve.Object;
+
+	// Set of the Confetti Niagara System
+	static ConstructorHelpers::FObjectFinder<UNiagaraSystem> ConfettiMaterialFinder(TEXT("/Game/VFX/VFX_Confettis"));
+	check(ConfettiMaterialFinder.Succeeded());
+	ConfettiSystem = ConfettiMaterialFinder.Object;
+
 
 
 
@@ -33,7 +41,7 @@ AGamePawn::AGamePawn()
 void AGamePawn::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 
 	FOnTimelineFloat onTimelineCallback;
 	FOnTimelineEventStatic onTimelineFinishedCallback;
@@ -51,7 +59,7 @@ void AGamePawn::BeginPlay()
 
 		MyTimeline->SetLooping(false);
 		//MyTimeline->SetTimelineLength(0.5f);
-		MyTimeline -> SetPlayRate(1.5f);
+		MyTimeline->SetPlayRate(1.5f);
 		MyTimeline->SetTimelineLengthMode(ETimelineLengthMode::TL_LastKeyFrame);
 		MyTimeline->SetPlaybackPosition(0.0f, false);
 
@@ -63,6 +71,34 @@ void AGamePawn::BeginPlay()
 		MyTimeline->SetTimelineFinishedFunc(onTimelineFinishedCallback);
 
 		MyTimeline->RegisterComponent();
+	}
+
+	FOnTimelineFloat onDeathTimelineCallback;
+	FOnTimelineEventStatic onDeathTimelineFinishedCallback;
+	if (DeathFloatXCurve != NULL)
+	{
+		DeathTimeline = NewObject<UTimelineComponent>(this, FName("DeathTimelineAnimation"));
+		DeathTimeline->CreationMethod = EComponentCreationMethod::UserConstructionScript; // Indicate it comes from a blueprint so it gets cleared when we rerun construction scripts
+		this->BlueprintCreatedComponents.Add(DeathTimeline); // Add to array so it gets saved
+		DeathTimeline->SetNetAddressable();    // This component has a stable name that can be referenced for replication
+
+		DeathTimeline->SetPropertySetObject(this); // Set which object the timeline should drive properties on
+		//DeathTimeline->SetDirectionPropertyName(FName("TimelineDirection"));
+
+		DeathTimeline->SetLooping(false);
+		//DeathTimeline->SetTimelineLength(0.5f);
+		DeathTimeline->SetPlayRate(1.0f);
+		DeathTimeline->SetTimelineLengthMode(ETimelineLengthMode::TL_LastKeyFrame);
+		DeathTimeline->SetPlaybackPosition(0.0f, false);
+
+
+		//Add the float curve to the timeline and connect it to your timelines's interpolation function
+		onDeathTimelineCallback.BindUFunction(this, FName{ TEXT("DeathTimelineCallback") });
+		onDeathTimelineFinishedCallback.BindUFunction(this, FName{ TEXT("DeathTimelineFinishedCallback") });
+		DeathTimeline->AddInterpFloat(DeathFloatXCurve, onDeathTimelineCallback, FName{ TEXT("DeathFloatTimelineValue") });
+		DeathTimeline->SetTimelineFinishedFunc(onDeathTimelineFinishedCallback);
+
+		DeathTimeline->RegisterComponent();
 	}
 
 	if (StartCase != nullptr) {
@@ -90,24 +126,25 @@ void AGamePawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 }
 
-void AGamePawn::ChangeCase(AGridCase* NewCase)
+AGridCase* AGamePawn::GetCurrentCase() const
 {
-	if (CurrentCase != nullptr) {
-		CurrentCase->ExitCase(this);
-	}
-	NextCase = NewCase;
-	/*CurrentCase = NewCase;
-	CurrentCase->EnterCase(this);*/
+	return CurrentCase;
 }
 
+void AGamePawn::UpdateCasesColor() {
+
+}
+
+/***********************************************************************
+*				MOVEMENT FUNCTIONS			                           *
+***********************************************************************/
+
+
 void AGamePawn::MoveToCase(AGridCase* Case) {
-	if (Case == nullptr) {
-		TimelineFinishedCallback();
-		return;
+	if (Case) {
+		ChangeCase(Case);
+		StartRotation();
 	}
-	ChangeCase(Case);
-	// Move towards case hit
-	PlayTimeline();
 }
 
 void AGamePawn::TeleportToCase(AGridCase* Case) {
@@ -127,17 +164,83 @@ void AGamePawn::TeleportToCase(AGridCase* Case) {
 	this->SetActorLocation(Pos);
 }
 
-AGridCase* AGamePawn::GetCurrentCase() const
+void AGamePawn::ChangeCase(AGridCase* NewCase)
 {
-	return CurrentCase;
+	if (CurrentCase != nullptr) {
+		CurrentCase->ExitCase(this);
+	}
+	NextCase = NewCase;
+	FVector LookAtPosition = FVector(NextCase->GetActorLocation().X, NextCase->GetActorLocation().Y, GetActorLocation().Z);
+	NextRotation = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), LookAtPosition);
 }
 
-void AGamePawn::Death() {
-	UE_LOG(LogTemp, Warning, TEXT("Death"));
-	if (OnDeath.IsBound()) {
-		OnDeath.Broadcast(this);
+void AGamePawn::StartRotation() {
+	MovementType = EPawnMovementType::PawnMovementType_Rotate;
+	if (NextRotation.Equals(GetActorRotation(), 1)) {
+		TimelineFinishedCallback();
+		return;
 	}
-	Destroy();
+	TemporaryRotation = GetActorRotation();
+	PlayTimeline();
+}
+
+void AGamePawn::StartTravel() {
+	MovementType = EPawnMovementType::PawnMovementType_Travel;
+	PlayTimeline();
+}
+
+void AGamePawn::RotationTransition(float Alpha) {
+	FRotator NewRotation = FMath::Lerp(TemporaryRotation, NextRotation, Alpha);
+	SetActorRotation(NewRotation);
+}
+
+void AGamePawn::TravelTransition(float AlphaX, float AlphaY, float AlphaZ) {
+	int32 HalfCaseSize = 25;
+	double ZOffset = ZOffsetCurve->GetFloatValue(AlphaX);
+	if (!bPawnAnimation) {
+		ZOffset = 0;
+	}
+	FVector Origin;
+	FVector BoxExtent;
+	GetActorBounds(true, Origin, BoxExtent);
+	int32 HalfSize = BoxExtent.Z;
+	double NewX = FMath::Lerp(TemporaryLocation.X, NextCase->GetActorLocation().X + HalfCaseSize, AlphaX);
+	double NewY = FMath::Lerp(TemporaryLocation.Y, NextCase->GetActorLocation().Y + HalfCaseSize, AlphaY);
+	double NewZ = FMath::Lerp(TemporaryLocation.Z, NextCase->GetActorLocation().Z + HalfSize, AlphaZ) +
+		FMath::Lerp(0, JumpHeight, ZOffset);
+	FVector NewLocation = FVector(NewX, NewY, NewZ);
+	SetActorLocation(NewLocation);
+}
+
+
+void AGamePawn::EndAction() {
+	if (OnActionEnded.IsBound()) {
+		OnActionEnded.Broadcast(this);
+	}
+}
+
+
+/***********************************************************************
+*				MOVEMENT TIMELINE FUNCTIONS			                   *
+***********************************************************************/
+
+void AGamePawn::PlayTimeline()
+{
+	if (MyTimeline != NULL)
+	{
+		switch (MovementType) {
+		case EPawnMovementType::PawnMovementType_Travel:
+			TemporaryLocation = GetActorLocation();
+			MyTimeline->SetPlayRate(1.5f);
+			MyTimeline->PlayFromStart();
+			break;
+		case EPawnMovementType::PawnMovementType_Rotate:
+			MyTimeline->SetPlayRate(3.0f);
+			MyTimeline->PlayFromStart();
+			break;
+		}
+
+	}
 }
 
 void AGamePawn::TimelineCallback(float TimeValue)
@@ -145,53 +248,50 @@ void AGamePawn::TimelineCallback(float TimeValue)
 	if (CurrentCase == nullptr || NextCase == nullptr) {
 		return;
 	}
-	int32 HalfCaseSize = 25;
 	double AlphaValueX = FloatXCurve->GetFloatValue(TimeValue);
 	double AlphaValueY = FloatYCurve->GetFloatValue(TimeValue);
 	double AlphaValueZ = FloatZCurve->GetFloatValue(TimeValue);
-	double ZOffset = ZOffsetCurve->GetFloatValue(AlphaValueX);
-	if (!bPawnAnimation) {
-		ZOffset = 0;
-	}
+	switch (MovementType) {
 
-	int32 HalfSize = 50; // Todo : Get the size of the pawn
-	double NewX = FMath::Lerp(TMPX, NextCase -> GetActorLocation().X + HalfCaseSize, AlphaValueX);
-	double NewY = FMath::Lerp(TMPY, NextCase->GetActorLocation().Y + HalfCaseSize, AlphaValueY);
-	double NewZ = FMath::Lerp(TMPZ, NextCase->GetActorLocation().Z + HalfSize, AlphaValueZ) +
-		FMath::Lerp(0, JumpHeight, ZOffset);
-	FVector NewLocation = FVector(NewX, NewY, NewZ);
-	SetActorLocation(NewLocation);
+	case EPawnMovementType::PawnMovementType_Travel:
+		TravelTransition(AlphaValueX, AlphaValueY, AlphaValueZ);
+		break;
+	case EPawnMovementType::PawnMovementType_Rotate:
+		RotationTransition(AlphaValueX);
+		break;
+	default:
+		break;
+	}
 }
 
 void AGamePawn::TimelineFinishedCallback()
 {
-	if (CurrentCase != nullptr) {
-		CurrentCase->ExitCase(this);
-	}
-	if (NextCase != nullptr) {
-		CurrentCase = NextCase;
-		CurrentCase->EnterCase(this);
-		NextCase = nullptr;
-	}
-	UE_LOG(LogTemp, Warning, TEXT("TimelineFinishedCallback %s") , *GetName());
-	if (OnMovementEnded.IsBound()) {
-			UE_LOG(LogTemp, Warning, TEXT("	OnMovementEnded %s"), *GetName());
-			OnMovementEnded.Broadcast(this);
-	}
+	UE_LOG(LogTemp, Warning, TEXT("TimelineFinishedCallback %s"), *GetName());
+	EndAction();
 }
 
-void AGamePawn::PlayTimeline()
+
+/***********************************************************************
+*				DEATH FUNCTIONS			                               *
+***********************************************************************/
+void AGamePawn::Death(AActor* Cause) {
+	PlayDeathTimeline();
+}
+
+void AGamePawn::DeathTimelineCallback(float val)
 {
-	if (MyTimeline != NULL)
-	{
-		TMPX = GetActorLocation().X;
-		TMPY = GetActorLocation().Y;
-		TMPZ = GetActorLocation().Z;
-		MyTimeline->PlayFromStart();
+}
+
+void AGamePawn::DeathTimelineFinishedCallback()
+{
+	if (OnDeath.IsBound()) {
+		OnDeath.Broadcast(this);
 	}
+	Destroy();
 }
 
-void AGamePawn::UpdateCasesColor() {
-
+void AGamePawn::PlayDeathTimeline() {
+	UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), ConfettiSystem, GetActorLocation());
+	GetMesh()->SetVisibility(false,true);
+	DeathTimeline->PlayFromStart();
 }
-
