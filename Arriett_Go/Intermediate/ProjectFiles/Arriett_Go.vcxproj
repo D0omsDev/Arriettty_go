@@ -112,6 +112,7 @@
     <None Include="..\..\.vsconfig"/>
     <None Include="..\..\Arriett_Go.sln.DotSettings.user"/>
     <None Include="..\..\UpgradeLog.htm"/>
+    <None Include="..\..\Config\DefaultEditor.ini"/>
     <None Include="..\..\Config\DefaultEngine.ini"/>
     <None Include="..\..\Config\DefaultInput.ini"/>
     <None Include="..\..\Source\Arriett_Go\Arriett_Go.Build.cs"/>
