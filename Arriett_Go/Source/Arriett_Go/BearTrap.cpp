@@ -3,6 +3,7 @@
 
 #include "BearTrap.h"
 #include "Arriett_GoGameMode.h"
+#include "Components/AudioComponent.h"
 #include "GamePawn.h"
 #include "Julie.h"
 #include "Kismet/GameplayStatics.h"
@@ -21,7 +22,13 @@ FString ETrapStateToString(ETrapState EnumValue) {
 }
 
 ABearTrap::ABearTrap() {
+	TrapState = ETrapState::Idle;
+	bIsTurnActivable = false;
+	CloseSound = CreateDefaultSubobject<UAudioComponent>(TEXT("CloseSound"));
+	CloseSound->SetupAttachment(RootComponent);
+	CloseSound->bAutoActivate = false;
 }
+
 
 void ABearTrap::SetupTrap() {
 	AArriett_GoGameMode* A_GameMode = nullptr;
@@ -36,6 +43,7 @@ void ABearTrap::ActivateEffect() {
 	AJulie * Julie = nullptr;
 	bool bNoPendingKill = false;
 	if (TrapState == ETrapState::Active) {
+		CloseSound->Play();
 		TrapState = ETrapState::Disabled;
 		for (auto Pawn : PawnsOnCase) {
 			if (Pawn != nullptr) {
@@ -84,7 +92,6 @@ void ABearTrap::SetupMesh() {
 		TrapMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 		TrapMesh->CreationMethod = EComponentCreationMethod::Instance;
 		TrapMesh->SetStaticMesh(ConeShape);
-		// Set Collision Profil name to Overlap
 		TrapMesh->SetCollisionProfileName(UCollisionProfile::NoCollision_ProfileName);
 		TrapMesh->SetVisibility(true);
 	}

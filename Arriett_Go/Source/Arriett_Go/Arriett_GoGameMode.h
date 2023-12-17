@@ -42,6 +42,7 @@ class AArriett_GoGameMode : public AGameModeBase
 public:
 	AArriett_GoGameMode();
 
+	FTimerHandle RestartTimer;
 public:
 	virtual void BeginPlay() override;
 
@@ -100,6 +101,14 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool GetCollectible() const;
 
+
+/***********************************************************************
+*				LEVEL FUNCTIONS                                       *
+***********************************************************************/
+	UFUNCTION()
+	void RestartCurrentLevel();
+
+
 /***********************************************************************
 *				STATES FUNCTIONS                                       *
 ***********************************************************************/
@@ -123,7 +132,7 @@ public:
 
 	void EffectGridCasesActions();
 	
-	void CheckEndGame() const;
+	void CheckEndGame();
 
 	TArray<AEffectGridCase*> GetEffectGridCasesToActivate() const;
 
@@ -174,7 +183,10 @@ protected:
 	// The bool that indicates if the player has gotten the collectible
 	UPROPERTY()
 	bool bHasCollectible = false;
+
 	
+	FTimerHandle KillTimerHandle;
+
 /***********************************************************************
 *				STATES VARIABLES                                       *
 ***********************************************************************/

@@ -14,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeHunter() {}
 	ARRIETT_GO_API UClass* Z_Construct_UClass_AHunter();
 	ARRIETT_GO_API UClass* Z_Construct_UClass_AHunter_NoRegister();
 	ARRIETT_GO_API UScriptStruct* Z_Construct_UScriptStruct_FHunterLine();
+	ENGINE_API UClass* Z_Construct_UClass_UAudioComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UTimelineComponent_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_Arriett_Go();
 // End Cross Module References
@@ -195,6 +196,10 @@ template<> ARRIETT_GO_API UScriptStruct* StaticStruct<FHunterLine>()
 #endif
 		static const UECodeGen_Private::FArrayPropertyParams NewProp_HunterLines;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_RotationSound_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_RotationSound;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_HunterLineIndex_MetaData[];
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_HunterLineIndex;
@@ -236,6 +241,14 @@ template<> ARRIETT_GO_API UScriptStruct* StaticStruct<FHunterLine>()
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AHunter_Statics::NewProp_HunterLines = { "HunterLines", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AHunter, HunterLines), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AHunter_Statics::NewProp_HunterLines_MetaData), Z_Construct_UClass_AHunter_Statics::NewProp_HunterLines_MetaData) }; // 1374872116
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHunter_Statics::NewProp_RotationSound_MetaData[] = {
+		{ "Category", "SoundEffects" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Hunter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHunter_Statics::NewProp_RotationSound = { "RotationSound", nullptr, (EPropertyFlags)0x001000000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AHunter, RotationSound), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AHunter_Statics::NewProp_RotationSound_MetaData), Z_Construct_UClass_AHunter_Statics::NewProp_RotationSound_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHunter_Statics::NewProp_HunterLineIndex_MetaData[] = {
 		{ "ModuleRelativePath", "Hunter.h" },
 	};
@@ -263,6 +276,7 @@ template<> ARRIETT_GO_API UScriptStruct* StaticStruct<FHunterLine>()
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AHunter_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHunter_Statics::NewProp_HunterLines_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHunter_Statics::NewProp_HunterLines,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHunter_Statics::NewProp_RotationSound,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHunter_Statics::NewProp_HunterLineIndex,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHunter_Statics::NewProp_AttackTimeline,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHunter_Statics::NewProp_AttackCurveFloatValue,
@@ -300,19 +314,19 @@ template<> ARRIETT_GO_API UScriptStruct* StaticStruct<FHunterLine>()
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AHunter);
 	AHunter::~AHunter() {}
-	struct Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics
 	{
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ScriptStructInfo[] = {
+	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ScriptStructInfo[] = {
 		{ FHunterLine::StaticStruct, Z_Construct_UScriptStruct_FHunterLine_Statics::NewStructOps, TEXT("HunterLine"), &Z_Registration_Info_UScriptStruct_HunterLine, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FHunterLine), 1374872116U) },
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AHunter, AHunter::StaticClass, TEXT("AHunter"), &Z_Registration_Info_UClass_AHunter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AHunter), 1291470071U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AHunter, AHunter::StaticClass, TEXT("AHunter"), &Z_Registration_Info_UClass_AHunter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AHunter), 2432182723U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_3366668457(TEXT("/Script/Arriett_Go"),
-		Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ClassInfo),
-		Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ScriptStructInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_2516965474(TEXT("/Script/Arriett_Go"),
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ClassInfo),
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ScriptStructInfo),
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

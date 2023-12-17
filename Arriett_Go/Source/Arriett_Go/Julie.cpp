@@ -74,6 +74,7 @@ void AJulie::BeginPlay()
 void AJulie::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
+	//print current level name
 }
 
 /***********************************************************************

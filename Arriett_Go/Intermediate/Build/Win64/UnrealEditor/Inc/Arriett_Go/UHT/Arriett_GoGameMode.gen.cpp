@@ -81,6 +81,13 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoGameMode() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UGameModeStateMachine);
 	UGameModeStateMachine::~UGameModeStateMachine() {}
+	DEFINE_FUNCTION(AArriett_GoGameMode::execRestartCurrentLevel)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->RestartCurrentLevel();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AArriett_GoGameMode::execGetCollectible)
 	{
 		P_FINISH;
@@ -125,6 +132,7 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoGameMode() {}
 			{ "AddTurn", &AArriett_GoGameMode::execAddTurn },
 			{ "GetCollectible", &AArriett_GoGameMode::execGetCollectible },
 			{ "GetNbTurn", &AArriett_GoGameMode::execGetNbTurn },
+			{ "RestartCurrentLevel", &AArriett_GoGameMode::execRestartCurrentLevel },
 			{ "SetCollectible", &AArriett_GoGameMode::execSetCollectible },
 			{ "SetNbTurn", &AArriett_GoGameMode::execSetNbTurn },
 		};
@@ -222,6 +230,34 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoGameMode() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AArriett_GoGameMode_RestartCurrentLevel_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AArriett_GoGameMode_RestartCurrentLevel_Statics::Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/***********************************************************************\n*\x09\x09\x09\x09LEVEL FUNCTIONS                                       *\n***********************************************************************/" },
+#endif
+		{ "ModuleRelativePath", "Arriett_GoGameMode.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "LEVEL FUNCTIONS                                       *" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AArriett_GoGameMode_RestartCurrentLevel_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AArriett_GoGameMode, nullptr, "RestartCurrentLevel", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AArriett_GoGameMode_RestartCurrentLevel_Statics::Function_MetaDataParams), Z_Construct_UFunction_AArriett_GoGameMode_RestartCurrentLevel_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_AArriett_GoGameMode_RestartCurrentLevel()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AArriett_GoGameMode_RestartCurrentLevel_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -382,6 +418,7 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoGameMode() {}
 		{ &Z_Construct_UFunction_AArriett_GoGameMode_AddTurn, "AddTurn" }, // 3728083133
 		{ &Z_Construct_UFunction_AArriett_GoGameMode_GetCollectible, "GetCollectible" }, // 1195466653
 		{ &Z_Construct_UFunction_AArriett_GoGameMode_GetNbTurn, "GetNbTurn" }, // 4220196460
+		{ &Z_Construct_UFunction_AArriett_GoGameMode_RestartCurrentLevel, "RestartCurrentLevel" }, // 2552877817
 		{ &Z_Construct_UFunction_AArriett_GoGameMode_SetCollectible, "SetCollectible" }, // 3263410587
 		{ &Z_Construct_UFunction_AArriett_GoGameMode_SetNbTurn, "SetNbTurn" }, // 3883303368
 	};
@@ -555,16 +592,16 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoGameMode() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AArriett_GoGameMode);
 	AArriett_GoGameMode::~AArriett_GoGameMode() {}
-	struct Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_Statics::ClassInfo[] = {
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UGameModeStateMachine, UGameModeStateMachine::StaticClass, TEXT("UGameModeStateMachine"), &Z_Registration_Info_UClass_UGameModeStateMachine, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGameModeStateMachine), 1834762063U) },
-		{ Z_Construct_UClass_AArriett_GoGameMode, AArriett_GoGameMode::StaticClass, TEXT("AArriett_GoGameMode"), &Z_Registration_Info_UClass_AArriett_GoGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AArriett_GoGameMode), 2974633071U) },
+		{ Z_Construct_UClass_AArriett_GoGameMode, AArriett_GoGameMode::StaticClass, TEXT("AArriett_GoGameMode"), &Z_Registration_Info_UClass_AArriett_GoGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AArriett_GoGameMode), 581361054U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_90692609(TEXT("/Script/Arriett_Go"),
-		Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_432279942(TEXT("/Script/Arriett_Go"),
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoGameMode_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

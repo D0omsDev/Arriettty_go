@@ -4,16 +4,25 @@
 #include "GamePawn.h"
 #include "GridCase.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
+#include "Components/AudioComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Kismet/KismetMathLibrary.h"
-
+#include "Kismet/GameplayStatics.h"
 #include "NiagaraSystem.h"
 #include "NiagaraFunctionLibrary.h"
+
 // Sets default values
 AGamePawn::AGamePawn()
 {
 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	MovementSound = CreateDefaultSubobject<UAudioComponent>("MovementSound");
+	MovementSound->bAutoActivate = false;
+	DeathSound = CreateDefaultSubobject<UAudioComponent>("DeathSound");
+	DeathSound -> bAutoActivate = false;
+
+
 	static ConstructorHelpers::FObjectFinder< UCurveFloat > Curve(TEXT("/Game/Curves/C_LinearDeplacementCurve.C_LinearDeplacementCurve"));
 	check(Curve.Succeeded());
 	FloatXCurve = Curve.Object;
@@ -155,12 +164,11 @@ void AGamePawn::TeleportToCase(AGridCase* Case) {
 	CurrentCase = Case;
 	FVector Origin;
 	FVector BoxExtent;
-	FVector Size = FVector(50, 50, 50);
 	this->GetActorBounds(true, Origin, BoxExtent);
 	FVector CaseOrigin;
 	FVector CaseBoxExtent;
 	CurrentCase->GetActorBounds(true, CaseOrigin, CaseBoxExtent);
-	FVector Pos = FVector(CaseOrigin.X + 25, CaseOrigin.Y + 25, CaseOrigin.Z + BoxExtent.Z);
+	FVector Pos = FVector(CaseOrigin.X + 25, CaseOrigin.Y + 25, CaseOrigin.Z + BoxExtent.Z/2);
 	this->SetActorLocation(Pos);
 }
 
@@ -186,6 +194,8 @@ void AGamePawn::StartRotation() {
 
 void AGamePawn::StartTravel() {
 	MovementType = EPawnMovementType::PawnMovementType_Travel;
+	//UGameplayStatics::PlaySoundAtLocation(this, MovementSound->GetSound(), GetActorLocation());
+	UGameplayStatics::PlaySound2D(this, MovementSound->GetSound());
 	PlayTimeline();
 }
 
@@ -203,7 +213,7 @@ void AGamePawn::TravelTransition(float AlphaX, float AlphaY, float AlphaZ) {
 	FVector Origin;
 	FVector BoxExtent;
 	GetActorBounds(true, Origin, BoxExtent);
-	int32 HalfSize = BoxExtent.Z;
+	int32 HalfSize = BoxExtent.Z / 2;
 	double NewX = FMath::Lerp(TemporaryLocation.X, NextCase->GetActorLocation().X + HalfCaseSize, AlphaX);
 	double NewY = FMath::Lerp(TemporaryLocation.Y, NextCase->GetActorLocation().Y + HalfCaseSize, AlphaY);
 	double NewZ = FMath::Lerp(TemporaryLocation.Z, NextCase->GetActorLocation().Z + HalfSize, AlphaZ) +
@@ -214,6 +224,11 @@ void AGamePawn::TravelTransition(float AlphaX, float AlphaY, float AlphaZ) {
 
 
 void AGamePawn::EndAction() {
+	GetWorldTimerManager().ClearTimer(ActionTimerHandle);
+	GetWorldTimerManager().SetTimer(ActionTimerHandle, this, &AGamePawn::CallOnActionEnded, 0.1f, false);
+}
+
+void AGamePawn::CallOnActionEnded() {
 	if (OnActionEnded.IsBound()) {
 		OnActionEnded.Broadcast(this);
 	}
@@ -231,7 +246,7 @@ void AGamePawn::PlayTimeline()
 		switch (MovementType) {
 		case EPawnMovementType::PawnMovementType_Travel:
 			TemporaryLocation = GetActorLocation();
-			MyTimeline->SetPlayRate(1.5f);
+			MyTimeline->SetPlayRate(1.2f);
 			MyTimeline->PlayFromStart();
 			break;
 		case EPawnMovementType::PawnMovementType_Rotate:
@@ -267,7 +282,17 @@ void AGamePawn::TimelineCallback(float TimeValue)
 void AGamePawn::TimelineFinishedCallback()
 {
 	UE_LOG(LogTemp, Warning, TEXT("TimelineFinishedCallback %s"), *GetName());
+
 	EndAction();
+}
+
+/***********************************************************************
+*				AUDIO FUNCTIONS			                               *
+***********************************************************************/
+
+void AGamePawn::SilenceSounds() {
+	MovementSound->Stop();
+	DeathSound->Stop();
 }
 
 
@@ -275,6 +300,8 @@ void AGamePawn::TimelineFinishedCallback()
 *				DEATH FUNCTIONS			                               *
 ***********************************************************************/
 void AGamePawn::Death(AActor* Cause) {
+	UE_LOG(LogTemp, Warning, TEXT("Death %s"), *GetName());
+	UGameplayStatics::PlaySound2D(this, DeathSound->GetSound());
 	PlayDeathTimeline();
 }
 

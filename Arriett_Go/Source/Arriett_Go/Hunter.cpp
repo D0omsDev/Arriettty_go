@@ -2,6 +2,7 @@
 
 
 #include "Hunter.h"
+#include "Components/AudioComponent.h"
 #include "Arriett_GoGameMode.h"
 #include "GridCase.h"
 #include "Julie.h"
@@ -12,6 +13,9 @@
 
 AHunter::AHunter() {
 	PrimaryActorTick.bCanEverTick = true;
+	RotationSound = CreateDefaultSubobject<UAudioComponent>(TEXT("RotationSound"));
+	RotationSound->SetupAttachment(RootComponent);
+	RotationSound ->bAutoActivate = false;
 }
 
 
@@ -65,6 +69,20 @@ void AHunter::EnemyAction()
 
 bool AHunter::KillCheck() {
 	bool Kill = false;
+	if (CurrentCase != nullptr) {
+		for (AGamePawn* Pawn : CurrentCase->GetPawnsOnCase()) {
+			if (Pawn->IsA(AWolf::StaticClass())) {
+				return false;
+			}
+			Julie = Cast<AJulie>(Pawn);
+			if (Julie != nullptr) {
+				Kill = true;
+				TargetCase = CurrentCase;
+				Attack();
+				return Kill;
+			}
+		}
+	}
 	FHunterLine HunterLine = HunterLines[HunterLineIndex];
 	for (int32 i = 0; i < HunterLine.Num(); i++) {
 		AGridCase* Case = HunterLine[i];
@@ -76,13 +94,33 @@ bool AHunter::KillCheck() {
 				Julie = Cast<AJulie>(Pawn);
 				if (Julie != nullptr) {
 					Kill = true;
-					TemporaryLocation = GetActorLocation();
-					AttackTimeline->PlayFromStart();
+					TargetCase = Case;
+					Attack();
 				}
 			}
 		}
 	}
 	return Kill;
+}
+
+void AHunter::Attack() {
+	FHunterLine HunterLine = HunterLines[HunterLineIndex];
+
+	TemporaryLocation = GetActorLocation();
+	if (TargetCase == CurrentCase) {
+		AttackTimelineFinishedCallback();
+		return;
+	}
+	else if (TargetCase == HunterLine[0]) {
+		AttackTimeline -> SetPlayRate(6.0f);
+	}
+	else if (TargetCase == HunterLine[1]) {
+		AttackTimeline->SetPlayRate(3.0f);
+	}
+	UGameplayStatics::PlaySound2D(this, MovementSound->GetSound());
+	//UGameplayStatics::PlaySoundAtLocation(this, MovementSound->Sound, GetActorLocation());
+	AttackTimeline->PlayFromStart();
+
 }
 
 void AHunter::RotateToCaseNear() {
@@ -93,6 +131,8 @@ void AHunter::RotateToCaseNear() {
 	DirectionVector.Normalize();
 	TemporaryRotation = GetActorRotation();
 	NextRotation = UKismetMathLibrary::MakeRotFromX(DirectionVector);
+	UGameplayStatics::PlaySound2D(this, RotationSound->Sound);
+	//UGameplayStatics::PlaySoundAtLocation(this,RotationSound -> Sound, GetActorLocation());
 	PlayTimeline();
 }
 
@@ -140,9 +180,12 @@ void AHunter::AttackTimelineCallback(float TimeValue) {
 }
 
 void AHunter::AttackTimelineFinishedCallback() {
+	UGameplayStatics::PlaySound2D(this, AttackSound->Sound);
+	//UGameplayStatics::PlaySoundAtLocation(this, AttackSound->Sound, GetActorLocation());
+	MovementSound->Stop();
 	Julie->Death(this);
 	Julie->OnDeath.AddLambda([this](AGamePawn* JuliePawn) {
 		Super::TimelineFinishedCallback();
-		});
+	});
 }
 

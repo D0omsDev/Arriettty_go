@@ -14,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 	ARRIETT_GO_API UClass* Z_Construct_UClass_AGridCase_NoRegister();
 	ARRIETT_GO_API UEnum* Z_Construct_UEnum_Arriett_Go_EPawnMovementType();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
+	ENGINE_API UClass* Z_Construct_UClass_UAudioComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCurveFloat_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UTimelineComponent_NoRegister();
 	ENGINE_API UEnum* Z_Construct_UEnum_Engine_ETimelineDirection();
@@ -310,6 +311,14 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 #endif
 		static const UECodeGen_Private::FBytePropertyParams NewProp_TimelineDirection;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MovementSound_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_MovementSound;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DeathSound_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_DeathSound;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_bPawnAnimation_MetaData[];
 #endif
 		static void NewProp_bPawnAnimation_SetBit(void* Obj);
@@ -448,14 +457,36 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 #endif
 	const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_TimelineDirection = { "TimelineDirection", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, TimelineDirection), Z_Construct_UEnum_Engine_ETimelineDirection, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_TimelineDirection_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_TimelineDirection_MetaData) }; // 4229933074
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_MovementSound_MetaData[] = {
+		{ "Category", "SoundEffects" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/***********************************************************************\n\x09*\x09\x09\x09\x09""AUDIO VARIABLES\x09\x09\x09\x09\x09\x09\x09               *\n\x09***********************************************************************/" },
+#endif
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "GamePawn.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "AUDIO VARIABLES                                                                *" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_MovementSound = { "MovementSound", nullptr, (EPropertyFlags)0x002008000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, MovementSound), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_MovementSound_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_MovementSound_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathSound_MetaData[] = {
+		{ "Category", "SoundEffects" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "GamePawn.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathSound = { "DeathSound", nullptr, (EPropertyFlags)0x002008000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, DeathSound), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathSound_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathSound_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_bPawnAnimation_MetaData[] = {
 		{ "Category", "Animation" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "/***********************************************************************\n\x09*\x09\x09\x09\x09""ANIMATION VARIABLES FUNCTIONS\x09\x09\x09               *\n\x09***********************************************************************/" },
+		{ "Comment", "/***********************************************************************\n\x09*\x09\x09\x09\x09""ANIMATION VARIABLES\x09\x09\x09\x09\x09\x09               *\n\x09***********************************************************************/" },
 #endif
 		{ "ModuleRelativePath", "GamePawn.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "ANIMATION VARIABLES FUNCTIONS                                  *" },
+		{ "ToolTip", "ANIMATION VARIABLES                                                            *" },
 #endif
 	};
 #endif
@@ -514,6 +545,8 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatZCurve,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGamePawn_Statics::NewProp_ZOffsetCurve,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGamePawn_Statics::NewProp_TimelineDirection,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGamePawn_Statics::NewProp_MovementSound,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathSound,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGamePawn_Statics::NewProp_bPawnAnimation,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGamePawn_Statics::NewProp_JumpHeight,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGamePawn_Statics::NewProp_CurveFloatValue,
@@ -554,19 +587,19 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AGamePawn);
 	AGamePawn::~AGamePawn() {}
-	struct Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics
 	{
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::EnumInfo[] = {
+	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::EnumInfo[] = {
 		{ EPawnMovementType_StaticEnum, TEXT("EPawnMovementType"), &Z_Registration_Info_UEnum_EPawnMovementType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 110711451U) },
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGamePawn, AGamePawn::StaticClass, TEXT("AGamePawn"), &Z_Registration_Info_UClass_AGamePawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGamePawn), 2639558452U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AGamePawn, AGamePawn::StaticClass, TEXT("AGamePawn"), &Z_Registration_Info_UClass_AGamePawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGamePawn), 1869450313U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_3629324926(TEXT("/Script/Arriett_Go"),
-		Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_3271005625(TEXT("/Script/Arriett_Go"),
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo),
 		nullptr, 0,
-		Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::EnumInfo));
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::EnumInfo));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

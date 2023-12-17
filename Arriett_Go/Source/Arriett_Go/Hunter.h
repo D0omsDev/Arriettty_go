@@ -50,6 +50,10 @@ public :
 	TArray <FHunterLine> HunterLines;
 	virtual void TimelineCallback(float TimeValue) override;
 	virtual void TimelineFinishedCallback() override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SoundEffects")
+	UAudioComponent* RotationSound;
+
 private : 
 
 	UPROPERTY()
@@ -70,6 +74,8 @@ private :
 	UFUNCTION()
 	virtual void AttackTimelineFinishedCallback();
 
-
+	AGridCase* TargetCase;
 	FVector TemporaryLocation;
+
+	void Attack();
 };

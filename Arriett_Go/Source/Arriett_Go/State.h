@@ -41,7 +41,10 @@ public:
 	virtual void EnterState() override;
 	virtual void UpdateState() override;
 	virtual void ExitState() override;
-	void SetNextState(UState_GameMode * NewNextState) { NextState = NewNextState; };
+	void SetNextState(UState_GameMode * NewNextState) { 
+		NextState = NewNextState; 
+		UpdateState();
+	};
 protected : 
 	UState_GameMode * NextState;
 };	

@@ -7,18 +7,20 @@
 #include "Wolf.generated.h"
 
 /**
- * 
+ *
  */
 DECLARE_DELEGATE(FOnWolfTurnEnd)
 UCLASS()
 class ARRIETT_GO_API AWolf : public AEnemyPawn
 {
 	GENERATED_BODY()
-public :
+public:
+
+	AWolf();
 	void Awake();
 
 
-protected :
+protected:
 	TArray<AGridCase*> Path;
 
 	void Djikstra(AGridCase* Start, AGridCase* End);
@@ -31,6 +33,22 @@ protected :
 	virtual void EndAction() override;
 	virtual void MoveToCase(AGridCase* Case) override;
 	bool bIsAwaken = false;
+
+	/***********************************************************************
+	*				AUDIO FUNCTIONS			                               *
+	***********************************************************************/
+
+	virtual void SilenceSounds();
+
+	/***********************************************************************
+	*				AUDIO VARIABLES							               *
+	***********************************************************************/
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SoundEffects")
+	UAudioComponent* WolfSleepingSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SoundEffects")
+	UAudioComponent* WolfWakingSound;
 
 	FOnWolfTurnEnd OnWolfTurnEnd;
 };

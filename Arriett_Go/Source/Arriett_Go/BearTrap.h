@@ -34,6 +34,9 @@ protected :
 	virtual void EnterCase(AGamePawn* Pawn) override;
 	virtual void ExitCase(AGamePawn* Pawn) override;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SoundEffects")
+	UAudioComponent* CloseSound;
+
 private :
 	ETrapState TrapState = ETrapState::Idle;
 	UPROPERTY()

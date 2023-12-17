@@ -16,6 +16,7 @@
 #include "State.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Wolf.h"
+#include "TimerManager.h"
 
 
 UGameModeStateMachine::UGameModeStateMachine(AArriett_GoGameMode* Owner) {
@@ -107,6 +108,9 @@ void AArriett_GoGameMode::BeginPlay() {
 	auto NewState = NewObject<UState_GameModeInputWait>();
 	NewState->SetGamemode(this);
 	FSM->ChangeState(NewState);
+
+	UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0)->StartCameraFade(1.f, 0.f, 2.f, FLinearColor::Black, false, true);
+
 }
 
 
@@ -222,6 +226,14 @@ void AArriett_GoGameMode::SetCollectible(bool NewCollectible) {
 bool AArriett_GoGameMode::GetCollectible() const {
 	return bHasCollectible;
 }
+/***********************************************************************
+*				LEVEL FUNCTIONS                                       *
+***********************************************************************/
+
+void AArriett_GoGameMode::RestartCurrentLevel() {
+	//UE_LOG(LogTemp, Warning, TEXT("RestartCurrentLevel %s"), *GetLevel()->GetName());
+	//UGameplayStatics::OpenLevel(GetWorld(), FName(*GetLevel()->GetName()),false);
+}
 
 /***********************************************************************
 *				STATES FUNCTIONS                                       *
@@ -262,9 +274,8 @@ void AArriett_GoGameMode::EffectGridCasesActions() {
 	CheckEndGame();
 }
 
-void AArriett_GoGameMode::CheckEndGame() const {
+void AArriett_GoGameMode::CheckEndGame() {
 	if (!PlayerPawn || !PlayerPawn->IsValidLowLevel() || PlayerPawn->IsActorBeingDestroyed() || bIsPlayerPawnDead) {
-		//Print on screen "Lose"
 		GEngine -> AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Lose"));
 
 		auto WidgetClass = LoadClass<UUserWidget>(nullptr, TEXT("WidgetBlueprint'/Game/UI/UI_DeathScreen.UI_DeathScreen_C'"));
@@ -274,7 +285,11 @@ void AArriett_GoGameMode::CheckEndGame() const {
 		}
 		UUserWidget* Widget = CreateWidget(GetWorld(), WidgetClass);
 		Widget->AddToViewport();
-		
+		for (AEnemyPawn* Enemy : Enemies) {
+			Enemy -> SilenceSounds();
+		} 
+		UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0)->StartCameraFade(0.f, 1.f, 2.f, FLinearColor::Black, false, true);
+		GetWorldTimerManager().SetTimer(RestartTimer,this, &AArriett_GoGameMode::RestartCurrentLevel, 2.f, false);
 	}
 	else {
 		if (PlayerPawn->GetCurrentCase()->IsA(AEndCase::StaticClass())) {
@@ -286,6 +301,9 @@ void AArriett_GoGameMode::CheckEndGame() const {
 			}
 			UUserWidget* Widget = CreateWidget(GetWorld(), WidgetClass);
 			Widget->AddToViewport();
+			for (AEnemyPawn* Enemy : Enemies) {
+				Enemy->SilenceSounds();
+			}
 		}
 	}
 }

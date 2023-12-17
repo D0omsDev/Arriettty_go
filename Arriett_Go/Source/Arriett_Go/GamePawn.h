@@ -71,6 +71,8 @@ public:
 	//Calls the delegate OnActionEnded
 	virtual void EndAction();
 
+	void CallOnActionEnded();
+
 	/***********************************************************************
 	*				MOVEMENT TIMELINE FUNCTIONS			                   *
 	***********************************************************************/
@@ -83,6 +85,11 @@ public:
 	UFUNCTION()
 	virtual void TimelineFinishedCallback();
 
+	/***********************************************************************
+	*				AUDIO FUNCTIONS			                               *
+	***********************************************************************/
+
+	virtual void SilenceSounds();
 
 	/***********************************************************************
 	*				DEATH FUNCTIONS			                               *
@@ -109,6 +116,8 @@ public:
 	*				DELEGATES		                                       *
 	***********************************************************************/
 	
+	FTimerHandle ActionTimerHandle;
+
 	FOnActionEnded OnActionEnded;
 	
 	FOnDeath OnDeath;
@@ -160,9 +169,18 @@ protected:
 	// The Current location of the pawn used for linear interpolation
 	FVector TemporaryLocation;
 
-	
 	/***********************************************************************
-	*				ANIMATION VARIABLES FUNCTIONS			               *
+	*				AUDIO VARIABLES							               *
+	***********************************************************************/
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SoundEffects")
+	UAudioComponent* MovementSound;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SoundEffects")
+	UAudioComponent* DeathSound;
+
+	/***********************************************************************
+	*				ANIMATION VARIABLES						               *
 	***********************************************************************/
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation")
 	bool bPawnAnimation = true;
