@@ -17,6 +17,8 @@
 #include "UObject/ConstructorHelpers.h"
 #include "Wolf.h"
 #include "TimerManager.h"
+//Include engine utils
+#include "EngineUtils.h"
 
 
 UGameModeStateMachine::UGameModeStateMachine(AArriett_GoGameMode* Owner) {
@@ -231,8 +233,18 @@ bool AArriett_GoGameMode::GetCollectible() const {
 ***********************************************************************/
 
 void AArriett_GoGameMode::RestartCurrentLevel() {
-	//UE_LOG(LogTemp, Warning, TEXT("RestartCurrentLevel %s"), *GetLevel()->GetName());
-	//UGameplayStatics::OpenLevel(GetWorld(), FName(*GetLevel()->GetName()),false);
+	// Extract the actual level name without the "UEDPIE_0_" prefix
+	FString CurrentMapName = GetWorld()->GetMapName();
+
+#if WITH_EDITOR
+	// Check if we are in the editor (Play In Editor)
+	if (CurrentMapName.StartsWith("UEDPIE_0_"))
+	{
+		// Extract the part of the string after the prefix
+		CurrentMapName = CurrentMapName.RightChop(9);
+	}
+#endif
+	UGameplayStatics::OpenLevel(GetWorld(), FName(CurrentMapName),false);
 }
 
 /***********************************************************************

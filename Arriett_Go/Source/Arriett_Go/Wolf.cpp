@@ -160,6 +160,7 @@ void AWolf::WolfAttack() {
 	if (CurrentCase->GetPawnsOnCase().Contains(Player)) {
 		Julie = Player;
 		Player->Death(this);
+		WolfSleepingSound->Stop();
 		AttackSound->Play();
 		Julie->OnDeath.AddLambda([this](AGamePawn* JuliePawn) {
 			GetWorldTimerManager().SetTimer(KillTimerHandle, this, &AWolf::CallKillTimer, 0.5f, true);

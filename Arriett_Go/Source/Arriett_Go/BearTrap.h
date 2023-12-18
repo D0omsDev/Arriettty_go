@@ -36,11 +36,11 @@ protected :
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SoundEffects")
 	UAudioComponent* CloseSound;
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "StickMesh")
+	UStaticMeshComponent* TrapMesh;
 private :
 	ETrapState TrapState = ETrapState::Idle;
-	UPROPERTY()
-	UStaticMeshComponent * TrapMesh;
+	
 	UPROPERTY()
 	UStaticMesh * ConeShape;
 	virtual void ActivateEffect() override;

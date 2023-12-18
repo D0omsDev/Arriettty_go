@@ -75,6 +75,22 @@ void AJulie::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
 	//print current level name
+	FString MapName = GetWorld()->GetMapName();
+
+	FString CurrentMapName = GetWorld()->GetMapName();
+
+	// Extract the actual level name without the "UEDPIE_0_" prefix
+	FString LevelNameWithoutPrefix;
+	if (CurrentMapName.StartsWith("UEDPIE_0_"))
+	{
+		LevelNameWithoutPrefix = CurrentMapName.RightChop(9);
+	}
+	else
+	{
+		// If the name doesn't have the expected prefix, use the full name
+		LevelNameWithoutPrefix = CurrentMapName;
+	}
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Current Level Name: %s"), *LevelNameWithoutPrefix));
 }
 
 /***********************************************************************

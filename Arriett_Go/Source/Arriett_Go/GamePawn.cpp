@@ -6,6 +6,7 @@
 #include "Blueprint/AIBlueprintHelperLibrary.h"
 #include "Components/AudioComponent.h"
 #include "UObject/ConstructorHelpers.h"
+#include "Julie.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Kismet/GameplayStatics.h"
 #include "NiagaraSystem.h"
@@ -168,7 +169,7 @@ void AGamePawn::TeleportToCase(AGridCase* Case) {
 	FVector CaseOrigin;
 	FVector CaseBoxExtent;
 	CurrentCase->GetActorBounds(true, CaseOrigin, CaseBoxExtent);
-	FVector Pos = FVector(CaseOrigin.X + 25, CaseOrigin.Y + 25, CaseOrigin.Z + BoxExtent.Z/2);
+	FVector Pos = FVector(CaseOrigin.X, CaseOrigin.Y, CaseOrigin.Z + BoxExtent.Z/2);
 	this->SetActorLocation(Pos);
 }
 
@@ -194,7 +195,6 @@ void AGamePawn::StartRotation() {
 
 void AGamePawn::StartTravel() {
 	MovementType = EPawnMovementType::PawnMovementType_Travel;
-	//UGameplayStatics::PlaySoundAtLocation(this, MovementSound->GetSound(), GetActorLocation());
 	UGameplayStatics::PlaySound2D(this, MovementSound->GetSound());
 	PlayTimeline();
 }
@@ -205,7 +205,6 @@ void AGamePawn::RotationTransition(float Alpha) {
 }
 
 void AGamePawn::TravelTransition(float AlphaX, float AlphaY, float AlphaZ) {
-	int32 HalfCaseSize = 25;
 	double ZOffset = ZOffsetCurve->GetFloatValue(AlphaX);
 	if (!bPawnAnimation) {
 		ZOffset = 0;
@@ -214,8 +213,8 @@ void AGamePawn::TravelTransition(float AlphaX, float AlphaY, float AlphaZ) {
 	FVector BoxExtent;
 	GetActorBounds(true, Origin, BoxExtent);
 	int32 HalfSize = BoxExtent.Z / 2;
-	double NewX = FMath::Lerp(TemporaryLocation.X, NextCase->GetActorLocation().X + HalfCaseSize, AlphaX);
-	double NewY = FMath::Lerp(TemporaryLocation.Y, NextCase->GetActorLocation().Y + HalfCaseSize, AlphaY);
+	double NewX = FMath::Lerp(TemporaryLocation.X, NextCase->GetActorLocation().X, AlphaX);
+	double NewY = FMath::Lerp(TemporaryLocation.Y, NextCase->GetActorLocation().Y, AlphaY);
 	double NewZ = FMath::Lerp(TemporaryLocation.Z, NextCase->GetActorLocation().Z + HalfSize, AlphaZ) +
 		FMath::Lerp(0, JumpHeight, ZOffset);
 	FVector NewLocation = FVector(NewX, NewY, NewZ);
@@ -282,7 +281,7 @@ void AGamePawn::TimelineCallback(float TimeValue)
 void AGamePawn::TimelineFinishedCallback()
 {
 	UE_LOG(LogTemp, Warning, TEXT("TimelineFinishedCallback %s"), *GetName());
-
+	MovementSound->Stop();
 	EndAction();
 }
 
@@ -314,7 +313,9 @@ void AGamePawn::DeathTimelineFinishedCallback()
 	if (OnDeath.IsBound()) {
 		OnDeath.Broadcast(this);
 	}
-	Destroy();
+	if (!IsA(AJulie::StaticClass())) {
+		Destroy();
+	}
 }
 
 void AGamePawn::PlayDeathTimeline() {

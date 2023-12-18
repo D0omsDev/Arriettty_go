@@ -135,11 +135,12 @@ void EmptyLinkFunctionForGeneratedCodeBearTrap() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABearTrap_Statics::NewProp_CloseSound = { "CloseSound", nullptr, (EPropertyFlags)0x002008000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABearTrap, CloseSound), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABearTrap_Statics::NewProp_CloseSound_MetaData), Z_Construct_UClass_ABearTrap_Statics::NewProp_CloseSound_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABearTrap_Statics::NewProp_TrapMesh_MetaData[] = {
+		{ "Category", "StickMesh" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "BearTrap.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABearTrap_Statics::NewProp_TrapMesh = { "TrapMesh", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABearTrap, TrapMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABearTrap_Statics::NewProp_TrapMesh_MetaData), Z_Construct_UClass_ABearTrap_Statics::NewProp_TrapMesh_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABearTrap_Statics::NewProp_TrapMesh = { "TrapMesh", nullptr, (EPropertyFlags)0x002008000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABearTrap, TrapMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABearTrap_Statics::NewProp_TrapMesh_MetaData), Z_Construct_UClass_ABearTrap_Statics::NewProp_TrapMesh_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABearTrap_Statics::NewProp_ConeShape_MetaData[] = {
 		{ "ModuleRelativePath", "BearTrap.h" },
@@ -184,19 +185,19 @@ void EmptyLinkFunctionForGeneratedCodeBearTrap() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ABearTrap);
 	ABearTrap::~ABearTrap() {}
-	struct Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics
 	{
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::EnumInfo[] = {
+	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::EnumInfo[] = {
 		{ ETrapState_StaticEnum, TEXT("ETrapState"), &Z_Registration_Info_UEnum_ETrapState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2080863586U) },
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ABearTrap, ABearTrap::StaticClass, TEXT("ABearTrap"), &Z_Registration_Info_UClass_ABearTrap, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABearTrap), 1285359542U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_ABearTrap, ABearTrap::StaticClass, TEXT("ABearTrap"), &Z_Registration_Info_UClass_ABearTrap, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABearTrap), 1544188003U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_563639174(TEXT("/Script/Arriett_Go"),
-		Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_359523665(TEXT("/Script/Arriett_Go"),
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::ClassInfo),
 		nullptr, 0,
-		Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_Chaperon_rouge_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::EnumInfo));
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::EnumInfo));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
