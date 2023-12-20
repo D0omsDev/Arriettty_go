@@ -20,14 +20,18 @@ AEnemyPawn();
 	virtual void EnemyAction();
 
 protected : 
-	AJulie* Julie = nullptr;
-
-	FTimerHandle KillTimerHandle;
-
+	// End the action of the pawn affter he has attacked
 	void CallKillTimer();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SoundEffects")
 	UAudioComponent* AttackSound;
+
+protected : 
+	// Target of the pending attack
+	AJulie* Julie = nullptr;
+
+	// Timer to end the action of the pawn affter he has attacked
+	FTimerHandle KillTimerHandle;
 
 	
 };

@@ -11,11 +11,15 @@
 #include "Wolf.h"
 
 
+/***********************************************************************
+*				BASIC FUNCTIONS				                           *
+***********************************************************************/
+
 AHunter::AHunter() {
 	PrimaryActorTick.bCanEverTick = true;
 	RotationSound = CreateDefaultSubobject<UAudioComponent>(TEXT("RotationSound"));
 	RotationSound->SetupAttachment(RootComponent);
-	RotationSound ->bAutoActivate = false;
+	RotationSound->bAutoActivate = false;
 }
 
 
@@ -34,10 +38,8 @@ void AHunter::BeginPlay() {
 		AttackTimeline->SetNetAddressable();    // This component has a stable name that can be referenced for replication
 
 		AttackTimeline->SetPropertySetObject(this); // Set which object the timeline should drive properties on
-		//AttackTimeline->SetDirectionPropertyName(FName("TimelineDirection"));
 
 		AttackTimeline->SetLooping(false);
-		//AttackTimeline->SetTimelineLength(0.33f);
 		AttackTimeline->SetPlayRate(3.0f);
 		AttackTimeline->SetTimelineLengthMode(ETimelineLengthMode::TL_LastKeyFrame);
 		AttackTimeline->SetPlaybackPosition(0.0f, false);
@@ -54,6 +56,11 @@ void AHunter::BeginPlay() {
 
 	UpdateCasesColor();
 }
+
+/***********************************************************************
+*				OVERRIDES					                           *
+***********************************************************************/
+
 void AHunter::EnemyAction()
 {
 	Super::EnemyAction();
@@ -66,6 +73,29 @@ void AHunter::EnemyAction()
 		KillCheck();
 	}
 }
+
+void AHunter::UpdateCasesColor() {
+	FHunterLine HunterLine = HunterLines[HunterLineIndex];
+	for (int32 i = 0; i < HunterLine.Num(); i++) {
+		AGridCase* Case = HunterLine[i];
+		if (Case) {
+			Case->ChangeColor(ECaseColor::CaseColor_Yellow);
+		}
+	}
+}
+
+void AHunter::TimelineCallback(float Timevalue) {
+	RotationTransition(Timevalue);
+}
+
+void AHunter::TimelineFinishedCallback() {
+	if (!Julie) {
+		Super::TimelineFinishedCallback();
+	}
+	UpdateCasesColor();
+}
+
+/***********************************************************************/
 
 bool AHunter::KillCheck() {
 	bool Kill = false;
@@ -112,13 +142,12 @@ void AHunter::Attack() {
 		return;
 	}
 	else if (TargetCase == HunterLine[0]) {
-		AttackTimeline -> SetPlayRate(6.0f);
+		AttackTimeline->SetPlayRate(6.0f);
 	}
 	else if (TargetCase == HunterLine[1]) {
 		AttackTimeline->SetPlayRate(3.0f);
 	}
 	UGameplayStatics::PlaySound2D(this, MovementSound->GetSound());
-	//UGameplayStatics::PlaySoundAtLocation(this, MovementSound->Sound, GetActorLocation());
 	AttackTimeline->PlayFromStart();
 
 }
@@ -132,40 +161,21 @@ void AHunter::RotateToCaseNear() {
 	TemporaryRotation = GetActorRotation();
 	NextRotation = UKismetMathLibrary::MakeRotFromX(DirectionVector);
 	UGameplayStatics::PlaySound2D(this, RotationSound->Sound);
-	//UGameplayStatics::PlaySoundAtLocation(this,RotationSound -> Sound, GetActorLocation());
 	PlayTimeline();
 }
 
-void AHunter::UpdateCasesColor() {
-	FHunterLine HunterLine = HunterLines[HunterLineIndex];
-	for (int32 i = 0; i < HunterLine.Num(); i++) {
-		AGridCase* Case = HunterLine[i];
-		if (Case) {
-			Case->ChangeColor(ECaseColor::CaseColor_Yellow);
-		}
-	}
-}
 
-void AHunter::TimelineCallback(float Timevalue) {
-	RotationTransition(Timevalue);
-	//FRotator Rot = FMath::Lerp(GetActorRotation(), TargetRotation, Timevalue);
-	//SetActorRotation(Rot);
-}
 
-void AHunter::TimelineFinishedCallback() {
-	if (!Julie) {
-		Super::TimelineFinishedCallback();
-	}
-	UpdateCasesColor();
-}
 
+/***********************************************************************
+*				ATK TIMELINE FUNCTIONS				                   *
+***********************************************************************/
 void AHunter::AttackTimelineCallback(float TimeValue) {
 	if (Julie) {
 		int32 HalfCaseSize = 25;
 		double AlphaValueX = FloatXCurve->GetFloatValue(TimeValue);
 		double AlphaValueY = FloatYCurve->GetFloatValue(TimeValue);
 		double AlphaValueZ = FloatZCurve->GetFloatValue(TimeValue);
-		//UE_LOG (LogTemp, Warning, TEXT("Val Original %f / AlphaValueX %f / lphaValueY %f / AlphaValueZ %f "), TimeValue ,AlphaValueX, AlphaValueY, AlphaValueZ);
 		int32 HalfSize = 50; // Todo : Get the size of the pawn
 		double NewX = FMath::Lerp(TemporaryLocation.X, Julie->GetActorLocation().X + HalfCaseSize, AlphaValueX);
 		double NewY = FMath::Lerp(TemporaryLocation.Y, Julie->GetActorLocation().Y + HalfCaseSize, AlphaValueY);
@@ -181,11 +191,10 @@ void AHunter::AttackTimelineCallback(float TimeValue) {
 
 void AHunter::AttackTimelineFinishedCallback() {
 	UGameplayStatics::PlaySound2D(this, AttackSound->Sound);
-	//UGameplayStatics::PlaySoundAtLocation(this, AttackSound->Sound, GetActorLocation());
 	MovementSound->Stop();
 	Julie->Death(this);
 	Julie->OnDeath.AddLambda([this](AGamePawn* JuliePawn) {
 		Super::TimelineFinishedCallback();
-	});
+		});
 }
 

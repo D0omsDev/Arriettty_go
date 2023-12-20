@@ -17,6 +17,8 @@ void ALRRH_Level1::BeginPlay()
 	AArriett_GoGameMode* Gamemode = Cast<AArriett_GoGameMode>(UGameplayStatics::GetGameMode(this));
 	Objectives = NewObject<ULevel1Objective>();
 	Objectives->SetGameMode(Gamemode);
+	NextLevelPtr = Cast<UWorld>(StaticLoadObject(UWorld::StaticClass(), NULL, TEXT("'/Game/Levels/Level2.Level2'")));
+
 }
 
 void ALRRH_Level2::BeginPlay()
@@ -25,6 +27,7 @@ void ALRRH_Level2::BeginPlay()
 	AArriett_GoGameMode* Gamemode = Cast<AArriett_GoGameMode>(UGameplayStatics::GetGameMode(this));
 	Objectives = NewObject<ULevel2Objective>();
 	Objectives->SetGameMode(Gamemode);
+	NextLevelPtr = Cast<UWorld>(StaticLoadObject(UWorld::StaticClass(), NULL, TEXT("'/Game/Levels/Level3.Level3'")));
 }
 
 void ALRRH_Level3::BeginPlay()

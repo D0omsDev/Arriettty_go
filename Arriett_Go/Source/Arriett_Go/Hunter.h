@@ -6,17 +6,22 @@
 #include "EnemyPawn.h"
 #include "Hunter.generated.h"
 
-/**
- * 
- */
+
 
 class AJulie;
+
+/**
+ * Struct used to represent the attack lines of the boars
+ */
 USTRUCT(BlueprintType)
 struct FHunterLine {
 	GENERATED_BODY()
 
+	// The closest Attack case to the boar
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AGridCase * CaseNear;
+
+	// The farthest Attack case to the boar
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AGridCase * CaseFar;
 
@@ -36,30 +41,76 @@ struct FHunterLine {
 		return 2;
 	}
 };
+
+/**
+ * Class used to manage the boars of the game
+ */
 UCLASS()
 class ARRIETT_GO_API AHunter : public AEnemyPawn
 {
 	GENERATED_BODY()
 	
 public : 
+	/***********************************************************************
+	*				BASIC FUNCTIONS				                           *
+	***********************************************************************/
+
+	
 	AHunter();
+	
 	virtual void BeginPlay() override;	
+	
+	/***********************************************************************
+	*				OVERRIDES					                           *
+	***********************************************************************/
+
 	virtual void EnemyAction() override;
+
 	virtual void UpdateCasesColor() override;
+
+	virtual void TimelineCallback(float TimeValue) override;
+
+	virtual void TimelineFinishedCallback() override;
+
+
+
+protected : 
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray <FHunterLine> HunterLines;
-	virtual void TimelineCallback(float TimeValue) override;
-	virtual void TimelineFinishedCallback() override;
+
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SoundEffects")
 	UAudioComponent* RotationSound;
 
-private : 
+private:
 
+	// Check if the boar can attack
+	bool KillCheck();
+
+	// Start the attack of the boar
+	void Attack();
+
+	// Rotate the boar to the closest attack case
+	void RotateToCaseNear();
+
+
+	/***********************************************************************
+	*				ATK TIMELINE FUNCTIONS				                   *
+	***********************************************************************/
+
+	UFUNCTION()
+	virtual void AttackTimelineCallback(float TimeValue);
+
+	UFUNCTION()
+	virtual void AttackTimelineFinishedCallback();
+
+private :
+
+	// Index of the current attack line
 	UPROPERTY()
 	int32 HunterLineIndex = 0;
-	bool KillCheck();
-	void RotateToCaseNear();
+
 
 	//Timeline Components
 	UPROPERTY()
@@ -68,14 +119,10 @@ private :
 	UPROPERTY()
 	float AttackCurveFloatValue;
 
-	UFUNCTION()
-	virtual void AttackTimelineCallback(float TimeValue);
-
-	UFUNCTION()
-	virtual void AttackTimelineFinishedCallback();
-
+	// The Case where the boar will attack
 	AGridCase* TargetCase;
+
+	// The location of the boar before the attack
 	FVector TemporaryLocation;
 
-	void Attack();
 };

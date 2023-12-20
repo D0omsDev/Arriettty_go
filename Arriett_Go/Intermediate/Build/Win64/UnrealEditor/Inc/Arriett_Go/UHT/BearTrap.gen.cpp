@@ -47,20 +47,18 @@ void EmptyLinkFunctionForGeneratedCodeBearTrap() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_Arriett_Go_ETrapState_Statics::Enum_MetaDataParams[] = {
-		{ "Active.Comment", "/**\n * \n */" },
 		{ "Active.Name", "ETrapState::Active" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n * \n */" },
+		{ "Comment", "/**\n * All possible states of the trap\n * */" },
 #endif
-		{ "Disabled.Comment", "/**\n * \n */" },
 		{ "Disabled.Name", "ETrapState::Disabled" },
-		{ "FirstTrigger.Comment", "/**\n * \n */" },
 		{ "FirstTrigger.Name", "ETrapState::FirstTrigger" },
-		{ "Idle.Comment", "/**\n * \n */" },
 		{ "Idle.Name", "ETrapState::Idle" },
 		{ "ModuleRelativePath", "BearTrap.h" },
-		{ "Prepared.Comment", "/**\n * \n */" },
 		{ "Prepared.Name", "ETrapState::Prepared" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "All possible states of the trap" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_Arriett_Go_ETrapState_Statics::EnumParams = {
@@ -179,12 +177,12 @@ void EmptyLinkFunctionForGeneratedCodeBearTrap() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::EnumInfo[] = {
-		{ ETrapState_StaticEnum, TEXT("ETrapState"), &Z_Registration_Info_UEnum_ETrapState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2080863586U) },
+		{ ETrapState_StaticEnum, TEXT("ETrapState"), &Z_Registration_Info_UEnum_ETrapState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4124328183U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ABearTrap, ABearTrap::StaticClass, TEXT("ABearTrap"), &Z_Registration_Info_UClass_ABearTrap, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABearTrap), 3010058104U) },
+		{ Z_Construct_UClass_ABearTrap, ABearTrap::StaticClass, TEXT("ABearTrap"), &Z_Registration_Info_UClass_ABearTrap, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABearTrap), 3221557872U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_1075673225(TEXT("/Script/Arriett_Go"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_2261136076(TEXT("/Script/Arriett_Go"),
 		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_BearTrap_h_Statics::EnumInfo));

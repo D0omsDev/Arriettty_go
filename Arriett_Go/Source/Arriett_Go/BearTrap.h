@@ -7,9 +7,8 @@
 #include "BearTrap.generated.h"
 
 /**
- * 
- */
-
+ * All possible states of the trap
+ * */
 UENUM() 
 enum class ETrapState : uint8
 {
@@ -28,21 +27,34 @@ class ARRIETT_GO_API ABearTrap : public AEffectGridCase
 
 public :
 	ABearTrap();
+	
+	// Function for the setting of the trap
 	void SetupTrap();
 
 protected :
+	// Added the kill condition
 	virtual void EnterCase(AGamePawn* Pawn) override;
+
+
 	virtual void ExitCase(AGamePawn* Pawn) override;
+
+protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SoundEffects")
 	UAudioComponent* CloseSound;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "StickMesh")
 	UStaticMeshComponent* TrapMesh;
+
 private :
-	ETrapState TrapState = ETrapState::Idle;
 	
 	virtual void ActivateEffect() override;
+
+	// The Function that makes the trap activable again
 	void RefreshTrap();
+
+	// Switch the trap state to the killing one
 	void PrepareTrap();
-	
+private:
+	ETrapState TrapState = ETrapState::Idle;
 };

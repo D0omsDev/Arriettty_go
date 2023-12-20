@@ -2,8 +2,8 @@
 
 
 #include "EndCase.h"
-#include "Julie.h"
 #include "Arriett_GoGameMode.h"
+#include "Julie.h"
 
 void AEndCase::ActivateEffect() {
 	for (AGamePawn * Pawn : PawnsOnCase)

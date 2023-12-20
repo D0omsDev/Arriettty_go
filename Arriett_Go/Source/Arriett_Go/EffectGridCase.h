@@ -16,15 +16,18 @@ class ARRIETT_GO_API AEffectGridCase : public AGridCase
 	GENERATED_BODY()
 	
 public :
-	virtual void ActivateEffect() {
-		if (OnGridEffectCompleted.IsBound()) {
-			OnGridEffectCompleted.Execute(this);
-		}
-	};
-	FOnGridEffectCompleted OnGridEffectCompleted;
+	
+	// Activate the effect of the case
+	virtual void ActivateEffect();
 
-	bool IsTurnActivable() { return bIsTurnActivable; }
-	void ResetTurnActivable() { bIsTurnActivable = true; }
+	// Return true if the has not been activated this turn
+	bool IsTurnActivable();
+
+	// Reset the turn activable bool
+	void ResetTurnActivable();
+
+	// Delegate to call when the effect is completed
+	FOnGridEffectCompleted OnGridEffectCompleted;
 
 protected :
 	bool bIsTurnActivable = true;

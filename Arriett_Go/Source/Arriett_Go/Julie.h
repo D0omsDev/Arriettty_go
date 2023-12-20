@@ -7,76 +7,85 @@
 #include "GamePawn.h"
 #include "Julie.generated.h"
 
+
+
 /**
- * 
- */
-
-
+ * Enum used to know the type of death animation
+ * */
 UENUM()
 enum class EJulieDeathAnimation : uint8 {
 	JDA_Confetti,
 	JDA_Flying
 };
+
+/**
+ * Class used to manage the Player pawn of the game
+ */
 UCLASS()
 class ARRIETT_GO_API AJulie : public AGamePawn
 {
 	GENERATED_BODY()
 
-	public:
+public:
 
-		AJulie();
-		
-		virtual void BeginPlay() override;
+	/***********************************************************************
+	*				BASIC FUNCTIONS				                           *
+	***********************************************************************/
 
-		// Called every frame.
-		virtual void Tick(float DeltaSeconds) override;
+	AJulie();
 
-		/** Returns TopDownCameraComponent subobject **/
-		FORCEINLINE class UCameraComponent* GetTopDownCameraComponent() const { return TopDownCameraComponent; }
-		/** Returns CameraBoom subobject **/
-		FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
-		
-		/***********************************************************************
-		*				FUNCTIONS OVERRIDES								       *
-		***********************************************************************/
+	virtual void BeginPlay() override;
 
-		virtual void TimelineFinishedCallback() override;
+	// Called every frame.
+	virtual void Tick(float DeltaSeconds) override;
 
-		virtual void UpdateCasesColor() override;
+	/** Returns TopDownCameraComponent subobject **/
+	FORCEINLINE class UCameraComponent* GetTopDownCameraComponent() const { return TopDownCameraComponent; }
+	/** Returns CameraBoom subobject **/
+	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 
-			
-		/***********************************************************************
-		*				DEATH FUNCTIONS OVERRIDE                               *
-		***********************************************************************/
-		
-		virtual void Death(AActor * Cause) override;
+	/***********************************************************************
+	*				FUNCTIONS OVERRIDES								       *
+	***********************************************************************/
 
-		virtual void PlayDeathTimeline() override;
+	virtual void TimelineFinishedCallback() override;
 
-		virtual void DeathTimelineCallback(float val) override;
-
-		virtual void DeathTimelineFinishedCallback() override;
-
-		
+	virtual void UpdateCasesColor() override;
 
 
-	private:
-		/** Top down camera */
-		UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
-		class UCameraComponent* TopDownCameraComponent;
+	/***********************************************************************
+	*				DEATH FUNCTIONS OVERRIDE                               *
+	***********************************************************************/
 
-		/** Camera boom positioning the camera above the character */
-		UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
-		class USpringArmComponent* CameraBoom;
+	virtual void Death(AActor* Cause) override;
 
-		UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
-		class UStaticMeshComponent* JulieMesh;
+	virtual void PlayDeathTimeline() override;
 
-		// Death Animation
-		EJulieDeathAnimation DeathAnimation = EJulieDeathAnimation::JDA_Confetti;
+	virtual void DeathTimelineCallback(float val) override;
 
-		// Direction of the Death Animation
-		FVector DeathDirection;
+	virtual void DeathTimelineFinishedCallback() override;
+
+
+
+
+private:
 	
-	
+	/** Top down camera */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	class UCameraComponent* TopDownCameraComponent;
+
+	/** Camera boom positioning the camera above the character */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	class USpringArmComponent* CameraBoom;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	class UStaticMeshComponent* JulieMesh;
+
+	// Death Animation
+	EJulieDeathAnimation DeathAnimation = EJulieDeathAnimation::JDA_Confetti;
+
+	// Direction of the Death Animation
+	FVector DeathDirection;
+
+
 };

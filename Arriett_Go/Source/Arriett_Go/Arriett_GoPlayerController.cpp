@@ -23,8 +23,6 @@ AArriett_GoPlayerController::AArriett_GoPlayerController()
 {
 	bShowMouseCursor = true;
 	DefaultMouseCursor = EMouseCursor::Default;
-	CachedDestination = FVector::ZeroVector;
-	FollowTime = 0.f;
 }
 
 void AArriett_GoPlayerController::BeginPlay()
@@ -64,11 +62,6 @@ void AArriett_GoPlayerController::SetupInputComponent()
 		// Setup mouse input events
 		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Started, this, &AArriett_GoPlayerController::OnSetDestinationTriggered);
 		EnhancedInputComponent->BindAction(PauseAction, ETriggerEvent::Started, this, &AArriett_GoPlayerController::PauseInput);
-		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Completed, this, &AArriett_GoPlayerController::OnInputEnded);
-
-		// Setup touch input events
-		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Started, this, &AArriett_GoPlayerController::OnInputStarted);
-		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Triggered, this, &AArriett_GoPlayerController::OnTouchTriggered);
 	}
 	else
 	{
@@ -76,10 +69,6 @@ void AArriett_GoPlayerController::SetupInputComponent()
 	}
 }
 
-void AArriett_GoPlayerController::OnInputStarted()
-{
-	StopMovement();
-}
 
 // Triggered every frame when the input is held down
 void AArriett_GoPlayerController::OnSetDestinationTriggered()
@@ -101,35 +90,16 @@ void AArriett_GoPlayerController::OnSetDestinationTriggered()
 	else {
 		UE_LOG(LogTemp, Warning, TEXT("GameMode is not valid"));
 	}
-	// We flag that the input is being pressed
-	FollowTime += GetWorld()->GetDeltaSeconds();
 
 	// We look for the location in the world where the player has pressed the input
 	FHitResult Hit;
-	bool bHitSuccessful = false;
-	if (bIsTouch)
-	{
-		bHitSuccessful = GetHitResultUnderFinger(ETouchIndex::Touch1, ECollisionChannel::ECC_Visibility, true, Hit);
-	}
-	else
-	{
-		bHitSuccessful = GetHitResultUnderCursor(ECollisionChannel::ECC_Visibility, true, Hit);
-	}
+	bool bHitSuccessful = GetHitResultUnderCursor(ECollisionChannel::ECC_Visibility, true, Hit);
 
 	// If we hit a surface, cache the location
-	FVector2D GridCasePosition;
-	FVector2D CurrentGridCasePosition;
 	AGridCase* GridCaseHit = nullptr;
 	if (bHitSuccessful)
 	{
-		GridCaseHit = Cast<AGridCase>(Hit.GetActor());
-		if (GridCaseHit)
-		{
-			GridCasePosition = GridCaseHit->GetGridPosition();
-			//CurrentGridCasePosition = A_GameMode->GetCurrentGridCasePosition();
-		}
-		else
-		{
+		if ((GridCaseHit = Cast<AGridCase>(Hit.GetActor())) == nullptr) {
 			UE_LOG(LogTemp, Warning, TEXT("Hit actor is not a GridCase"));
 			return;
 		}
@@ -152,21 +122,6 @@ void AArriett_GoPlayerController::OnSetDestinationTriggered()
 }
 
 
-
-void AArriett_GoPlayerController::OnInputEnded()
-{
-	// We flag that the input is no longer being pressed
-	bIsTouch = false;
-	FollowTime = 0.f;
-}
-
-
-// Triggered every frame when the input is held down
-void AArriett_GoPlayerController::OnTouchTriggered()
-{
-	bIsTouch = true;
-	OnSetDestinationTriggered();
-}
 
 void AArriett_GoPlayerController::PauseInput()
 {

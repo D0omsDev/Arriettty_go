@@ -19,6 +19,11 @@
 #include "Arriett_GoGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
+
+/***********************************************************************
+*				BASIC FUNCTIONS				                           *
+***********************************************************************/
+
 AJulie::AJulie()
 {
 	// Set size for player capsule

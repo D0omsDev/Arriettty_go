@@ -46,13 +46,14 @@ void EmptyLinkFunctionForGeneratedCodeJulie() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_Arriett_Go_EJulieDeathAnimation_Statics::Enum_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n * \n */" },
+		{ "Comment", "/**\n * Enum used to know the type of death animation\n * */" },
 #endif
-		{ "JDA_Confetti.Comment", "/**\n * \n */" },
 		{ "JDA_Confetti.Name", "EJulieDeathAnimation::JDA_Confetti" },
-		{ "JDA_Flying.Comment", "/**\n * \n */" },
 		{ "JDA_Flying.Name", "EJulieDeathAnimation::JDA_Flying" },
 		{ "ModuleRelativePath", "Julie.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Enum used to know the type of death animation" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_Arriett_Go_EJulieDeathAnimation_Statics::EnumParams = {
@@ -112,9 +113,15 @@ void EmptyLinkFunctionForGeneratedCodeJulie() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AJulie_Statics::DependentSingletons) < 16);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AJulie_Statics::Class_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/**\n * Class used to manage the Player pawn of the game\n */" },
+#endif
 		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "Julie.h" },
 		{ "ModuleRelativePath", "Julie.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Class used to manage the Player pawn of the game" },
+#endif
 	};
 #endif
 #if WITH_METADATA
@@ -200,12 +207,12 @@ void EmptyLinkFunctionForGeneratedCodeJulie() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Julie_h_Statics::EnumInfo[] = {
-		{ EJulieDeathAnimation_StaticEnum, TEXT("EJulieDeathAnimation"), &Z_Registration_Info_UEnum_EJulieDeathAnimation, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 661128526U) },
+		{ EJulieDeathAnimation_StaticEnum, TEXT("EJulieDeathAnimation"), &Z_Registration_Info_UEnum_EJulieDeathAnimation, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1542396852U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Julie_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AJulie, AJulie::StaticClass, TEXT("AJulie"), &Z_Registration_Info_UClass_AJulie, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AJulie), 2024993785U) },
+		{ Z_Construct_UClass_AJulie, AJulie::StaticClass, TEXT("AJulie"), &Z_Registration_Info_UClass_AJulie, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AJulie), 3881779316U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Julie_h_3986583580(TEXT("/Script/Arriett_Go"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Julie_h_2949377493(TEXT("/Script/Arriett_Go"),
 		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Julie_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Julie_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Julie_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Julie_h_Statics::EnumInfo));

@@ -48,10 +48,16 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_Arriett_Go_EPawnMovementType_Statics::Enum_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/*\n* Enum used to know the type of movement of the pawn\n*/" },
+#endif
 		{ "ModuleRelativePath", "GamePawn.h" },
 		{ "PawnMovementType_None.Name", "EPawnMovementType::PawnMovementType_None" },
 		{ "PawnMovementType_Rotate.Name", "EPawnMovementType::PawnMovementType_Rotate" },
 		{ "PawnMovementType_Travel.Name", "EPawnMovementType::PawnMovementType_Travel" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "* Enum used to know the type of movement of the pawn" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_Arriett_Go_EPawnMovementType_Statics::EnumParams = {
@@ -362,9 +368,15 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::Class_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/*\n* Abstract class used to manage the pawns of the game\n*/" },
+#endif
 		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "GamePawn.h" },
 		{ "ModuleRelativePath", "GamePawn.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "* Abstract class used to manage the pawns of the game" },
+#endif
 	};
 #endif
 #if WITH_METADATA
@@ -412,7 +424,7 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 #endif
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_MovementType = { "MovementType", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, MovementType), Z_Construct_UEnum_Arriett_Go_EPawnMovementType, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_MovementType_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_MovementType_MetaData) }; // 110711451
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_MovementType = { "MovementType", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, MovementType), Z_Construct_UEnum_Arriett_Go_EPawnMovementType, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_MovementType_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_MovementType_MetaData) }; // 2875913179
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_MyTimeline_MetaData[] = {
 #if !UE_BUILD_SHIPPING
@@ -593,12 +605,12 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::EnumInfo[] = {
-		{ EPawnMovementType_StaticEnum, TEXT("EPawnMovementType"), &Z_Registration_Info_UEnum_EPawnMovementType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 110711451U) },
+		{ EPawnMovementType_StaticEnum, TEXT("EPawnMovementType"), &Z_Registration_Info_UEnum_EPawnMovementType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2875913179U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGamePawn, AGamePawn::StaticClass, TEXT("AGamePawn"), &Z_Registration_Info_UClass_AGamePawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGamePawn), 1869450313U) },
+		{ Z_Construct_UClass_AGamePawn, AGamePawn::StaticClass, TEXT("AGamePawn"), &Z_Registration_Info_UClass_AGamePawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGamePawn), 3923406250U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_3271005625(TEXT("/Script/Arriett_Go"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_4171319036(TEXT("/Script/Arriett_Go"),
 		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::EnumInfo));

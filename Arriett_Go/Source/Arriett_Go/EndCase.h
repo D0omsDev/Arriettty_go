@@ -15,7 +15,7 @@ class ARRIETT_GO_API AEndCase : public AEffectGridCase
 {
 	GENERATED_BODY()
 
-
+	// Makes player win if he is on the case
 	virtual void ActivateEffect() override;
 	
 };

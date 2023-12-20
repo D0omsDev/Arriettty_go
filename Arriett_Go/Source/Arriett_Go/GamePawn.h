@@ -11,6 +11,9 @@ DECLARE_MULTICAST_DELEGATE_OneParam(FOnDeath, AGamePawn*);
 class AGridCase;
 class UNiagaraSystem;
 
+/*
+* Enum used to know the type of movement of the pawn
+*/
 UENUM()
 enum class EPawnMovementType : uint8
 {
@@ -19,6 +22,10 @@ enum class EPawnMovementType : uint8
 	PawnMovementType_None,
 };
 
+
+/*
+* Abstract class used to manage the pawns of the game
+*/
 UCLASS(ABSTRACT)
 class ARRIETT_GO_API AGamePawn : public ACharacter
 {
@@ -182,6 +189,7 @@ protected:
 	/***********************************************************************
 	*				ANIMATION VARIABLES						               *
 	***********************************************************************/
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation")
 	bool bPawnAnimation = true;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation")

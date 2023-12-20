@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/LevelScriptActor.h"
+
 #include "LRRH_Level.generated.h"
 
 /**
@@ -24,6 +25,11 @@ protected :
 	UPROPERTY()
 	UObjectives* Objectives;
 
+	UPROPERTY(BlueprintReadWrite)
+	ULevel * NextLevel;
+
+	UPROPERTY(BlueprintReadWrite)
+	TSoftObjectPtr<UWorld> NextLevelPtr;
 	
 };
 

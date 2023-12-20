@@ -42,6 +42,31 @@ void ABearTrap::SetupTrap() {
 		}
 	}
 }
+
+void ABearTrap::EnterCase(AGamePawn* Pawn) {
+	Super::EnterCase(Pawn);
+	if (bIsTurnActivable) {
+		bIsTurnActivable = false;
+		switch (TrapState) {
+		case ETrapState::Idle:
+			TrapState = ETrapState::FirstTrigger;
+			break;
+		case ETrapState::Prepared:
+			TrapState = ETrapState::Active;
+			break;
+		default:
+			break;
+		}
+	}
+}
+
+void ABearTrap::ExitCase(AGamePawn* Pawn) {
+	Super::ExitCase(Pawn);
+	if (TrapState == ETrapState::FirstTrigger && PawnsOnCase.IsEmpty()) {
+		PrepareTrap();
+	}
+}
+
 void ABearTrap::ActivateEffect() {
 	AJulie * Julie = nullptr;
 	bool bNoPendingKill = false;
@@ -69,29 +94,7 @@ void ABearTrap::RefreshTrap() {
 	bIsTurnActivable = false;
 }
 
-void ABearTrap::EnterCase(AGamePawn* Pawn) {
-	Super::EnterCase(Pawn);
-	if (bIsTurnActivable) {
-		bIsTurnActivable = false;
-		switch (TrapState) {
-		case ETrapState::Idle:
-			TrapState = ETrapState::FirstTrigger;
-			break;
-		case ETrapState::Prepared:
-			TrapState = ETrapState::Active;
-			break;
-		default:
-			break;
-		}
-	}
-}
 
-void ABearTrap::ExitCase(AGamePawn* Pawn) {
-	Super::ExitCase(Pawn);
-	if (TrapState == ETrapState::FirstTrigger && PawnsOnCase.IsEmpty()) {
-		PrepareTrap();
-	}
-}
 
 void ABearTrap::PrepareTrap() {
 	TrapState = ETrapState::Prepared;

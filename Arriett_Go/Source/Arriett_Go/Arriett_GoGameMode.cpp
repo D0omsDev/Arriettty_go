@@ -14,11 +14,9 @@
 #include "Julie.h"	
 #include "Kismet/GameplayStatics.h"
 #include "State.h"
+#include "TimerManager.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Wolf.h"
-#include "TimerManager.h"
-//Include engine utils
-#include "EngineUtils.h"
 
 
 UGameModeStateMachine::UGameModeStateMachine(AArriett_GoGameMode* Owner) {
@@ -98,9 +96,6 @@ void AArriett_GoGameMode::BeginPlay() {
 		AGridCase* Case = Cast<AGridCase>(MapGridCases[i]);
 		if (Case != nullptr) {
 			TempGridCases.Add(Case);
-			/*if (Case->IsStartCase()) {
-				PlayerPawn->TeleportToCase(Case);
-			}*/
 		}
 		AEffectGridCase* EffectGridCase = Cast<AEffectGridCase>(MapGridCases[i]);
 		if (EffectGridCase) {

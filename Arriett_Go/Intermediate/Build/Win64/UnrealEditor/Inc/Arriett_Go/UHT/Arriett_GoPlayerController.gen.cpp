@@ -48,10 +48,6 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoPlayerController() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_SetDestinationClickAction;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_SetDestinationTouchAction_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_SetDestinationTouchAction;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_PauseAction_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_PauseAction;
@@ -126,20 +122,6 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoPlayerController() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AArriett_GoPlayerController_Statics::NewProp_SetDestinationClickAction = { "SetDestinationClickAction", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AArriett_GoPlayerController, SetDestinationClickAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AArriett_GoPlayerController_Statics::NewProp_SetDestinationClickAction_MetaData), Z_Construct_UClass_AArriett_GoPlayerController_Statics::NewProp_SetDestinationClickAction_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AArriett_GoPlayerController_Statics::NewProp_SetDestinationTouchAction_MetaData[] = {
-		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Input" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/** Jump Input Action */" },
-#endif
-		{ "ModuleRelativePath", "Arriett_GoPlayerController.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Jump Input Action" },
-#endif
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AArriett_GoPlayerController_Statics::NewProp_SetDestinationTouchAction = { "SetDestinationTouchAction", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AArriett_GoPlayerController, SetDestinationTouchAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AArriett_GoPlayerController_Statics::NewProp_SetDestinationTouchAction_MetaData), Z_Construct_UClass_AArriett_GoPlayerController_Statics::NewProp_SetDestinationTouchAction_MetaData) };
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AArriett_GoPlayerController_Statics::NewProp_PauseAction_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Input" },
@@ -152,7 +134,6 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoPlayerController() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AArriett_GoPlayerController_Statics::NewProp_FXCursor,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AArriett_GoPlayerController_Statics::NewProp_DefaultMappingContext,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AArriett_GoPlayerController_Statics::NewProp_SetDestinationClickAction,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AArriett_GoPlayerController_Statics::NewProp_SetDestinationTouchAction,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AArriett_GoPlayerController_Statics::NewProp_PauseAction,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AArriett_GoPlayerController_Statics::StaticCppClassTypeInfo = {
@@ -193,9 +174,9 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoPlayerController() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AArriett_GoPlayerController, AArriett_GoPlayerController::StaticClass, TEXT("AArriett_GoPlayerController"), &Z_Registration_Info_UClass_AArriett_GoPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AArriett_GoPlayerController), 1629517330U) },
+		{ Z_Construct_UClass_AArriett_GoPlayerController, AArriett_GoPlayerController::StaticClass, TEXT("AArriett_GoPlayerController"), &Z_Registration_Info_UClass_AArriett_GoPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AArriett_GoPlayerController), 911830884U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoPlayerController_h_2739896191(TEXT("/Script/Arriett_Go"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoPlayerController_h_104533738(TEXT("/Script/Arriett_Go"),
 		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
