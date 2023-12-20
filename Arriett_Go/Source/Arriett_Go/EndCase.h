@@ -4,14 +4,18 @@
 
 #include "CoreMinimal.h"
 #include "GridCase.h"
+#include "EffectGridCase.h"
 #include "EndCase.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class ARRIETT_GO_API AEndCase : public AGridCase
+class ARRIETT_GO_API AEndCase : public AEffectGridCase
 {
 	GENERATED_BODY()
+
+
+	virtual void ActivateEffect() override;
 	
 };

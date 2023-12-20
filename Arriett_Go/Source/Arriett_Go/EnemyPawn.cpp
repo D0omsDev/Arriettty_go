@@ -19,11 +19,9 @@ void AEnemyPawn::EnemyAction() {
 }
 
 void AEnemyPawn::CallKillTimer() {
-	if (Julie != nullptr && Julie->IsValidLowLevel()) {
-		return;
-	}
-	else {
 		GetWorldTimerManager().ClearTimer(KillTimerHandle);
-		Super::TimelineFinishedCallback();
-	}
+		//Super::TimelineFinishedCallback();
+		if (OnActionEnded.IsBound()) {
+			OnActionEnded.Broadcast(this);
+		}
 }

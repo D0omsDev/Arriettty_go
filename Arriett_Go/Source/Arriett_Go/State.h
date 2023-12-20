@@ -45,6 +45,8 @@ public:
 		NextState = NewNextState; 
 		UpdateState();
 	};
+
+	UState_GameMode * GetNextState() { return NextState; };
 protected : 
 	UState_GameMode * NextState;
 };	
@@ -118,5 +120,7 @@ class ARRIETT_GO_API UState_GameModeEndGame : public UState_GameMode
 {
 	GENERATED_BODY()
 public:
+	virtual void EnterState() override;
 
+	bool bIsWin = false;
 };

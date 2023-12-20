@@ -41,11 +41,8 @@ protected :
 private :
 	ETrapState TrapState = ETrapState::Idle;
 	
-	UPROPERTY()
-	UStaticMesh * ConeShape;
 	virtual void ActivateEffect() override;
 	void RefreshTrap();
-	void SetupMesh();
 	void PrepareTrap();
 	
 };

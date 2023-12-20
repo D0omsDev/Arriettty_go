@@ -46,26 +46,26 @@ public:
 public:
 	virtual void BeginPlay() override;
 
-/***********************************************************************
-*				GRID CASES  FUNCTIONS                                  *
-***********************************************************************/
-	
-	TArray<AGridCase *> GetGridCases() const;
-	
-	TArray<AEffectGridCase *> GetEffectGridCases() const;
-	
-	void AddEffectGridCase(AEffectGridCase * NewEffectGridCase);
-	
-	void RemoveEffectGridCaseToActivate(AEffectGridCase * EffectGridCaseToRemove);
-	
+	/***********************************************************************
+	*				GRID CASES  FUNCTIONS                                  *
+	***********************************************************************/
+
+	TArray<AGridCase*> GetGridCases() const;
+
+	TArray<AEffectGridCase*> GetEffectGridCases() const;
+
+	void AddEffectGridCase(AEffectGridCase* NewEffectGridCase);
+
+	void RemoveEffectGridCaseToActivate(AEffectGridCase* EffectGridCaseToRemove);
+
 	void ColorGrid();
 
 	void ResetGridCasesColor();
 
 
-/***********************************************************************
-*				PAWN FUNCTIONS                                         *
-***********************************************************************/
+	/***********************************************************************
+	*				PAWN FUNCTIONS                                         *
+	***********************************************************************/
 
 	void SetPlayerPawn(AJulie* NewPlayerPawn);
 
@@ -75,12 +75,14 @@ public:
 
 	void PawnColorCases();
 
-	void PlayerDeath(AGamePawn * DeadPawn);
+	void PlayerDeath(AGamePawn* DeadPawn);
+
+	void PlayerWin();
 
 
-/***********************************************************************
-*                TURN FUNCTIONS                                        *
-***********************************************************************/
+	/***********************************************************************
+	*                TURN FUNCTIONS                                        *
+	***********************************************************************/
 
 	UFUNCTION(BlueprintCallable)
 	void SetNbTurn(int32 NewNbTurn);
@@ -91,9 +93,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void AddTurn();
 
-/***********************************************************************
-*                COLLECTIBLES FUNCTIONS                                *
-***********************************************************************/
+	/***********************************************************************
+	*                COLLECTIBLES FUNCTIONS                                *
+	***********************************************************************/
 
 	UFUNCTION(BlueprintCallable)
 	void SetCollectible(bool NewCollectible);
@@ -102,58 +104,73 @@ public:
 	bool GetCollectible() const;
 
 
-/***********************************************************************
-*				LEVEL FUNCTIONS                                       *
-***********************************************************************/
-	UFUNCTION()
+	/***********************************************************************
+	*				LEVEL FUNCTIONS                                       *
+	***********************************************************************/
+	UFUNCTION(BlueprintCallable)
 	void RestartCurrentLevel();
 
+	UFUNCTION()
+	void WinGame();
 
-/***********************************************************************
-*				STATES FUNCTIONS                                       *
-***********************************************************************/
+	UFUNCTION()
+	void LoseGame();
+
+
+	/***********************************************************************
+	*				STATES FUNCTIONS                                       *
+	***********************************************************************/
 
 	/* Input State */
 
-	void SetSelectedCase(AGridCase * NewSelectedCase);
-	
-	AGridCase * GetSelectedCase() const;
-	
-	
+	void SetSelectedCase(AGridCase* NewSelectedCase);
+
+	AGridCase* GetSelectedCase() const;
+
+
 	/* Player Movement State */
 
 	bool GetPlayerMovementEnded() const;
 
 	void ResetPlayerMovement();
-	
+
 	void PlayerMovementEnd();
-	
+
 	/* Case Effect State */
 
 	void EffectGridCasesActions();
-	
-	void CheckEndGame();
+
 
 	TArray<AEffectGridCase*> GetEffectGridCasesToActivate() const;
 
 	void ResetEffectGridCasesToActivate();
 
 	/* Enemy Movement State */
-	
+
 	void EnemiesActions();
 
 	TArray<AEnemyPawn*> GetEnemiesToMove() const;
-	
-	void RemoveEnemyToMove(AEnemyPawn * EnemyToRemove);
-	
+
+	void RemoveEnemyToMove(AEnemyPawn* EnemyToRemove);
+
 	void ResetEnemiesToMove();
-	
+
 	/* Turn End State */
 
 	void ResetTurnActivables();
-	
+
 	/* FiniteStateMachine Getter */
-	UGameModeStateMachine * GetFSM() const;
+	UGameModeStateMachine* GetFSM() const;
+
+	/***********************************************************************
+	*				PAUSE FUNCTIONS                                       *
+	***********************************************************************/
+	UFUNCTION(BlueprintCallable)
+	void PauseHandler();
+
+	void PauseGame();
+
+	void ResumeGame();
 
 protected:
 
@@ -184,32 +201,42 @@ protected:
 	UPROPERTY()
 	bool bHasCollectible = false;
 
-	
-	FTimerHandle KillTimerHandle;
 
-/***********************************************************************
-*				STATES VARIABLES                                       *
-***********************************************************************/
+	/***********************************************************************
+	*				PAUSE  VARIABLES                                       *
+	***********************************************************************/
+
 	UPROPERTY()
-	AGridCase * SelectedCase = nullptr;
-	
+	UUserWidget* PauseWidget = nullptr;
+
+	UPROPERTY()
+	bool bIsGamePaused = false;
+
+	/***********************************************************************
+	*				STATES VARIABLES                                       *
+	***********************************************************************/
+	UPROPERTY()
+	AGridCase* SelectedCase = nullptr;
+
 	UPROPERTY()
 	bool PlayerMovementEnded = false;
-	
+
 	UPROPERTY()
 	TArray <AEffectGridCase*> EffectGridCasesToActivate = TArray <AEffectGridCase*>();
-	
+
 	UPROPERTY()
 	TArray<AEnemyPawn*> EnemiesToMove = TArray<AEnemyPawn*>();
-	
-	UPROPERTY()
-	UGameModeStateMachine * FSM;
 
-public :
-/***********************************************************************
-*				DELEGATES		                                       *
-***********************************************************************/
-		// The delegate that is called when the number of turn changes
-		FOnTurnNumberChanged OnTurnNumberChanged;
+	UPROPERTY()
+	UGameModeStateMachine* FSM;
+
+
+
+public:
+	/***********************************************************************
+	*				DELEGATES		                                       *
+	***********************************************************************/
+	// The delegate that is called when the number of turn changes
+	FOnTurnNumberChanged OnTurnNumberChanged;
 };
 

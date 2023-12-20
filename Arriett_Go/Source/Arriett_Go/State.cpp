@@ -76,7 +76,6 @@ void UState_GameModePlayerMovement::UpdateState() {
 	}
 }
 void UState_GameModePlayerMovement::ExitState() {
-	Gamemode->CheckEndGame();
 	Gamemode -> ResetPlayerMovement();
 }
 
@@ -104,7 +103,6 @@ void UState_GameModeCaseEffect::UpdateState() {
 	}
 }
 void UState_GameModeCaseEffect::ExitState() {
-	Gamemode->CheckEndGame();
 	Gamemode -> ResetEffectGridCasesToActivate();
 }
 
@@ -118,7 +116,6 @@ void UState_GameModeEnemyMovement::EnterState() {
 
 void UState_GameModeEnemyMovement::UpdateState() {
 	UE_LOG(LogTemp, Warning, TEXT("UpdateState EM size %d"), Gamemode->GetEnemiesToMove().Num());
-	Gamemode->CheckEndGame();
 	if (Gamemode->GetEnemiesToMove().IsEmpty()) {
 		UState_GameMode* State = nullptr;
 		if (NextState) {
@@ -136,7 +133,6 @@ void UState_GameModeEnemyMovement::UpdateState() {
 	}
 }
 void UState_GameModeEnemyMovement::ExitState() {
-	Gamemode->CheckEndGame();
 	Gamemode->ResetEnemiesToMove();
 }
 
@@ -162,6 +158,15 @@ void UState_GameModeEndTurn::UpdateState() {
 	Gamemode->GetFSM()->ChangeState(State);
 }
 void UState_GameModeEndTurn::ExitState() {
+}
+
+void UState_GameModeEndGame::EnterState() {
+	if (bIsWin) {
+		Gamemode->WinGame();
+	}
+	else {
+		Gamemode->LoseGame();
+	}
 }
 
 

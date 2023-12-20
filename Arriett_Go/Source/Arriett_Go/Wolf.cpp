@@ -121,7 +121,7 @@ void AWolf::EnemyAction() {
 				UE_LOG(LogTemp, Warning, TEXT("[p] Current case %s"), *CurrentCase->GetName());
 				UE_LOG(LogTemp, Warning, TEXT("[p] Move to case %s"), *NextCase->GetName());
 				MoveToCase(NextCase);
-				WolfAttack();
+				//WolfAttack();
 				Path.RemoveAt(0);
 			}
 			else {
@@ -154,7 +154,7 @@ void AWolf::UpdateCasesColor() {
 
 void AWolf::WolfAttack() {
 	AJulie* Player = Cast<AJulie>(UGameplayStatics::GetPlayerPawn(this, 0));
-	if (Player == nullptr) {
+	if (Player == nullptr || Julie) {
 		return;
 	}
 	if (CurrentCase->GetPawnsOnCase().Contains(Player)) {
@@ -212,14 +212,7 @@ void AWolf::WolfTurnEnd() {
 
 void AWolf::EndAction() {
 	WolfTurnEnd();
-	if (Julie) {
-		Julie->OnDeath.AddLambda([this](AGamePawn* JuliePawn) {
-			if (OnActionEnded.IsBound()) {
-				OnActionEnded.Broadcast(this);
-			}
-			});
-	}
-	else {
+	if (!Julie) {
 		if (OnActionEnded.IsBound()) {
 			OnActionEnded.Broadcast(this);
 		}

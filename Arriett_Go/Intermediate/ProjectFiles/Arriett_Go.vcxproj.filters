@@ -125,6 +125,18 @@
     <ClInclude Include="..\..\Source\Arriett_Go\Julie.h">
       <Filter>Source\Arriett_Go</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\LRRH_Level.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\LRRH_Level.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\Objectives.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\Objectives.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Arriett_Go\State.cpp">
       <Filter>Source\Arriett_Go</Filter>
     </ClCompile>

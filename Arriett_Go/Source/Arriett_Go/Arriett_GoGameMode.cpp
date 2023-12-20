@@ -28,18 +28,20 @@ UGameModeStateMachine::UGameModeStateMachine(AArriett_GoGameMode* Owner) {
 void UGameModeStateMachine::SetOwner(AArriett_GoGameMode* NewOwner) {
 	Owner = NewOwner;
 }
-void UGameModeStateMachine::SetNextState(UState_GameMode*  NewState) {
+void UGameModeStateMachine::SetNextState(UState_GameMode* NewState) {
 	UE_LOG(LogTemp, Warning, TEXT("SetNextState Current State : %s"), *CurrentState->GetName());
+	UE_LOG(LogTemp, Warning, TEXT("SetNextState New State : %s"), *NewState->GetName());
 
 	UState_GameMode* GM_State = Cast<UState_GameMode>(CurrentState);
 	if (GM_State) {
-		//auto GameModeStateClass = Cast<UState_GameMode>(NewStateClass);
-		GM_State->SetNextState(NewState);
+		UState_GameModeEndGame* EndGameState = Cast<UState_GameModeEndGame>(GM_State->GetNextState());
+		if (!EndGameState || !EndGameState->bIsWin) {
+			GM_State->SetNextState(NewState);
+		}
+		else {
+			UE_LOG(LogTemp, Warning, TEXT("CurrentState is not a UState_GameMode"));
+		}
 	}
-	else {
-		UE_LOG(LogTemp, Warning, TEXT("CurrentState is not a UState_GameMode"));
-	}
-
 }
 
 
@@ -60,7 +62,7 @@ AArriett_GoGameMode::AArriett_GoGameMode()
 
 	// set default controller to our Blueprinted controller
 	static ConstructorHelpers::FClassFinder<APlayerController> PlayerControllerBPClass(TEXT("/Game/TopDown/Blueprints/BP_ArriettyGoController"));
-	if(PlayerControllerBPClass.Class != NULL)
+	if (PlayerControllerBPClass.Class != NULL)
 	{
 		PlayerControllerClass = PlayerControllerBPClass.Class;
 	}
@@ -195,9 +197,19 @@ void AArriett_GoGameMode::PawnColorCases() {
 	}
 }
 
-void AArriett_GoGameMode::PlayerDeath(AGamePawn * DeadPawn) {
+void AArriett_GoGameMode::PlayerDeath(AGamePawn* DeadPawn) {
 	bIsPlayerPawnDead = true;
-	FSM->SetNextState(NewObject<UState_GameModeEndGame>());
+	UState_GameModeEndGame* NewState = NewObject<UState_GameModeEndGame>();
+	NewState->SetGamemode(this);
+	NewState->bIsWin = false;
+	FSM->SetNextState(NewState);
+}
+
+void AArriett_GoGameMode::PlayerWin() {
+	UState_GameModeEndGame* NewState = NewObject<UState_GameModeEndGame>();
+	NewState->SetGamemode(this);
+	NewState->bIsWin = true;
+	FSM->SetNextState(NewState);
 }
 /***********************************************************************
 *                TURN FUNCTIONS                                        *
@@ -212,8 +224,10 @@ int32 AArriett_GoGameMode::GetNbTurn() const {
 	return NbTurn;
 }
 
+
 void AArriett_GoGameMode::AddTurn() {
 	NbTurn++;
+	FString Turn = "Number Turn : " + FString::FromInt(NbTurn);
 	OnTurnNumberChanged.Broadcast();
 }
 
@@ -244,14 +258,48 @@ void AArriett_GoGameMode::RestartCurrentLevel() {
 		CurrentMapName = CurrentMapName.RightChop(9);
 	}
 #endif
-	UGameplayStatics::OpenLevel(GetWorld(), FName(CurrentMapName),false);
+	UGameplayStatics::OpenLevel(GetWorld(), FName(CurrentMapName), false);
+}
+
+void AArriett_GoGameMode::WinGame() {
+	auto WidgetClass = LoadClass<UUserWidget>(nullptr, TEXT("WidgetBlueprint'/Game/UI/UI_EndLevelScreen.UI_EndLevelScreen_C'"));
+	if (!WidgetClass) {
+		UE_LOG(LogTemp, Warning, TEXT("Widget class not found"));
+		return;
+	}
+	UUserWidget* Widget = CreateWidget(GetWorld(), WidgetClass);
+	Widget->AddToViewport();
+	for (AEnemyPawn* Enemy : Enemies) {
+		Enemy->SilenceSounds();
+	}
+	USoundBase* WinSound = LoadObject<USoundBase>(nullptr, TEXT("SoundWave'/Game/SFX/WinSound.WinSound'"));
+	UGameplayStatics::PlaySound2D(GetWorld(), WinSound);
+
+}
+
+void AArriett_GoGameMode::LoseGame() {
+
+	auto WidgetClass = LoadClass<UUserWidget>(nullptr, TEXT("WidgetBlueprint'/Game/UI/UI_DeathScreen.UI_DeathScreen_C'"));
+	if (!WidgetClass) {
+		UE_LOG(LogTemp, Warning, TEXT("Widget class not found"));
+		return;
+	}
+	UUserWidget* Widget = CreateWidget(GetWorld(), WidgetClass);
+	Widget->AddToViewport();
+	for (AEnemyPawn* Enemy : Enemies) {
+		Enemy->SilenceSounds();
+	}
+	UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0)->StartCameraFade(0.f, 1.f, 2.f, FLinearColor::Black, false, true);
+	GetWorldTimerManager().SetTimer(RestartTimer, this, &AArriett_GoGameMode::RestartCurrentLevel, 2.f, false);
+	USoundBase* LoseSound = LoadObject<USoundBase>(nullptr, TEXT("SoundWave'/Game/SFX/LoseSound.LoseSound'"));
+	UGameplayStatics::PlaySound2D(GetWorld(), LoseSound);
 }
 
 /***********************************************************************
 *				STATES FUNCTIONS                                       *
 ***********************************************************************/
 
-	/* Input State */
+/* Input State */
 
 void AArriett_GoGameMode::SetSelectedCase(AGridCase* NewSelectedCase) {
 	SelectedCase = NewSelectedCase;
@@ -262,7 +310,7 @@ void AArriett_GoGameMode::SetSelectedCase(AGridCase* NewSelectedCase) {
 AGridCase* AArriett_GoGameMode::GetSelectedCase() const {
 	return SelectedCase;
 }
-	/* Player Movement State */
+/* Player Movement State */
 
 bool AArriett_GoGameMode::GetPlayerMovementEnded() const {
 	return PlayerMovementEnded;
@@ -277,48 +325,14 @@ void AArriett_GoGameMode::PlayerMovementEnd() {
 	FSM->UpdateState();
 }
 
-	/* Case Effect State */
+/* Case Effect State */
 
 void AArriett_GoGameMode::EffectGridCasesActions() {
 	for (AEffectGridCase* EffectGridCase : EffectGridCases) {
 		EffectGridCase->ActivateEffect();
 	}
-	CheckEndGame();
 }
 
-void AArriett_GoGameMode::CheckEndGame() {
-	if (!PlayerPawn || !PlayerPawn->IsValidLowLevel() || PlayerPawn->IsActorBeingDestroyed() || bIsPlayerPawnDead) {
-		GEngine -> AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Lose"));
-
-		auto WidgetClass = LoadClass<UUserWidget>(nullptr, TEXT("WidgetBlueprint'/Game/UI/UI_DeathScreen.UI_DeathScreen_C'"));
-		if (!WidgetClass) {
-			UE_LOG(LogTemp, Warning, TEXT("Widget class not found"));
-			return;
-		}
-		UUserWidget* Widget = CreateWidget(GetWorld(), WidgetClass);
-		Widget->AddToViewport();
-		for (AEnemyPawn* Enemy : Enemies) {
-			Enemy -> SilenceSounds();
-		} 
-		UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0)->StartCameraFade(0.f, 1.f, 2.f, FLinearColor::Black, false, true);
-		GetWorldTimerManager().SetTimer(RestartTimer,this, &AArriett_GoGameMode::RestartCurrentLevel, 2.f, false);
-	}
-	else {
-		if (PlayerPawn->GetCurrentCase()->IsA(AEndCase::StaticClass())) {
-			// Win widget
-			auto WidgetClass = LoadClass<UUserWidget>(nullptr, TEXT("WidgetBlueprint'/Game/UI/UI_EndLevelScreen.UI_EndLevelScreen_C'"));
-			if (!WidgetClass) {
-				UE_LOG(LogTemp, Warning, TEXT("Widget class not found"));
-				return;
-			}
-			UUserWidget* Widget = CreateWidget(GetWorld(), WidgetClass);
-			Widget->AddToViewport();
-			for (AEnemyPawn* Enemy : Enemies) {
-				Enemy->SilenceSounds();
-			}
-		}
-	}
-}
 
 TArray<AEffectGridCase*> AArriett_GoGameMode::GetEffectGridCasesToActivate() const {
 	return EffectGridCasesToActivate;
@@ -337,7 +351,7 @@ void AArriett_GoGameMode::ResetEffectGridCasesToActivate() {
 
 
 
-	/* Enemy Movement State */
+/* Enemy Movement State */
 
 
 
@@ -345,7 +359,6 @@ void AArriett_GoGameMode::EnemiesActions() {
 	for (AEnemyPawn* Enemy : Enemies) {
 		Enemy->EnemyAction();
 	}
-	AddTurn();
 }
 
 TArray<AEnemyPawn*> AArriett_GoGameMode::GetEnemiesToMove() const {
@@ -364,7 +377,7 @@ void AArriett_GoGameMode::RemoveEnemyToMove(AEnemyPawn* EnemyToRemove) {
 	FSM->UpdateState();
 }
 
-	/* Turn End State */
+/* Turn End State */
 
 void AArriett_GoGameMode::ResetTurnActivables() {
 	for (AEffectGridCase* EffectGridCase : EffectGridCases) {
@@ -373,8 +386,40 @@ void AArriett_GoGameMode::ResetTurnActivables() {
 }
 
 
-	/* FiniteStateMachine Getter */
+/* FiniteStateMachine Getter */
 UGameModeStateMachine* AArriett_GoGameMode::GetFSM() const {
 	return FSM;
+}
+
+/***********************************************************************
+*				PAUSE FUNCTIONS                                       *
+***********************************************************************/
+
+void AArriett_GoGameMode::PauseHandler() {
+	if (bIsGamePaused) {
+		ResumeGame();
+	}
+	else {
+		PauseGame();
+	}
+}
+
+void AArriett_GoGameMode::PauseGame() {
+	bIsGamePaused = true;
+	UGameplayStatics::SetGamePaused(GetWorld(), true);
+	UClass* PauseWidgetClass = LoadClass<UUserWidget>(nullptr, TEXT("WidgetBlueprint'/Game/UI/UI_PauseScreen.UI_PauseScreen_C'"));
+	if (!PauseWidgetClass) {
+		UE_LOG(LogTemp, Warning, TEXT("Widget class not found"));
+		return;
+	}
+	UUserWidget* Widget = CreateWidget(GetWorld(), PauseWidgetClass);
+	Widget->AddToViewport();
+	PauseWidget = Widget;
+}
+
+void AArriett_GoGameMode::ResumeGame() {
+	bIsGamePaused = false;
+	UGameplayStatics::SetGamePaused(GetWorld(), false);
+	PauseWidget->RemoveFromParent();
 }
 

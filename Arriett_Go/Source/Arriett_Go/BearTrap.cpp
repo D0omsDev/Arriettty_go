@@ -72,7 +72,6 @@ void ABearTrap::RefreshTrap() {
 void ABearTrap::EnterCase(AGamePawn* Pawn) {
 	Super::EnterCase(Pawn);
 	if (bIsTurnActivable) {
-		ConeShape = Cast<UStaticMesh>(StaticLoadObject(UStaticMesh::StaticClass(), NULL, TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cone.Shape_Cone'")));
 		bIsTurnActivable = false;
 		switch (TrapState) {
 		case ETrapState::Idle:
@@ -87,19 +86,6 @@ void ABearTrap::EnterCase(AGamePawn* Pawn) {
 	}
 }
 
-void ABearTrap::SetupMesh() {
-	/*ConeShape = Cast<UStaticMesh>(StaticLoadObject(UStaticMesh::StaticClass(), NULL, TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cone.Shape_Cone'")));
-	if (ConeShape) {
-		TrapMesh = NewObject<UStaticMeshComponent>(this, TEXT("TrapMesh"));
-		TrapMesh->RegisterComponent();
-		TrapMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-		TrapMesh->CreationMethod = EComponentCreationMethod::Instance;
-		TrapMesh->SetStaticMesh(ConeShape);
-		TrapMesh->SetCollisionProfileName(UCollisionProfile::NoCollision_ProfileName);
-		TrapMesh->SetVisibility(true);
-	}*/
-}
-
 void ABearTrap::ExitCase(AGamePawn* Pawn) {
 	Super::ExitCase(Pawn);
 	if (TrapState == ETrapState::FirstTrigger && PawnsOnCase.IsEmpty()) {
@@ -109,5 +95,4 @@ void ABearTrap::ExitCase(AGamePawn* Pawn) {
 
 void ABearTrap::PrepareTrap() {
 	TrapState = ETrapState::Prepared;
-	SetupMesh();
 }

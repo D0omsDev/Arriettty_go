@@ -63,7 +63,7 @@ void AArriett_GoPlayerController::SetupInputComponent()
 	{
 		// Setup mouse input events
 		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Started, this, &AArriett_GoPlayerController::OnSetDestinationTriggered);
-		//EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Triggered, this, &AArriett_GoPlayerController::OnSetDestinationTriggered);
+		EnhancedInputComponent->BindAction(PauseAction, ETriggerEvent::Started, this, &AArriett_GoPlayerController::PauseInput);
 		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Completed, this, &AArriett_GoPlayerController::OnInputEnded);
 
 		// Setup touch input events
@@ -146,11 +146,7 @@ void AArriett_GoPlayerController::OnSetDestinationTriggered()
 	}
 	else {
 		// Move towards case hit
-		//ControlledPawn->MoveToCase(GridCaseHit);
 		A_GameMode -> SetSelectedCase(GridCaseHit);
-		//A_GameMode -> EnemiesActions();SetPlaybackPosition: No float property 'None'
-		/*A_GameMode->EffectGridCasesActions();
-		A_GameMode->AddTurn();*/
 	}
 
 }
@@ -171,3 +167,21 @@ void AArriett_GoPlayerController::OnTouchTriggered()
 	bIsTouch = true;
 	OnSetDestinationTriggered();
 }
+
+void AArriett_GoPlayerController::PauseInput()
+{
+	AArriett_GoGameMode* A_GameMode = nullptr;
+	if (UGameplayStatics::GetGameMode(GetWorld())) {
+		A_GameMode = Cast<AArriett_GoGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+		if (!A_GameMode) {
+			UE_LOG(LogTemp, Warning, TEXT("GameMode is not valid"));
+			return;
+		}
+	}
+	else {
+		UE_LOG(LogTemp, Warning, TEXT("GameMode is not valid"));
+	}
+	A_GameMode->PauseHandler();
+}
+
+

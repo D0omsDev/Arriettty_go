@@ -90,7 +90,6 @@ void AJulie::Tick(float DeltaSeconds)
 		// If the name doesn't have the expected prefix, use the full name
 		LevelNameWithoutPrefix = CurrentMapName;
 	}
-	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Current Level Name: %s"), *LevelNameWithoutPrefix));
 }
 
 /***********************************************************************

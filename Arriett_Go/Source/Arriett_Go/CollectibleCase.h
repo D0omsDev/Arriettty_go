@@ -21,6 +21,10 @@ public :
 protected :
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent* CollectibleMesh = nullptr;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SoundEffects")
+	UAudioComponent* CollectSound;
+
+	bool bIsCollected = false;
 
 	
 };
