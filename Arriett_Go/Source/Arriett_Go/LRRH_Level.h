@@ -18,6 +18,7 @@ class ARRIETT_GO_API ALRRH_Level : public ALevelScriptActor
 	GENERATED_BODY()
 
 public : 
+ALRRH_Level();
 	UFUNCTION(BlueprintCallable,BlueprintPure)
 	UObjectives* GetObjectives() const;
 	
@@ -30,6 +31,8 @@ protected :
 
 	UPROPERTY(BlueprintReadWrite)
 	TSoftObjectPtr<UWorld> NextLevelPtr;
+
+	UAudioComponent* AmbientSound;
 	
 };
 
