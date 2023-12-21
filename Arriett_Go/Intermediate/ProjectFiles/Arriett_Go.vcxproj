@@ -182,12 +182,12 @@
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Arriett_Go\Private\Pawns\Enemies\EnemyPawn.cpp">
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Pawns\Enemies\Boar.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Arriett_Go\Private\Pawns\Enemies\Hunter.cpp">
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Pawns\Enemies\EnemyPawn.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
@@ -225,8 +225,8 @@
     <ClInclude Include="..\..\Source\Arriett_Go\Public\Misc\Arriett_GoGameMode.h"/>
     <ClInclude Include="..\..\Source\Arriett_Go\Public\Misc\Arriett_GoPlayerController.h"/>
     <ClInclude Include="..\..\Source\Arriett_Go\Public\Pawns\GamePawn.h"/>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Pawns\Enemies\Boar.h"/>
     <ClInclude Include="..\..\Source\Arriett_Go\Public\Pawns\Enemies\EnemyPawn.h"/>
-    <ClInclude Include="..\..\Source\Arriett_Go\Public\Pawns\Enemies\Hunter.h"/>
     <ClInclude Include="..\..\Source\Arriett_Go\Public\Pawns\Enemies\Wolf.h"/>
     <ClInclude Include="..\..\Source\Arriett_Go\Public\Pawns\Player\Julie.h"/>
     <ClInclude Include="..\..\Source\Arriett_Go\Public\StateMachine\FiniteStateMachine.h"/>

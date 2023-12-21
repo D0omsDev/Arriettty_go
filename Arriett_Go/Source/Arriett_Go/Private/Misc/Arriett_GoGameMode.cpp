@@ -10,7 +10,7 @@
 #include "Pawns/Enemies/EnemyPawn.h"
 #include "EngineUtils.h"
 #include "Cases/GridCase.h"	
-#include "Pawns/Enemies/Hunter.h"
+#include "Pawns/Enemies/Boar.h"
 #include "Pawns/Player/Julie.h"	
 #include "Kismet/GameplayStatics.h"
 #include "StateMachine/State.h"

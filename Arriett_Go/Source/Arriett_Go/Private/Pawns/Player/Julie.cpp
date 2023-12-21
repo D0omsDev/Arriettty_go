@@ -11,7 +11,7 @@
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Cases/GridCase.h"
-#include "Pawns/Enemies/Hunter.h"
+#include "Pawns/Enemies/Boar.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Materials/Material.h"
 
@@ -140,8 +140,8 @@ void AJulie::UpdateCasesColor() {
 
 void AJulie::Death(AActor* Cause) {
 	if (Cause != nullptr) {
-		if (Cause->IsA(AHunter::StaticClass())) {
-			AHunter* Killer = Cast<AHunter>(Cause);
+		if (Cause->IsA(ABoar::StaticClass())) {
+			ABoar* Killer = Cast<ABoar>(Cause);
 			AGridCase* KillerCase = Killer->GetCurrentCase();
 			DeathAnimation = EJulieDeathAnimation::JDA_Flying;
 			FVector DirectionVector = GetActorLocation() - KillerCase->GetActorLocation();

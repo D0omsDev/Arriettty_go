@@ -2,11 +2,11 @@
 	"RemapUnityFiles": 
 	{
 		"Module.Arriett_Go.cpp.obj": [
-			"Arriett_Go.init.gen.cpp.obj",
 			"Arriett_GoCharacter.gen.cpp.obj",
 			"Arriett_GoGameMode.gen.cpp.obj",
 			"Arriett_GoPlayerController.gen.cpp.obj",
 			"BearTrap.gen.cpp.obj",
+			"Boar.gen.cpp.obj",
 			"CollectibleCase.gen.cpp.obj",
 			"EffectGridCase.gen.cpp.obj",
 			"EndCase.gen.cpp.obj",
@@ -14,7 +14,6 @@
 			"FiniteStateMachine.gen.cpp.obj",
 			"GamePawn.gen.cpp.obj",
 			"GridCase.gen.cpp.obj",
-			"Hunter.gen.cpp.obj",
 			"Julie.gen.cpp.obj",
 			"LRRH_Level.gen.cpp.obj",
 			"Objectives.gen.cpp.obj",
@@ -31,15 +30,16 @@
 			"GridCase.cpp.obj",
 			"LRRH_Level.cpp.obj",
 			"Objectives.cpp.obj",
-			"Arriett_GoGameMode.cpp.obj",
 			"Arriett_GoPlayerController.cpp.obj",
 			"EnemyPawn.cpp.obj",
-			"Hunter.cpp.obj",
 			"Wolf.cpp.obj",
 			"GamePawn.cpp.obj",
-			"Julie.cpp.obj",
 			"FiniteStateMachine.cpp.obj",
-			"State.cpp.obj"
+			"State.cpp.obj",
+			"Arriett_Go.init.gen.cpp.obj",
+			"Arriett_GoGameMode.cpp.obj",
+			"Boar.cpp.obj",
+			"Julie.cpp.obj"
 		]
 	}
 }

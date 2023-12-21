@@ -95,10 +95,10 @@
     <Filter Include="Source\Arriett_Go\Private\Pawns\Enemies">
       <UniqueIdentifier>{CEFDC48A-6CF2-3181-91E4-E827F3671225}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\Arriett_Go\Private\Pawns\Enemies\EnemyPawn.cpp">
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Pawns\Enemies\Boar.cpp">
       <Filter>Source\Arriett_Go\Private\Pawns\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Arriett_Go\Private\Pawns\Enemies\Hunter.cpp">
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Pawns\Enemies\EnemyPawn.cpp">
       <Filter>Source\Arriett_Go\Private\Pawns\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Arriett_Go\Private\Pawns\Enemies\Wolf.cpp">
@@ -179,10 +179,10 @@
     <Filter Include="Source\Arriett_Go\Public\Pawns\Enemies">
       <UniqueIdentifier>{FE91D8C0-46B0-363F-AD8E-08127A767046}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Source\Arriett_Go\Public\Pawns\Enemies\EnemyPawn.h">
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Pawns\Enemies\Boar.h">
       <Filter>Source\Arriett_Go\Public\Pawns\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Arriett_Go\Public\Pawns\Enemies\Hunter.h">
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Pawns\Enemies\EnemyPawn.h">
       <Filter>Source\Arriett_Go\Public\Pawns\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Arriett_Go\Public\Pawns\Enemies\Wolf.h">
