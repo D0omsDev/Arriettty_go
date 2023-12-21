@@ -122,11 +122,6 @@
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Arriett_Go\Private\Arriett_GoCharacter.cpp">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
-      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Arriett_Go\Private\Cases\GridCase.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -213,7 +208,6 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\Arriett_Go\Public\Arriett_Go.h"/>
-    <ClInclude Include="..\..\Source\Arriett_Go\Public\Arriett_GoCharacter.h"/>
     <ClInclude Include="..\..\Source\Arriett_Go\Public\Cases\GridCase.h"/>
     <ClInclude Include="..\..\Source\Arriett_Go\Public\Cases\EffectCases\BearTrap.h"/>
     <ClInclude Include="..\..\Source\Arriett_Go\Public\Cases\EffectCases\CollectibleCase.h"/>

@@ -3,9 +3,9 @@
 
 #include "Cases/EffectCases/WoodStick.h"
 #include "Components/AudioComponent.h"
+#include "Pawns/Enemies/Wolf.h"
 #include "Pawns/Player/Julie.h"
 #include "Kismet/GameplayStatics.h"
-#include "Pawns/Enemies/Wolf.h"
 
 AWoodStick::AWoodStick() {
 	

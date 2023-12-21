@@ -1,22 +1,21 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "Misc/Arriett_GoGameMode.h"
-#include "Misc/Arriett_GoPlayerController.h"
-#include "Arriett_GoCharacter.h"
-#include "Cases/EffectCases/BearTrap.h"
 #include "Blueprint/UserWidget.h"
+#include "Cases/EffectCases/BearTrap.h"
 #include "Cases/EffectCases/EffectGridCase.h"
 #include "Cases/EffectCases/EndCase.h"
-#include "Pawns/Enemies/EnemyPawn.h"
-#include "EngineUtils.h"
 #include "Cases/GridCase.h"	
-#include "Pawns/Enemies/Boar.h"
-#include "Pawns/Player/Julie.h"	
+#include "EngineUtils.h"
 #include "Kismet/GameplayStatics.h"
+#include "Misc/Arriett_GoPlayerController.h"
+#include "Pawns/Enemies/Boar.h"
+#include "Pawns/Enemies/EnemyPawn.h"
+#include "Pawns/Enemies/Wolf.h"
+#include "Pawns/Player/Julie.h"	
 #include "StateMachine/State.h"
 #include "TimerManager.h"
 #include "UObject/ConstructorHelpers.h"
-#include "Pawns/Enemies/Wolf.h"
 
 
 UGameModeStateMachine::UGameModeStateMachine(AArriett_GoGameMode* Owner) {

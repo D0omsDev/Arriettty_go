@@ -43,6 +43,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SoundEffects")
 	UAudioComponent* CloseSound;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SoundEffects")
+	UAudioComponent* ArmSound;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "StickMesh")
 	UStaticMeshComponent* TrapMesh;
 

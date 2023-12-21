@@ -2,10 +2,10 @@
 
 
 #include "LevelActor/LRRH_Level.h"
-#include "Misc/Arriett_GoGameMode.h"
 #include "Components/AudioComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "LevelActor/Objectives.h"
+#include "Misc/Arriett_GoGameMode.h"
 
 ALRRH_Level::ALRRH_Level()
 {

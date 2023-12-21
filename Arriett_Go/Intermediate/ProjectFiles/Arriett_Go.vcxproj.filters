@@ -41,9 +41,6 @@
     <ClCompile Include="..\..\Source\Arriett_Go\Private\Arriett_Go.cpp">
       <Filter>Source\Arriett_Go\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Arriett_Go\Private\Arriett_GoCharacter.cpp">
-      <Filter>Source\Arriett_Go\Private</Filter>
-    </ClCompile>
     <Filter Include="Source\Arriett_Go\Private\Cases">
       <UniqueIdentifier>{154F3FB4-7CB7-35A5-916F-251957B334D2}</UniqueIdentifier>
     </Filter>
@@ -123,9 +120,6 @@
       <UniqueIdentifier>{CC6D6846-5CEA-306E-84C3-326709036EAF}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\Arriett_Go\Public\Arriett_Go.h">
-      <Filter>Source\Arriett_Go\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Arriett_Go\Public\Arriett_GoCharacter.h">
       <Filter>Source\Arriett_Go\Public</Filter>
     </ClInclude>
     <Filter Include="Source\Arriett_Go\Public\Cases">

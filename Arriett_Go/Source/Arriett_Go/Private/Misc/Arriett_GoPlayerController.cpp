@@ -1,21 +1,20 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "Misc/Arriett_GoPlayerController.h"
-#include "Misc/Arriett_GoGameMode.h"
-#include "GameFramework/Pawn.h"
-#include "Cases/GridCase.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
-#include "NiagaraSystem.h"
-#include "NiagaraFunctionLibrary.h"
-#include "Arriett_GoCharacter.h"
-#include "Engine/World.h"
-#include "EnhancedInputComponent.h"
-#include "InputActionValue.h"
-#include "EnhancedInputSubsystems.h"
+#include "Cases/GridCase.h"
 #include "Engine/LocalPlayer.h"
-#include "Kismet/GameplayStatics.h"
-#include "Pawns/Player/Julie.h"
+#include "Engine/World.h"
 #include "EngineUtils.h"
+#include "EnhancedInputComponent.h"
+#include "EnhancedInputSubsystems.h"
+#include "GameFramework/Pawn.h"
+#include "InputActionValue.h"
+#include "Kismet/GameplayStatics.h"
+#include "Misc/Arriett_GoGameMode.h"
+#include "NiagaraFunctionLibrary.h"
+#include "NiagaraSystem.h"
+#include "Pawns/Player/Julie.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 

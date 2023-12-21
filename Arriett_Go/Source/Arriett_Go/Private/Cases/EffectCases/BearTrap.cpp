@@ -28,6 +28,10 @@ ABearTrap::ABearTrap() {
 	CloseSound->SetupAttachment(RootComponent);
 	CloseSound->bAutoActivate = false;
 
+	ArmSound = CreateDefaultSubobject<UAudioComponent>(TEXT("ArmSound"));
+	ArmSound->SetupAttachment(RootComponent);
+	ArmSound->bAutoActivate = false;
+
 	TrapMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("TrapMesh"));
 	TrapMesh->SetupAttachment(RootComponent);
 }
@@ -68,7 +72,7 @@ void ABearTrap::ExitCase(AGamePawn* Pawn) {
 }
 
 void ABearTrap::ActivateEffect() {
-	AJulie * Julie = nullptr;
+	AJulie* Julie = nullptr;
 	bool bNoPendingKill = false;
 	if (TrapState == ETrapState::Active) {
 		CloseSound->Play();
@@ -77,9 +81,9 @@ void ABearTrap::ActivateEffect() {
 			if (Pawn != nullptr) {
 				bNoPendingKill = true;
 				Pawn->Death(this);
-				Pawn->OnDeath.AddLambda([this](AGamePawn * JuliePawn) {
+				Pawn->OnDeath.AddLambda([this](AGamePawn* JuliePawn) {
 					Super::ActivateEffect();
-				});
+					});
 			}
 		}
 		TrapMesh->SetVisibility(false);
@@ -98,4 +102,5 @@ void ABearTrap::RefreshTrap() {
 
 void ABearTrap::PrepareTrap() {
 	TrapState = ETrapState::Prepared;
+	ArmSound->Play();
 }

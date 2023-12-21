@@ -2,15 +2,15 @@
 
 
 #include "Pawns/GamePawn.h"
-#include "Cases/GridCase.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
+#include "Cases/GridCase.h"
 #include "Components/AudioComponent.h"
-#include "UObject/ConstructorHelpers.h"
-#include "Pawns/Player/Julie.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Kismet/GameplayStatics.h"
 #include "NiagaraSystem.h"
 #include "NiagaraFunctionLibrary.h"
+#include "Pawns/Player/Julie.h"
+#include "UObject/ConstructorHelpers.h"
 
 // Sets default values
 AGamePawn::AGamePawn()

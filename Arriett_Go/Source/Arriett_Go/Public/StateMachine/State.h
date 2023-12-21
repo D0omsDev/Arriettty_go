@@ -3,8 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Misc/Arriett_GoGameMode.h"
 #include "Cases/GridCase.h"
+#include "Misc/Arriett_GoGameMode.h"
 #include "UObject/NoExportTypes.h"
 #include "State.generated.h"
 

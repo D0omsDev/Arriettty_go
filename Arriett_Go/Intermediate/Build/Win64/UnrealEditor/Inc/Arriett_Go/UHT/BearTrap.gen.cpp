@@ -100,6 +100,10 @@ void EmptyLinkFunctionForGeneratedCodeBearTrap() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_CloseSound;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ArmSound_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ArmSound;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_TrapMesh_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_TrapMesh;
@@ -127,6 +131,14 @@ void EmptyLinkFunctionForGeneratedCodeBearTrap() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABearTrap_Statics::NewProp_CloseSound = { "CloseSound", nullptr, (EPropertyFlags)0x002008000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABearTrap, CloseSound), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABearTrap_Statics::NewProp_CloseSound_MetaData), Z_Construct_UClass_ABearTrap_Statics::NewProp_CloseSound_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABearTrap_Statics::NewProp_ArmSound_MetaData[] = {
+		{ "Category", "SoundEffects" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/Cases/EffectCases/BearTrap.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABearTrap_Statics::NewProp_ArmSound = { "ArmSound", nullptr, (EPropertyFlags)0x002008000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABearTrap, ArmSound), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABearTrap_Statics::NewProp_ArmSound_MetaData), Z_Construct_UClass_ABearTrap_Statics::NewProp_ArmSound_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABearTrap_Statics::NewProp_TrapMesh_MetaData[] = {
 		{ "Category", "StickMesh" },
 		{ "EditInline", "true" },
@@ -136,6 +148,7 @@ void EmptyLinkFunctionForGeneratedCodeBearTrap() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABearTrap_Statics::NewProp_TrapMesh = { "TrapMesh", nullptr, (EPropertyFlags)0x002008000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABearTrap, TrapMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABearTrap_Statics::NewProp_TrapMesh_MetaData), Z_Construct_UClass_ABearTrap_Statics::NewProp_TrapMesh_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABearTrap_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABearTrap_Statics::NewProp_CloseSound,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABearTrap_Statics::NewProp_ArmSound,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABearTrap_Statics::NewProp_TrapMesh,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ABearTrap_Statics::StaticCppClassTypeInfo = {
@@ -180,9 +193,9 @@ void EmptyLinkFunctionForGeneratedCodeBearTrap() {}
 		{ ETrapState_StaticEnum, TEXT("ETrapState"), &Z_Registration_Info_UEnum_ETrapState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 159602525U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_EffectCases_BearTrap_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ABearTrap, ABearTrap::StaticClass, TEXT("ABearTrap"), &Z_Registration_Info_UClass_ABearTrap, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABearTrap), 377817877U) },
+		{ Z_Construct_UClass_ABearTrap, ABearTrap::StaticClass, TEXT("ABearTrap"), &Z_Registration_Info_UClass_ABearTrap, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABearTrap), 1175678514U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_EffectCases_BearTrap_h_2827846238(TEXT("/Script/Arriett_Go"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_EffectCases_BearTrap_h_2460245059(TEXT("/Script/Arriett_Go"),
 		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_EffectCases_BearTrap_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_EffectCases_BearTrap_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_EffectCases_BearTrap_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_EffectCases_BearTrap_h_Statics::EnumInfo));

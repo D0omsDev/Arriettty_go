@@ -3,8 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Cases/GridCase.h"
 #include "Cases/EffectCases/EffectGridCase.h"
+#include "Cases/GridCase.h"
 #include "EndCase.generated.h"
 
 /**

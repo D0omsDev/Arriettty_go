@@ -2,13 +2,13 @@
 
 
 #include "Pawns/Enemies/Boar.h"
-#include "Components/AudioComponent.h"
-#include "Misc/Arriett_GoGameMode.h"
 #include "Cases/GridCase.h"
-#include "Pawns/Player/Julie.h"
-#include "Kismet/KismetMathLibrary.h"
+#include "Components/AudioComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetMathLibrary.h"
+#include "Misc/Arriett_GoGameMode.h"
 #include "Pawns/Enemies/Wolf.h"
+#include "Pawns/Player/Julie.h"
 
 
 /***********************************************************************

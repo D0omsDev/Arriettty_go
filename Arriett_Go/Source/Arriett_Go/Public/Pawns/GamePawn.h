@@ -3,9 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Character.h"
 #include "Components/TimelineComponent.h"
+#include "GameFramework/Character.h"
 #include "GamePawn.generated.h"
+
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnActionEnded, AGamePawn*);
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnDeath, AGamePawn*);
 class AGridCase;

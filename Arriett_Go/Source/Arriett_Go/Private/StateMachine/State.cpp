@@ -2,8 +2,8 @@
 
 
 #include "StateMachine/State.h"
-#include "Misc/Arriett_GoGameMode.h"
 #include "Cases/GridCase.h"
+#include "Misc/Arriett_GoGameMode.h"
 #include "Pawns/Player/Julie.h"
 #include "StateMachine/FiniteStateMachine.h"
 
