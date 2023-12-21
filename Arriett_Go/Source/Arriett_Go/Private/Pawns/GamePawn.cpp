@@ -206,6 +206,7 @@ void AGamePawn::TravelTransition(float AlphaX, float AlphaY, float AlphaZ) {
 	if (!bPawnAnimation) {
 		ZOffset = 0;
 	}
+	
 	FVector Origin;
 	FVector BoxExtent;
 	GetActorBounds(true, Origin, BoxExtent);
