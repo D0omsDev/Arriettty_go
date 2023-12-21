@@ -111,6 +111,8 @@ public:
 	UFUNCTION()
 	virtual void DeathTimelineFinishedCallback();
 
+	virtual void HideMesh();
+
 
 
 public:

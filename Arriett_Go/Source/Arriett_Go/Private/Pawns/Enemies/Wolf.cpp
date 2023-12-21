@@ -136,6 +136,10 @@ void AWolf::MoveToCase(AGridCase* Case) {
 	StartTravel();
 }
 
+void AWolf::HideMesh() {
+	WolfMesh->SetVisibility(false);
+}
+
 void AWolf::UpdateCasesColor() {
 	for (int i = 0; i < Path.Num(); i++) {
 		//Color cases in Yellow

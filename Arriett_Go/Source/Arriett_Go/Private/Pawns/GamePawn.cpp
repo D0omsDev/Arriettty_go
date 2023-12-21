@@ -316,6 +316,10 @@ void AGamePawn::DeathTimelineFinishedCallback()
 
 void AGamePawn::PlayDeathTimeline() {
 	UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), ConfettiSystem, GetActorLocation());
-	GetMesh()->SetVisibility(false,true);
+	HideMesh();
 	DeathTimeline->PlayFromStart();
+}
+
+void AGamePawn::HideMesh() {
+	GetMesh()->SetVisibility(false, true);
 }

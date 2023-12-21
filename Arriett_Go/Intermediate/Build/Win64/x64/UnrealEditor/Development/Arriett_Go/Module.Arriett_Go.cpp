@@ -30,7 +30,6 @@
 #include "C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Source/Arriett_Go/Private/Misc/Arriett_GoPlayerController.cpp"
 #include "C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Source/Arriett_Go/Private/Pawns/Enemies/Boar.cpp"
 #include "C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Source/Arriett_Go/Private/Pawns/Enemies/EnemyPawn.cpp"
-#include "C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Source/Arriett_Go/Private/Pawns/Enemies/Wolf.cpp"
 #include "C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Source/Arriett_Go/Private/Pawns/Player/Julie.cpp"
 #include "C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Source/Arriett_Go/Private/StateMachine/FiniteStateMachine.cpp"
 #include "C:/Users/mykud/Desktop/Cours/Arriettty_go/Arriett_Go/Source/Arriett_Go/Private/StateMachine/State.cpp"

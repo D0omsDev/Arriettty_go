@@ -32,6 +32,7 @@ protected:
 	void WolfTurnEnd();
 	virtual void EndAction() override;
 	virtual void MoveToCase(AGridCase* Case) override;
+	virtual void HideMesh() override;
 	bool bIsAwaken = false;
 
 	/***********************************************************************
