@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Arriett_Go/GamePawn.h"
+#include "Arriett_Go/Public/Pawns/GamePawn.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 // Cross Module References
@@ -51,7 +51,7 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/*\n* Enum used to know the type of movement of the pawn\n*/" },
 #endif
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 		{ "PawnMovementType_None.Name", "EPawnMovementType::PawnMovementType_None" },
 		{ "PawnMovementType_Rotate.Name", "EPawnMovementType::PawnMovementType_Rotate" },
 		{ "PawnMovementType_Travel.Name", "EPawnMovementType::PawnMovementType_Travel" },
@@ -148,7 +148,7 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGamePawn_DeathTimelineCallback_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGamePawn_DeathTimelineCallback_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGamePawn, nullptr, "DeathTimelineCallback", nullptr, nullptr, Z_Construct_UFunction_AGamePawn_DeathTimelineCallback_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGamePawn_DeathTimelineCallback_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGamePawn_DeathTimelineCallback_Statics::GamePawn_eventDeathTimelineCallback_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGamePawn_DeathTimelineCallback_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGamePawn_DeathTimelineCallback_Statics::Function_MetaDataParams) };
@@ -172,7 +172,7 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGamePawn_DeathTimelineFinishedCallback_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGamePawn_DeathTimelineFinishedCallback_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGamePawn, nullptr, "DeathTimelineFinishedCallback", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGamePawn_DeathTimelineFinishedCallback_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGamePawn_DeathTimelineFinishedCallback_Statics::Function_MetaDataParams) };
@@ -194,7 +194,7 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGamePawn_PlayDeathTimeline_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGamePawn_PlayDeathTimeline_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGamePawn, nullptr, "PlayDeathTimeline", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGamePawn_PlayDeathTimeline_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGamePawn_PlayDeathTimeline_Statics::Function_MetaDataParams) };
@@ -226,7 +226,7 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGamePawn_TimelineCallback_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGamePawn_TimelineCallback_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGamePawn, nullptr, "TimelineCallback", nullptr, nullptr, Z_Construct_UFunction_AGamePawn_TimelineCallback_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGamePawn_TimelineCallback_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGamePawn_TimelineCallback_Statics::GamePawn_eventTimelineCallback_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGamePawn_TimelineCallback_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGamePawn_TimelineCallback_Statics::Function_MetaDataParams) };
@@ -250,7 +250,7 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGamePawn_TimelineFinishedCallback_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGamePawn_TimelineFinishedCallback_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGamePawn, nullptr, "TimelineFinishedCallback", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGamePawn_TimelineFinishedCallback_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGamePawn_TimelineFinishedCallback_Statics::Function_MetaDataParams) };
@@ -359,11 +359,11 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AGamePawn_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AGamePawn_DeathTimelineCallback, "DeathTimelineCallback" }, // 4170549002
-		{ &Z_Construct_UFunction_AGamePawn_DeathTimelineFinishedCallback, "DeathTimelineFinishedCallback" }, // 1655558938
-		{ &Z_Construct_UFunction_AGamePawn_PlayDeathTimeline, "PlayDeathTimeline" }, // 1980571334
-		{ &Z_Construct_UFunction_AGamePawn_TimelineCallback, "TimelineCallback" }, // 1431568051
-		{ &Z_Construct_UFunction_AGamePawn_TimelineFinishedCallback, "TimelineFinishedCallback" }, // 3722203596
+		{ &Z_Construct_UFunction_AGamePawn_DeathTimelineCallback, "DeathTimelineCallback" }, // 4189438105
+		{ &Z_Construct_UFunction_AGamePawn_DeathTimelineFinishedCallback, "DeathTimelineFinishedCallback" }, // 1474098712
+		{ &Z_Construct_UFunction_AGamePawn_PlayDeathTimeline, "PlayDeathTimeline" }, // 138820547
+		{ &Z_Construct_UFunction_AGamePawn_TimelineCallback, "TimelineCallback" }, // 3123164984
+		{ &Z_Construct_UFunction_AGamePawn_TimelineFinishedCallback, "TimelineFinishedCallback" }, // 2001411275
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -372,8 +372,8 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 		{ "Comment", "/*\n* Abstract class used to manage the pawns of the game\n*/" },
 #endif
 		{ "HideCategories", "Navigation" },
-		{ "IncludePath", "GamePawn.h" },
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "IncludePath", "Pawns/GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "* Abstract class used to manage the pawns of the game" },
 #endif
@@ -382,7 +382,7 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_StartCase_MetaData[] = {
 		{ "Category", "GamePawn" },
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_StartCase = { "StartCase", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, StartCase), Z_Construct_UClass_AGridCase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_StartCase_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_StartCase_MetaData) };
@@ -392,7 +392,7 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/***********************************************************************\n\x09*\x09\x09\x09\x09MOVEMENT VARIABLES\x09\x09\x09\x09\x09\x09               *\n\x09***********************************************************************/// The Current case of the pawn\n" },
 #endif
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "MOVEMENT VARIABLES                                                             *\n*********************************************************************// The Current case of the pawn" },
 #endif
@@ -405,7 +405,7 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// The Next case of the pawn\n" },
 #endif
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "The Next case of the pawn" },
 #endif
@@ -418,20 +418,20 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// The Next type of movement at the timeline activation\n" },
 #endif
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "The Next type of movement at the timeline activation" },
 #endif
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_MovementType = { "MovementType", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, MovementType), Z_Construct_UEnum_Arriett_Go_EPawnMovementType, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_MovementType_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_MovementType_MetaData) }; // 2875913179
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_MovementType = { "MovementType", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, MovementType), Z_Construct_UEnum_Arriett_Go_EPawnMovementType, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_MovementType_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_MovementType_MetaData) }; // 640668542
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_MyTimeline_MetaData[] = {
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/***********************************************************************\n\x09*\x09\x09\x09\x09MOVEMENT TIMELINE COMPONENTS\x09\x09\x09               *\n\x09***********************************************************************/" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "MOVEMENT TIMELINE COMPONENTS                                   *" },
 #endif
@@ -440,31 +440,31 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_MyTimeline = { "MyTimeline", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, MyTimeline), Z_Construct_UClass_UTimelineComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_MyTimeline_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_MyTimeline_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatXCurve_MetaData[] = {
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatXCurve = { "FloatXCurve", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, FloatXCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatXCurve_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatXCurve_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatYCurve_MetaData[] = {
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatYCurve = { "FloatYCurve", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, FloatYCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatYCurve_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatYCurve_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatZCurve_MetaData[] = {
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatZCurve = { "FloatZCurve", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, FloatZCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatZCurve_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_FloatZCurve_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_ZOffsetCurve_MetaData[] = {
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_ZOffsetCurve = { "ZOffsetCurve", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, ZOffsetCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_ZOffsetCurve_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_ZOffsetCurve_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_TimelineDirection_MetaData[] = {
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_TimelineDirection = { "TimelineDirection", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, TimelineDirection), Z_Construct_UEnum_Engine_ETimelineDirection, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_TimelineDirection_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_TimelineDirection_MetaData) }; // 4229933074
@@ -475,7 +475,7 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 		{ "Comment", "/***********************************************************************\n\x09*\x09\x09\x09\x09""AUDIO VARIABLES\x09\x09\x09\x09\x09\x09\x09               *\n\x09***********************************************************************/" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "AUDIO VARIABLES                                                                *" },
 #endif
@@ -486,7 +486,7 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathSound_MetaData[] = {
 		{ "Category", "SoundEffects" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathSound = { "DeathSound", nullptr, (EPropertyFlags)0x002008000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, DeathSound), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathSound_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathSound_MetaData) };
@@ -496,7 +496,7 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/***********************************************************************\n\x09*\x09\x09\x09\x09""ANIMATION VARIABLES\x09\x09\x09\x09\x09\x09               *\n\x09***********************************************************************/" },
 #endif
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "ANIMATION VARIABLES                                                            *" },
 #endif
@@ -510,13 +510,13 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_JumpHeight_MetaData[] = {
 		{ "Category", "Animation" },
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_JumpHeight = { "JumpHeight", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, JumpHeight), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_JumpHeight_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_JumpHeight_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_CurveFloatValue_MetaData[] = {
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_CurveFloatValue = { "CurveFloatValue", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, CurveFloatValue), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_CurveFloatValue_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_CurveFloatValue_MetaData) };
@@ -526,7 +526,7 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 		{ "Comment", "/***********************************************************************\n\x09*\x09\x09\x09\x09""DEATH TIMELINE COMPONENTS\x09\x09\x09\x09\x09           *\n\x09***********************************************************************/" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "DEATH TIMELINE COMPONENTS                                                  *" },
 #endif
@@ -535,13 +535,13 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathTimeline = { "DeathTimeline", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, DeathTimeline), Z_Construct_UClass_UTimelineComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathTimeline_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathTimeline_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathFloatXCurve_MetaData[] = {
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathFloatXCurve = { "DeathFloatXCurve", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, DeathFloatXCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathFloatXCurve_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathFloatXCurve_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathFloatTimelineValue_MetaData[] = {
-		{ "ModuleRelativePath", "GamePawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/GamePawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathFloatTimelineValue = { "DeathFloatTimelineValue", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGamePawn, DeathFloatTimelineValue), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathFloatTimelineValue_MetaData), Z_Construct_UClass_AGamePawn_Statics::NewProp_DeathFloatTimelineValue_MetaData) };
@@ -599,19 +599,19 @@ void EmptyLinkFunctionForGeneratedCodeGamePawn() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AGamePawn);
 	AGamePawn::~AGamePawn() {}
-	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_GamePawn_h_Statics
 	{
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::EnumInfo[] = {
-		{ EPawnMovementType_StaticEnum, TEXT("EPawnMovementType"), &Z_Registration_Info_UEnum_EPawnMovementType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2875913179U) },
+	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_GamePawn_h_Statics::EnumInfo[] = {
+		{ EPawnMovementType_StaticEnum, TEXT("EPawnMovementType"), &Z_Registration_Info_UEnum_EPawnMovementType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 640668542U) },
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGamePawn, AGamePawn::StaticClass, TEXT("AGamePawn"), &Z_Registration_Info_UClass_AGamePawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGamePawn), 3923406250U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_GamePawn_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AGamePawn, AGamePawn::StaticClass, TEXT("AGamePawn"), &Z_Registration_Info_UClass_AGamePawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGamePawn), 1183942870U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_4171319036(TEXT("/Script/Arriett_Go"),
-		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_GamePawn_h_1092536629(TEXT("/Script/Arriett_Go"),
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_GamePawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_GamePawn_h_Statics::ClassInfo),
 		nullptr, 0,
-		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GamePawn_h_Statics::EnumInfo));
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_GamePawn_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_GamePawn_h_Statics::EnumInfo));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Arriett_Go/EnemyPawn.h"
+#include "Arriett_Go/Public/Pawns/Enemies/EnemyPawn.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeEnemyPawn() {}
 // Cross Module References
@@ -45,15 +45,15 @@ void EmptyLinkFunctionForGeneratedCodeEnemyPawn() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AEnemyPawn_Statics::Class_MetaDataParams[] = {
 		{ "HideCategories", "Navigation" },
-		{ "IncludePath", "EnemyPawn.h" },
-		{ "ModuleRelativePath", "EnemyPawn.h" },
+		{ "IncludePath", "Pawns/Enemies/EnemyPawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Enemies/EnemyPawn.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AEnemyPawn_Statics::NewProp_AttackSound_MetaData[] = {
 		{ "Category", "SoundEffects" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "EnemyPawn.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Enemies/EnemyPawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemyPawn_Statics::NewProp_AttackSound = { "AttackSound", nullptr, (EPropertyFlags)0x002008000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEnemyPawn, AttackSound), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AEnemyPawn_Statics::NewProp_AttackSound_MetaData), Z_Construct_UClass_AEnemyPawn_Statics::NewProp_AttackSound_MetaData) };
@@ -93,15 +93,15 @@ void EmptyLinkFunctionForGeneratedCodeEnemyPawn() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AEnemyPawn);
 	AEnemyPawn::~AEnemyPawn() {}
-	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_EnemyPawn_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Enemies_EnemyPawn_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_EnemyPawn_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AEnemyPawn, AEnemyPawn::StaticClass, TEXT("AEnemyPawn"), &Z_Registration_Info_UClass_AEnemyPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemyPawn), 3612622787U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Enemies_EnemyPawn_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AEnemyPawn, AEnemyPawn::StaticClass, TEXT("AEnemyPawn"), &Z_Registration_Info_UClass_AEnemyPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemyPawn), 3867579832U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_EnemyPawn_h_2369376272(TEXT("/Script/Arriett_Go"),
-		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_EnemyPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_EnemyPawn_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Enemies_EnemyPawn_h_2345585471(TEXT("/Script/Arriett_Go"),
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Enemies_EnemyPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Enemies_EnemyPawn_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

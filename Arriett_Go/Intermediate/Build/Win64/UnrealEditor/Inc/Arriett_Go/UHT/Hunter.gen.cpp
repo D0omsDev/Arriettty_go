@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Arriett_Go/Hunter.h"
+#include "Arriett_Go/Public/Pawns/Enemies/Hunter.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeHunter() {}
 // Cross Module References
@@ -54,7 +54,7 @@ template<> ARRIETT_GO_API UScriptStruct* StaticStruct<FHunterLine>()
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/**\n * Struct used to represent the attack lines of the boars\n */" },
 #endif
-		{ "ModuleRelativePath", "Hunter.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Enemies/Hunter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Struct used to represent the attack lines of the boars" },
 #endif
@@ -70,7 +70,7 @@ template<> ARRIETT_GO_API UScriptStruct* StaticStruct<FHunterLine>()
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// The closest Attack case to the boar\n" },
 #endif
-		{ "ModuleRelativePath", "Hunter.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Enemies/Hunter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "The closest Attack case to the boar" },
 #endif
@@ -83,7 +83,7 @@ template<> ARRIETT_GO_API UScriptStruct* StaticStruct<FHunterLine>()
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// The farthest Attack case to the boar\n" },
 #endif
-		{ "ModuleRelativePath", "Hunter.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Enemies/Hunter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "The farthest Attack case to the boar" },
 #endif
@@ -162,7 +162,7 @@ template<> ARRIETT_GO_API UScriptStruct* StaticStruct<FHunterLine>()
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/***********************************************************************\n\x09*\x09\x09\x09\x09""ATK TIMELINE FUNCTIONS\x09\x09\x09\x09                   *\n\x09***********************************************************************/" },
 #endif
-		{ "ModuleRelativePath", "Hunter.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Enemies/Hunter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "ATK TIMELINE FUNCTIONS                                             *" },
 #endif
@@ -189,7 +189,7 @@ template<> ARRIETT_GO_API UScriptStruct* StaticStruct<FHunterLine>()
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AHunter_AttackTimelineFinishedCallback_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Hunter.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Enemies/Hunter.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AHunter_AttackTimelineFinishedCallback_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHunter, nullptr, "AttackTimelineFinishedCallback", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AHunter_AttackTimelineFinishedCallback_Statics::Function_MetaDataParams), Z_Construct_UFunction_AHunter_AttackTimelineFinishedCallback_Statics::Function_MetaDataParams) };
@@ -245,8 +245,8 @@ template<> ARRIETT_GO_API UScriptStruct* StaticStruct<FHunterLine>()
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AHunter_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AHunter_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AHunter_AttackTimelineCallback, "AttackTimelineCallback" }, // 2706379091
-		{ &Z_Construct_UFunction_AHunter_AttackTimelineFinishedCallback, "AttackTimelineFinishedCallback" }, // 1637082726
+		{ &Z_Construct_UFunction_AHunter_AttackTimelineCallback, "AttackTimelineCallback" }, // 2492169116
+		{ &Z_Construct_UFunction_AHunter_AttackTimelineFinishedCallback, "AttackTimelineFinishedCallback" }, // 1982905573
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AHunter_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -255,26 +255,26 @@ template<> ARRIETT_GO_API UScriptStruct* StaticStruct<FHunterLine>()
 		{ "Comment", "/**\n * Class used to manage the boars of the game\n */" },
 #endif
 		{ "HideCategories", "Navigation" },
-		{ "IncludePath", "Hunter.h" },
-		{ "ModuleRelativePath", "Hunter.h" },
+		{ "IncludePath", "Pawns/Enemies/Hunter.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Enemies/Hunter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Class used to manage the boars of the game" },
 #endif
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AHunter_Statics::NewProp_HunterLines_Inner = { "HunterLines", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FHunterLine, METADATA_PARAMS(0, nullptr) }; // 1884065643
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AHunter_Statics::NewProp_HunterLines_Inner = { "HunterLines", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FHunterLine, METADATA_PARAMS(0, nullptr) }; // 1504944169
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHunter_Statics::NewProp_HunterLines_MetaData[] = {
 		{ "Category", "Hunter" },
-		{ "ModuleRelativePath", "Hunter.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Enemies/Hunter.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AHunter_Statics::NewProp_HunterLines = { "HunterLines", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AHunter, HunterLines), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AHunter_Statics::NewProp_HunterLines_MetaData), Z_Construct_UClass_AHunter_Statics::NewProp_HunterLines_MetaData) }; // 1884065643
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AHunter_Statics::NewProp_HunterLines = { "HunterLines", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AHunter, HunterLines), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AHunter_Statics::NewProp_HunterLines_MetaData), Z_Construct_UClass_AHunter_Statics::NewProp_HunterLines_MetaData) }; // 1504944169
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHunter_Statics::NewProp_RotationSound_MetaData[] = {
 		{ "Category", "SoundEffects" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Hunter.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Enemies/Hunter.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHunter_Statics::NewProp_RotationSound = { "RotationSound", nullptr, (EPropertyFlags)0x002008000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AHunter, RotationSound), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AHunter_Statics::NewProp_RotationSound_MetaData), Z_Construct_UClass_AHunter_Statics::NewProp_RotationSound_MetaData) };
@@ -283,7 +283,7 @@ template<> ARRIETT_GO_API UScriptStruct* StaticStruct<FHunterLine>()
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Index of the current attack line\n" },
 #endif
-		{ "ModuleRelativePath", "Hunter.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Enemies/Hunter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Index of the current attack line" },
 #endif
@@ -296,7 +296,7 @@ template<> ARRIETT_GO_API UScriptStruct* StaticStruct<FHunterLine>()
 		{ "Comment", "//Timeline Components\n" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Hunter.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Enemies/Hunter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Timeline Components" },
 #endif
@@ -305,7 +305,7 @@ template<> ARRIETT_GO_API UScriptStruct* StaticStruct<FHunterLine>()
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHunter_Statics::NewProp_AttackTimeline = { "AttackTimeline", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AHunter, AttackTimeline), Z_Construct_UClass_UTimelineComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AHunter_Statics::NewProp_AttackTimeline_MetaData), Z_Construct_UClass_AHunter_Statics::NewProp_AttackTimeline_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHunter_Statics::NewProp_AttackCurveFloatValue_MetaData[] = {
-		{ "ModuleRelativePath", "Hunter.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Enemies/Hunter.h" },
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AHunter_Statics::NewProp_AttackCurveFloatValue = { "AttackCurveFloatValue", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AHunter, AttackCurveFloatValue), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AHunter_Statics::NewProp_AttackCurveFloatValue_MetaData), Z_Construct_UClass_AHunter_Statics::NewProp_AttackCurveFloatValue_MetaData) };
@@ -350,19 +350,19 @@ template<> ARRIETT_GO_API UScriptStruct* StaticStruct<FHunterLine>()
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AHunter);
 	AHunter::~AHunter() {}
-	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Enemies_Hunter_h_Statics
 	{
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ScriptStructInfo[] = {
-		{ FHunterLine::StaticStruct, Z_Construct_UScriptStruct_FHunterLine_Statics::NewStructOps, TEXT("HunterLine"), &Z_Registration_Info_UScriptStruct_HunterLine, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FHunterLine), 1884065643U) },
+	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Enemies_Hunter_h_Statics::ScriptStructInfo[] = {
+		{ FHunterLine::StaticStruct, Z_Construct_UScriptStruct_FHunterLine_Statics::NewStructOps, TEXT("HunterLine"), &Z_Registration_Info_UScriptStruct_HunterLine, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FHunterLine), 1504944169U) },
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AHunter, AHunter::StaticClass, TEXT("AHunter"), &Z_Registration_Info_UClass_AHunter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AHunter), 2182890016U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Enemies_Hunter_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AHunter, AHunter::StaticClass, TEXT("AHunter"), &Z_Registration_Info_UClass_AHunter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AHunter), 1240333585U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_2300709460(TEXT("/Script/Arriett_Go"),
-		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ClassInfo),
-		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Hunter_h_Statics::ScriptStructInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Enemies_Hunter_h_3432784417(TEXT("/Script/Arriett_Go"),
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Enemies_Hunter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Enemies_Hunter_h_Statics::ClassInfo),
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Enemies_Hunter_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Enemies_Hunter_h_Statics::ScriptStructInfo),
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

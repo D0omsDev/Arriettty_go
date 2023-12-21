@@ -35,212 +35,173 @@
     <None Include="..\..\Source\Arriett_Go\Arriett_Go.Build.cs">
       <Filter>Source\Arriett_Go</Filter>
     </None>
-    <ClCompile Include="..\..\Source\Arriett_Go\Arriett_Go.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\Arriett_Go.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\Arriett_GoCharacter.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\Arriett_GoCharacter.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\Arriett_GoGameMode.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\Arriett_GoGameMode.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\Arriett_GoPlayerController.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\Arriett_GoPlayerController.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\BearTrap.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\BearTrap.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\CollectibleCase.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\CollectibleCase.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\EffectGridCase.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\EffectGridCase.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\EndCase.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\EndCase.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\EnemyPawn.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\EnemyPawn.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\FiniteStateMachine.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\FiniteStateMachine.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\GamePawn.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\GamePawn.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\GridCase.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\GridCase.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\GridSpline.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\GridSpline.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\Hunter.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\Hunter.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\Julie.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\Julie.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\LRRH_Level.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\LRRH_Level.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\Objectives.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\Objectives.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\State.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\State.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\TurnNumber.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\TurnNumber.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\Wolf.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\Wolf.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\WoodStick.cpp">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\WoodStick.h">
-      <Filter>Source\Arriett_Go</Filter>
-    </ClInclude>
-    <Filter Include="Source\Arriett_Go\AI">
-      <UniqueIdentifier>{DFB5407C-68F8-3F9F-B9C6-99CC2FD907C9}</UniqueIdentifier>
+    <Filter Include="Source\Arriett_Go\Private">
+      <UniqueIdentifier>{130007CC-F09C-3B12-B59D-F83BFB2CCBC4}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\Arriett_Go\AI\EnemyController.cpp">
-      <Filter>Source\Arriett_Go\AI</Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Arriett_Go.cpp">
+      <Filter>Source\Arriett_Go\Private</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\AI\EnemyController.h">
-      <Filter>Source\Arriett_Go\AI</Filter>
-    </ClInclude>
-    <Filter Include="Source\Arriett_Go\Animation">
-      <UniqueIdentifier>{CCFAE848-5839-3EA1-9FD3-1A5164FFA664}</UniqueIdentifier>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Arriett_GoCharacter.cpp">
+      <Filter>Source\Arriett_Go\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\Arriett_Go\Private\Cases">
+      <UniqueIdentifier>{154F3FB4-7CB7-35A5-916F-251957B334D2}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\Arriett_Go\Animation\EnnemyAnimInstance.cpp">
-      <Filter>Source\Arriett_Go\Animation</Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Cases\GridCase.cpp">
+      <Filter>Source\Arriett_Go\Private\Cases</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\Animation\EnnemyAnimInstance.h">
-      <Filter>Source\Arriett_Go\Animation</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\Animation\HeroAnimInstance.cpp">
-      <Filter>Source\Arriett_Go\Animation</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\Animation\HeroAnimInstance.h">
-      <Filter>Source\Arriett_Go\Animation</Filter>
-    </ClInclude>
-    <Filter Include="Source\Arriett_Go\Characters">
-      <UniqueIdentifier>{1F1EA282-69FA-3E59-A74D-282750FDF774}</UniqueIdentifier>
+    <Filter Include="Source\Arriett_Go\Private\Cases\EffectCases">
+      <UniqueIdentifier>{4A648531-24D0-38BD-987C-7C7E7E085F9C}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\Arriett_Go\Characters\EnnemyCharacter.cpp">
-      <Filter>Source\Arriett_Go\Characters</Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Cases\EffectCases\BearTrap.cpp">
+      <Filter>Source\Arriett_Go\Private\Cases\EffectCases</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\Characters\EnnemyCharacter.h">
-      <Filter>Source\Arriett_Go\Characters</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\Characters\HeroCharacter.cpp">
-      <Filter>Source\Arriett_Go\Characters</Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Cases\EffectCases\CollectibleCase.cpp">
+      <Filter>Source\Arriett_Go\Private\Cases\EffectCases</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\Characters\HeroCharacter.h">
-      <Filter>Source\Arriett_Go\Characters</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\Characters\Tourelles.cpp">
-      <Filter>Source\Arriett_Go\Characters</Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Cases\EffectCases\EffectGridCase.cpp">
+      <Filter>Source\Arriett_Go\Private\Cases\EffectCases</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\Characters\Tourelles.h">
-      <Filter>Source\Arriett_Go\Characters</Filter>
-    </ClInclude>
-    <Filter Include="Source\Arriett_Go\LevelActor">
-      <UniqueIdentifier>{6C3BAFE1-57E7-3C3F-8D35-0EE28658DF2C}</UniqueIdentifier>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Cases\EffectCases\EndCase.cpp">
+      <Filter>Source\Arriett_Go\Private\Cases\EffectCases</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Cases\EffectCases\WoodStick.cpp">
+      <Filter>Source\Arriett_Go\Private\Cases\EffectCases</Filter>
+    </ClCompile>
+    <Filter Include="Source\Arriett_Go\Private\LevelActor">
+      <UniqueIdentifier>{1326D7FA-0234-3903-ADF9-F43A6C248C1F}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\Arriett_Go\LevelActor\BasPickUp.cpp">
-      <Filter>Source\Arriett_Go\LevelActor</Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\LevelActor\LRRH_Level.cpp">
+      <Filter>Source\Arriett_Go\Private\LevelActor</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\LevelActor\BasPickUp.h">
-      <Filter>Source\Arriett_Go\LevelActor</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\LevelActor\NodeBase.cpp">
-      <Filter>Source\Arriett_Go\LevelActor</Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\LevelActor\Objectives.cpp">
+      <Filter>Source\Arriett_Go\Private\LevelActor</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\LevelActor\NodeBase.h">
-      <Filter>Source\Arriett_Go\LevelActor</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\LevelActor\PatrolPath.cpp">
-      <Filter>Source\Arriett_Go\LevelActor</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\LevelActor\PatrolPath.h">
-      <Filter>Source\Arriett_Go\LevelActor</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\LevelActor\PierreJetable.cpp">
-      <Filter>Source\Arriett_Go\LevelActor</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\LevelActor\PierreJetable.h">
-      <Filter>Source\Arriett_Go\LevelActor</Filter>
-    </ClInclude>
-    <Filter Include="Source\Arriett_Go\Misc">
-      <UniqueIdentifier>{F3439284-2162-3C30-8CE6-0219A3872485}</UniqueIdentifier>
+    <Filter Include="Source\Arriett_Go\Private\Misc">
+      <UniqueIdentifier>{3E085E3C-AADD-39F1-A5AC-1FDF1E319CDD}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\Arriett_Go\Misc\TurnBaseMode.cpp">
-      <Filter>Source\Arriett_Go\Misc</Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Misc\Arriett_GoGameMode.cpp">
+      <Filter>Source\Arriett_Go\Private\Misc</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\Misc\TurnBaseMode.h">
-      <Filter>Source\Arriett_Go\Misc</Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Misc\Arriett_GoPlayerController.cpp">
+      <Filter>Source\Arriett_Go\Private\Misc</Filter>
+    </ClCompile>
+    <Filter Include="Source\Arriett_Go\Private\Pawns">
+      <UniqueIdentifier>{90F4D382-94FD-3528-9D3C-A42613749B6C}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Pawns\GamePawn.cpp">
+      <Filter>Source\Arriett_Go\Private\Pawns</Filter>
+    </ClCompile>
+    <Filter Include="Source\Arriett_Go\Private\Pawns\Enemies">
+      <UniqueIdentifier>{CEFDC48A-6CF2-3181-91E4-E827F3671225}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Pawns\Enemies\EnemyPawn.cpp">
+      <Filter>Source\Arriett_Go\Private\Pawns\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Pawns\Enemies\Hunter.cpp">
+      <Filter>Source\Arriett_Go\Private\Pawns\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Pawns\Enemies\Wolf.cpp">
+      <Filter>Source\Arriett_Go\Private\Pawns\Enemies</Filter>
+    </ClCompile>
+    <Filter Include="Source\Arriett_Go\Private\Pawns\Player">
+      <UniqueIdentifier>{9FD18127-B851-3882-B337-E3F02D58F321}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\Pawns\Player\Julie.cpp">
+      <Filter>Source\Arriett_Go\Private\Pawns\Player</Filter>
+    </ClCompile>
+    <Filter Include="Source\Arriett_Go\Private\StateMachine">
+      <UniqueIdentifier>{86C6C5DE-A71E-3FBB-A61D-30D1013ABD1F}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\StateMachine\FiniteStateMachine.cpp">
+      <Filter>Source\Arriett_Go\Private\StateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Arriett_Go\Private\StateMachine\State.cpp">
+      <Filter>Source\Arriett_Go\Private\StateMachine</Filter>
+    </ClCompile>
+    <Filter Include="Source\Arriett_Go\Public">
+      <UniqueIdentifier>{CC6D6846-5CEA-306E-84C3-326709036EAF}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Arriett_Go.h">
+      <Filter>Source\Arriett_Go\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Arriett_GoCharacter.h">
+      <Filter>Source\Arriett_Go\Public</Filter>
+    </ClInclude>
+    <Filter Include="Source\Arriett_Go\Public\Cases">
+      <UniqueIdentifier>{6E535F32-630D-311D-BFF5-A2A853DCBFD4}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Cases\GridCase.h">
+      <Filter>Source\Arriett_Go\Public\Cases</Filter>
+    </ClInclude>
+    <Filter Include="Source\Arriett_Go\Public\Cases\EffectCases">
+      <UniqueIdentifier>{53701BB0-E164-33DD-81A9-395E17137D25}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Cases\EffectCases\BearTrap.h">
+      <Filter>Source\Arriett_Go\Public\Cases\EffectCases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Cases\EffectCases\CollectibleCase.h">
+      <Filter>Source\Arriett_Go\Public\Cases\EffectCases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Cases\EffectCases\EffectGridCase.h">
+      <Filter>Source\Arriett_Go\Public\Cases\EffectCases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Cases\EffectCases\EndCase.h">
+      <Filter>Source\Arriett_Go\Public\Cases\EffectCases</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Cases\EffectCases\WoodStick.h">
+      <Filter>Source\Arriett_Go\Public\Cases\EffectCases</Filter>
+    </ClInclude>
+    <Filter Include="Source\Arriett_Go\Public\LevelActor">
+      <UniqueIdentifier>{83E205B0-9EF0-32B1-A9BD-930E98DAB2A6}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\LevelActor\LRRH_Level.h">
+      <Filter>Source\Arriett_Go\Public\LevelActor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\LevelActor\Objectives.h">
+      <Filter>Source\Arriett_Go\Public\LevelActor</Filter>
+    </ClInclude>
+    <Filter Include="Source\Arriett_Go\Public\Misc">
+      <UniqueIdentifier>{11D47821-251A-391C-AE23-D07488834642}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Misc\Arriett_GoGameMode.h">
+      <Filter>Source\Arriett_Go\Public\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Misc\Arriett_GoPlayerController.h">
+      <Filter>Source\Arriett_Go\Public\Misc</Filter>
+    </ClInclude>
+    <Filter Include="Source\Arriett_Go\Public\Pawns">
+      <UniqueIdentifier>{6B6159B0-B49E-3C70-8EF4-885BD3C89084}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Pawns\GamePawn.h">
+      <Filter>Source\Arriett_Go\Public\Pawns</Filter>
+    </ClInclude>
+    <Filter Include="Source\Arriett_Go\Public\Pawns\Enemies">
+      <UniqueIdentifier>{FE91D8C0-46B0-363F-AD8E-08127A767046}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Pawns\Enemies\EnemyPawn.h">
+      <Filter>Source\Arriett_Go\Public\Pawns\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Pawns\Enemies\Hunter.h">
+      <Filter>Source\Arriett_Go\Public\Pawns\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Pawns\Enemies\Wolf.h">
+      <Filter>Source\Arriett_Go\Public\Pawns\Enemies</Filter>
+    </ClInclude>
+    <Filter Include="Source\Arriett_Go\Public\Pawns\Player">
+      <UniqueIdentifier>{BBE2B62F-3A9E-3FBB-B9E8-5F70633AFE6D}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\Pawns\Player\Julie.h">
+      <Filter>Source\Arriett_Go\Public\Pawns\Player</Filter>
+    </ClInclude>
+    <Filter Include="Source\Arriett_Go\Public\StateMachine">
+      <UniqueIdentifier>{A88724B2-C0AC-3427-8FF0-9ABC1E2C9566}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\StateMachine\FiniteStateMachine.h">
+      <Filter>Source\Arriett_Go\Public\StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Arriett_Go\Public\StateMachine\State.h">
+      <Filter>Source\Arriett_Go\Public\StateMachine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

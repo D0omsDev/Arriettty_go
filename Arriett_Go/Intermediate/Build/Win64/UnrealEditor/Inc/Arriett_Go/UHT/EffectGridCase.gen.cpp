@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Arriett_Go/EffectGridCase.h"
+#include "Arriett_Go/Public/Cases/EffectCases/EffectGridCase.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeEffectGridCase() {}
 // Cross Module References
@@ -38,8 +38,8 @@ void EmptyLinkFunctionForGeneratedCodeEffectGridCase() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AEffectGridCase_Statics::DependentSingletons) < 16);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AEffectGridCase_Statics::Class_MetaDataParams[] = {
-		{ "IncludePath", "EffectGridCase.h" },
-		{ "ModuleRelativePath", "EffectGridCase.h" },
+		{ "IncludePath", "Cases/EffectCases/EffectGridCase.h" },
+		{ "ModuleRelativePath", "Public/Cases/EffectCases/EffectGridCase.h" },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AEffectGridCase_Statics::StaticCppClassTypeInfo = {
@@ -75,15 +75,15 @@ void EmptyLinkFunctionForGeneratedCodeEffectGridCase() {}
 	AEffectGridCase::AEffectGridCase() {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AEffectGridCase);
 	AEffectGridCase::~AEffectGridCase() {}
-	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_EffectGridCase_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_EffectCases_EffectGridCase_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_EffectGridCase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AEffectGridCase, AEffectGridCase::StaticClass, TEXT("AEffectGridCase"), &Z_Registration_Info_UClass_AEffectGridCase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEffectGridCase), 1569015707U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_EffectCases_EffectGridCase_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AEffectGridCase, AEffectGridCase::StaticClass, TEXT("AEffectGridCase"), &Z_Registration_Info_UClass_AEffectGridCase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEffectGridCase), 3670388433U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_EffectGridCase_h_1632542793(TEXT("/Script/Arriett_Go"),
-		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_EffectGridCase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_EffectGridCase_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_EffectCases_EffectGridCase_h_1649484511(TEXT("/Script/Arriett_Go"),
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_EffectCases_EffectGridCase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_EffectCases_EffectGridCase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Arriett_Go/GridCase.h"
+#include "Arriett_Go/Public/Cases/GridCase.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 // Cross Module References
@@ -55,7 +55,7 @@ void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 		{ "CaseColor_Green.Name", "ECaseColor::CaseColor_Green" },
 		{ "CaseColor_Red.Name", "ECaseColor::CaseColor_Red" },
 		{ "CaseColor_Yellow.Name", "ECaseColor::CaseColor_Yellow" },
-		{ "ModuleRelativePath", "GridCase.h" },
+		{ "ModuleRelativePath", "Public/Cases/GridCase.h" },
 	};
 #endif
 	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_Arriett_Go_ECaseColor_Statics::EnumParams = {
@@ -153,8 +153,8 @@ void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/*\n* Class used to manage the cases of the grid\n* */" },
 #endif
-		{ "IncludePath", "GridCase.h" },
-		{ "ModuleRelativePath", "GridCase.h" },
+		{ "IncludePath", "Cases/GridCase.h" },
+		{ "ModuleRelativePath", "Public/Cases/GridCase.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "* Class used to manage the cases of the grid" },
 #endif
@@ -167,7 +167,7 @@ void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 		{ "Comment", "// The mesh of the case\n" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "GridCase.h" },
+		{ "ModuleRelativePath", "Public/Cases/GridCase.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "The mesh of the case" },
 #endif
@@ -180,7 +180,7 @@ void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// The List of the pawns currently on the case\n" },
 #endif
-		{ "ModuleRelativePath", "GridCase.h" },
+		{ "ModuleRelativePath", "Public/Cases/GridCase.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "The List of the pawns currently on the case" },
 #endif
@@ -194,7 +194,7 @@ void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// The list of the neighbors of the case\n" },
 #endif
-		{ "ModuleRelativePath", "GridCase.h" },
+		{ "ModuleRelativePath", "Public/Cases/GridCase.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "The list of the neighbors of the case" },
 #endif
@@ -206,7 +206,7 @@ void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// The Mesh used to link the cases\n" },
 #endif
-		{ "ModuleRelativePath", "GridCase.h" },
+		{ "ModuleRelativePath", "Public/Cases/GridCase.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "The Mesh used to link the cases" },
 #endif
@@ -216,14 +216,14 @@ void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGridCase_Statics::NewProp_LinkBoxMesh_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "GridCase.h" },
+		{ "ModuleRelativePath", "Public/Cases/GridCase.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridCase_Statics::NewProp_LinkBoxMesh = { "LinkBoxMesh", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridCase, LinkBoxMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGridCase_Statics::NewProp_LinkBoxMesh_MetaData), Z_Construct_UClass_AGridCase_Statics::NewProp_LinkBoxMesh_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGridCase_Statics::NewProp_LinkBoxInstancedMesh_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "GridCase.h" },
+		{ "ModuleRelativePath", "Public/Cases/GridCase.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridCase_Statics::NewProp_LinkBoxInstancedMesh = { "LinkBoxInstancedMesh", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridCase, LinkBoxInstancedMesh), Z_Construct_UClass_UInstancedStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGridCase_Statics::NewProp_LinkBoxInstancedMesh_MetaData), Z_Construct_UClass_AGridCase_Statics::NewProp_LinkBoxInstancedMesh_MetaData) };
@@ -232,7 +232,7 @@ void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/***********************************************************************\n\x09*\x09\x09\x09\x09MATERIALS VARIABLES\x09\x09\x09\x09                       *\n\x09***********************************************************************/" },
 #endif
-		{ "ModuleRelativePath", "GridCase.h" },
+		{ "ModuleRelativePath", "Public/Cases/GridCase.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "MATERIALS VARIABLES                                                    *" },
 #endif
@@ -241,25 +241,25 @@ void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialBlack = { "MaterialBlack", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridCase, MaterialBlack), Z_Construct_UClass_UMaterial_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialBlack_MetaData), Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialBlack_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialRed_MetaData[] = {
-		{ "ModuleRelativePath", "GridCase.h" },
+		{ "ModuleRelativePath", "Public/Cases/GridCase.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialRed = { "MaterialRed", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridCase, MaterialRed), Z_Construct_UClass_UMaterial_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialRed_MetaData), Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialRed_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialGreen_MetaData[] = {
-		{ "ModuleRelativePath", "GridCase.h" },
+		{ "ModuleRelativePath", "Public/Cases/GridCase.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialGreen = { "MaterialGreen", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridCase, MaterialGreen), Z_Construct_UClass_UMaterial_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialGreen_MetaData), Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialGreen_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialBlue_MetaData[] = {
-		{ "ModuleRelativePath", "GridCase.h" },
+		{ "ModuleRelativePath", "Public/Cases/GridCase.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialBlue = { "MaterialBlue", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridCase, MaterialBlue), Z_Construct_UClass_UMaterial_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialBlue_MetaData), Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialBlue_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialYellow_MetaData[] = {
-		{ "ModuleRelativePath", "GridCase.h" },
+		{ "ModuleRelativePath", "Public/Cases/GridCase.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialYellow = { "MaterialYellow", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGridCase, MaterialYellow), Z_Construct_UClass_UMaterial_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialYellow_MetaData), Z_Construct_UClass_AGridCase_Statics::NewProp_MaterialYellow_MetaData) };
@@ -311,19 +311,19 @@ void EmptyLinkFunctionForGeneratedCodeGridCase() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AGridCase);
 	AGridCase::~AGridCase() {}
-	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_GridCase_h_Statics
 	{
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_Statics::EnumInfo[] = {
-		{ ECaseColor_StaticEnum, TEXT("ECaseColor"), &Z_Registration_Info_UEnum_ECaseColor, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3596984818U) },
+	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_GridCase_h_Statics::EnumInfo[] = {
+		{ ECaseColor_StaticEnum, TEXT("ECaseColor"), &Z_Registration_Info_UEnum_ECaseColor, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2063048573U) },
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGridCase, AGridCase::StaticClass, TEXT("AGridCase"), &Z_Registration_Info_UClass_AGridCase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGridCase), 1510007463U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_GridCase_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AGridCase, AGridCase::StaticClass, TEXT("AGridCase"), &Z_Registration_Info_UClass_AGridCase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGridCase), 2126801483U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_748628429(TEXT("/Script/Arriett_Go"),
-		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_GridCase_h_3322532026(TEXT("/Script/Arriett_Go"),
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_GridCase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_GridCase_h_Statics::ClassInfo),
 		nullptr, 0,
-		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_GridCase_h_Statics::EnumInfo));
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_GridCase_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Cases_GridCase_h_Statics::EnumInfo));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

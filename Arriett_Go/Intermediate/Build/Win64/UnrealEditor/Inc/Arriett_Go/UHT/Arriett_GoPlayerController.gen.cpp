@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Arriett_Go/Arriett_GoPlayerController.h"
+#include "Arriett_Go/Public/Misc/Arriett_GoPlayerController.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeArriett_GoPlayerController() {}
 // Cross Module References
@@ -63,8 +63,8 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoPlayerController() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AArriett_GoPlayerController_Statics::Class_MetaDataParams[] = {
 		{ "HideCategories", "Collision Rendering Transformation" },
-		{ "IncludePath", "Arriett_GoPlayerController.h" },
-		{ "ModuleRelativePath", "Arriett_GoPlayerController.h" },
+		{ "IncludePath", "Misc/Arriett_GoPlayerController.h" },
+		{ "ModuleRelativePath", "Public/Misc/Arriett_GoPlayerController.h" },
 	};
 #endif
 #if WITH_METADATA
@@ -73,7 +73,7 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoPlayerController() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Time Threshold to know if it was a short press */" },
 #endif
-		{ "ModuleRelativePath", "Arriett_GoPlayerController.h" },
+		{ "ModuleRelativePath", "Public/Misc/Arriett_GoPlayerController.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Time Threshold to know if it was a short press" },
 #endif
@@ -86,7 +86,7 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoPlayerController() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** FX Class that we will spawn when clicking */" },
 #endif
-		{ "ModuleRelativePath", "Arriett_GoPlayerController.h" },
+		{ "ModuleRelativePath", "Public/Misc/Arriett_GoPlayerController.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "FX Class that we will spawn when clicking" },
 #endif
@@ -100,7 +100,7 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoPlayerController() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** MappingContext */" },
 #endif
-		{ "ModuleRelativePath", "Arriett_GoPlayerController.h" },
+		{ "ModuleRelativePath", "Public/Misc/Arriett_GoPlayerController.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "MappingContext" },
 #endif
@@ -114,7 +114,7 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoPlayerController() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Jump Input Action */" },
 #endif
-		{ "ModuleRelativePath", "Arriett_GoPlayerController.h" },
+		{ "ModuleRelativePath", "Public/Misc/Arriett_GoPlayerController.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Jump Input Action" },
 #endif
@@ -125,7 +125,7 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoPlayerController() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AArriett_GoPlayerController_Statics::NewProp_PauseAction_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Input" },
-		{ "ModuleRelativePath", "Arriett_GoPlayerController.h" },
+		{ "ModuleRelativePath", "Public/Misc/Arriett_GoPlayerController.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AArriett_GoPlayerController_Statics::NewProp_PauseAction = { "PauseAction", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AArriett_GoPlayerController, PauseAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AArriett_GoPlayerController_Statics::NewProp_PauseAction_MetaData), Z_Construct_UClass_AArriett_GoPlayerController_Statics::NewProp_PauseAction_MetaData) };
@@ -169,15 +169,15 @@ void EmptyLinkFunctionForGeneratedCodeArriett_GoPlayerController() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AArriett_GoPlayerController);
 	AArriett_GoPlayerController::~AArriett_GoPlayerController() {}
-	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoPlayerController_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Misc_Arriett_GoPlayerController_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AArriett_GoPlayerController, AArriett_GoPlayerController::StaticClass, TEXT("AArriett_GoPlayerController"), &Z_Registration_Info_UClass_AArriett_GoPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AArriett_GoPlayerController), 911830884U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Misc_Arriett_GoPlayerController_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AArriett_GoPlayerController, AArriett_GoPlayerController::StaticClass, TEXT("AArriett_GoPlayerController"), &Z_Registration_Info_UClass_AArriett_GoPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AArriett_GoPlayerController), 4104950688U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoPlayerController_h_104533738(TEXT("/Script/Arriett_Go"),
-		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Arriett_GoPlayerController_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Misc_Arriett_GoPlayerController_h_3266363311(TEXT("/Script/Arriett_Go"),
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Misc_Arriett_GoPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Misc_Arriett_GoPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

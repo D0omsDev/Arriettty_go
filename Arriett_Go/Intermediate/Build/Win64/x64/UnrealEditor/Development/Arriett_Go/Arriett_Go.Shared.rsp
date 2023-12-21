@@ -1,4 +1,5 @@
 /I "."
+/I "C:\Users\mykud\Desktop\Cours\Arriettty_go\Arriett_Go\Source\Arriett_Go\Private"
 /I "..\Intermediate\Build\Win64\UnrealEditor\Inc\Engine\UHT"
 /I "..\Shaders\Shared"
 /I "Runtime\Engine\Classes"
@@ -261,6 +262,7 @@
 /I "Runtime\AIModule\Public"
 /I "C:\Users\mykud\Desktop\Cours\Arriettty_go\Arriett_Go\Intermediate\Build\Win64\UnrealEditor\Inc\Arriett_Go\UHT"
 /I "C:\Users\mykud\Desktop\Cours\Arriettty_go\Arriett_Go\Source"
+/I "C:\Users\mykud\Desktop\Cours\Arriettty_go\Arriett_Go\Source\Arriett_Go\Public"
 /I "..\Plugins\FX\Niagara\Intermediate\Build\Win64\UnrealEditor\Inc\Niagara\UHT"
 /I "..\Plugins\FX\Niagara\Source\Niagara\Classes"
 /I "..\Plugins\FX\Niagara\Source\Niagara\Public"

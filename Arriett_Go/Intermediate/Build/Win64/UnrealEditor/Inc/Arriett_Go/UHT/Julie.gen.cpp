@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Arriett_Go/Julie.h"
+#include "Arriett_Go/Public/Pawns/Player/Julie.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeJulie() {}
 // Cross Module References
@@ -50,7 +50,7 @@ void EmptyLinkFunctionForGeneratedCodeJulie() {}
 #endif
 		{ "JDA_Confetti.Name", "EJulieDeathAnimation::JDA_Confetti" },
 		{ "JDA_Flying.Name", "EJulieDeathAnimation::JDA_Flying" },
-		{ "ModuleRelativePath", "Julie.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Player/Julie.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Enum used to know the type of death animation" },
 #endif
@@ -117,8 +117,8 @@ void EmptyLinkFunctionForGeneratedCodeJulie() {}
 		{ "Comment", "/**\n * Class used to manage the Player pawn of the game\n */" },
 #endif
 		{ "HideCategories", "Navigation" },
-		{ "IncludePath", "Julie.h" },
-		{ "ModuleRelativePath", "Julie.h" },
+		{ "IncludePath", "Pawns/Player/Julie.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Player/Julie.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Class used to manage the Player pawn of the game" },
 #endif
@@ -132,7 +132,7 @@ void EmptyLinkFunctionForGeneratedCodeJulie() {}
 		{ "Comment", "/** Top down camera */" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Julie.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Player/Julie.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Top down camera" },
 #endif
@@ -147,7 +147,7 @@ void EmptyLinkFunctionForGeneratedCodeJulie() {}
 		{ "Comment", "/** Camera boom positioning the camera above the character */" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Julie.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Player/Julie.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Camera boom positioning the camera above the character" },
 #endif
@@ -159,7 +159,7 @@ void EmptyLinkFunctionForGeneratedCodeJulie() {}
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Julie.h" },
+		{ "ModuleRelativePath", "Public/Pawns/Player/Julie.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AJulie_Statics::NewProp_JulieMesh = { "JulieMesh", nullptr, (EPropertyFlags)0x00400000000a000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AJulie, JulieMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AJulie_Statics::NewProp_JulieMesh_MetaData), Z_Construct_UClass_AJulie_Statics::NewProp_JulieMesh_MetaData) };
@@ -201,19 +201,19 @@ void EmptyLinkFunctionForGeneratedCodeJulie() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AJulie);
 	AJulie::~AJulie() {}
-	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Julie_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Player_Julie_h_Statics
 	{
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Julie_h_Statics::EnumInfo[] = {
-		{ EJulieDeathAnimation_StaticEnum, TEXT("EJulieDeathAnimation"), &Z_Registration_Info_UEnum_EJulieDeathAnimation, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1542396852U) },
+	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Player_Julie_h_Statics::EnumInfo[] = {
+		{ EJulieDeathAnimation_StaticEnum, TEXT("EJulieDeathAnimation"), &Z_Registration_Info_UEnum_EJulieDeathAnimation, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3531103201U) },
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Julie_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AJulie, AJulie::StaticClass, TEXT("AJulie"), &Z_Registration_Info_UClass_AJulie, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AJulie), 3881779316U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Player_Julie_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AJulie, AJulie::StaticClass, TEXT("AJulie"), &Z_Registration_Info_UClass_AJulie, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AJulie), 4278924685U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Julie_h_2949377493(TEXT("/Script/Arriett_Go"),
-		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Julie_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Julie_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Player_Julie_h_4120423999(TEXT("/Script/Arriett_Go"),
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Player_Julie_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Player_Julie_h_Statics::ClassInfo),
 		nullptr, 0,
-		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Julie_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Julie_h_Statics::EnumInfo));
+		Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Player_Julie_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_Public_Pawns_Player_Julie_h_Statics::EnumInfo));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
