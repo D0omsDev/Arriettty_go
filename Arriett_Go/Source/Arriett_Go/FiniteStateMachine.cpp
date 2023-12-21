@@ -26,7 +26,6 @@ void UFiniteStateMachine::ChangeState(UState* NewState)
 		CurrentState->ExitState();
 	}
 	CurrentState = NewState;
-	UE_LOG (LogTemp, Warning, TEXT("ChangeState %s"), *(NewState -> GetName()));
 	CurrentState->EnterState();
 };
 

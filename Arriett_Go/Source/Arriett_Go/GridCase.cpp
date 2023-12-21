@@ -28,7 +28,6 @@ AGridCase::AGridCase(){
 		LinkBoxInstancedMesh->SetStaticMesh(LinkBoxShape.Object);
 		LinkBoxInstancedMesh -> SetFlags(RF_Transactional);
 		AddInstanceComponent(LinkBoxInstancedMesh);
-		//LinkBox = LinkBoxShape.Object;
 	}
 
 }

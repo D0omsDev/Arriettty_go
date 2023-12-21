@@ -21,7 +21,6 @@ void AEnemyPawn::CallKillTimer() {
 }
 
 void AEnemyPawn::EnemyAction() {
-	UE_LOG(LogTemp, Warning, TEXT("EnemyAction %s"), *GetName());
 
 }
 

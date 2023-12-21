@@ -27,9 +27,6 @@ void UGameModeStateMachine::SetOwner(AArriett_GoGameMode* NewOwner) {
 	Owner = NewOwner;
 }
 void UGameModeStateMachine::SetNextState(UState_GameMode* NewState) {
-	UE_LOG(LogTemp, Warning, TEXT("SetNextState Current State : %s"), *CurrentState->GetName());
-	UE_LOG(LogTemp, Warning, TEXT("SetNextState New State : %s"), *NewState->GetName());
-
 	UState_GameMode* GM_State = Cast<UState_GameMode>(CurrentState);
 	if (GM_State) {
 		UState_GameModeEndGame* EndGameState = Cast<UState_GameModeEndGame>(GM_State->GetNextState());
@@ -47,16 +44,6 @@ AArriett_GoGameMode::AArriett_GoGameMode()
 {
 	// use our custom PlayerController class
 	PlayerControllerClass = AArriett_GoPlayerController::StaticClass();
-
-	// set default pawn class to our Blueprinted character
-	/*static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Pawns/BP_Julie"));
-	if (PlayerPawnBPClass.Class != nullptr)
-	{
-		DefaultPawnClass = PlayerPawnBPClass.Class;
-	}
-	else {
-		UE_LOG(LogTemp, Warning, TEXT("PlayerPawnBPClass.Class is nullptr"));
-	}*/
 
 	// set default controller to our Blueprinted controller
 	static ConstructorHelpers::FClassFinder<APlayerController> PlayerControllerBPClass(TEXT("/Game/TopDown/Blueprints/BP_ArriettyGoController"));
@@ -156,7 +143,6 @@ void AArriett_GoGameMode::ResetGridCasesColor() {
 
 void AArriett_GoGameMode::SetPlayerPawn(AJulie* NewPlayerPawn) {
 	PlayerPawn = NewPlayerPawn;
-	UE_LOG(LogTemp, Warning, TEXT("SetPlayerPawn"));
 	NewPlayerPawn->OnActionEnded.AddLambda([this](AGamePawn* Pawn) {
 		PlayerMovementEnd();
 		});

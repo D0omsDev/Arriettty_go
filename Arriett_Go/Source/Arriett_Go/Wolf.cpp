@@ -96,7 +96,6 @@ void AWolf::Djikstra(AGridCase* Start, AGridCase* End) {
 		}
 		CCase = Precedent[CIndex];
 	}
-	UE_LOG(LogTemp, Warning, TEXT("Path found size %d"), PCC.Num());
 	Path.Empty();
 	for (int i = PCC.Num() - 1; i >= 0; i--) {
 		Path.Add(PCC[i]);
@@ -110,22 +109,11 @@ void AWolf::EnemyAction() {
 	if (Julie == nullptr) {
 		if (bIsAwaken) {
 			if (Path.Num() != 0) {
-				//I want to concat the names of all the cases in the path to display it in the log
-				FString PathString = "";
-				for (int i = 0; i < Path.Num(); i++) {
-					PathString += Path[i]->GetName();
-					PathString += " ";
-				}
-				UE_LOG(LogTemp, Warning, TEXT("[p] Path %s"), *PathString);
 				NextCase = Path[0];
-				UE_LOG(LogTemp, Warning, TEXT("[p] Current case %s"), *CurrentCase->GetName());
-				UE_LOG(LogTemp, Warning, TEXT("[p] Move to case %s"), *NextCase->GetName());
 				MoveToCase(NextCase);
-				//WolfAttack();
 				Path.RemoveAt(0);
 			}
 			else {
-				UE_LOG(LogTemp, Warning, TEXT("Path is empty"));
 				TimelineFinishedCallback();
 			}
 		}
@@ -164,7 +152,6 @@ void AWolf::WolfAttack() {
 		AttackSound->Play();
 		Julie->OnDeath.AddLambda([this](AGamePawn* JuliePawn) {
 			GetWorldTimerManager().SetTimer(KillTimerHandle, this, &AWolf::CallKillTimer, 0.5f, true);
-			//Super::TimelineFinishedCallback();
 		});
 	}
 }

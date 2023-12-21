@@ -100,18 +100,15 @@ void AArriett_GoPlayerController::OnSetDestinationTriggered()
 	if (bHitSuccessful)
 	{
 		if ((GridCaseHit = Cast<AGridCase>(Hit.GetActor())) == nullptr) {
-			UE_LOG(LogTemp, Warning, TEXT("Hit actor is not a GridCase"));
 			return;
 		}
 	}
 
 	AGridCase* CurrentGridCase = ControlledPawn->GetCurrentCase();
 	if (CurrentGridCase == nullptr) {
-		UE_LOG(LogTemp, Warning, TEXT("CurrentGridCase is not valid"));
 		return;
 	}
 	if (!CurrentGridCase->GetNeighbors().Contains(GridCaseHit)) {
-		UE_LOG(LogTemp, Warning, TEXT("GridCase is not a neighbor %s"), (*CurrentGridCase->GetName()));
 		return;
 	}
 	else {

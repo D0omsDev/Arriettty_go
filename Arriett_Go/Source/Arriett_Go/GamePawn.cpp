@@ -68,7 +68,6 @@ void AGamePawn::BeginPlay()
 		MyTimeline->SetDirectionPropertyName(FName("TimelineDirection"));
 
 		MyTimeline->SetLooping(false);
-		//MyTimeline->SetTimelineLength(0.5f);
 		MyTimeline->SetPlayRate(1.5f);
 		MyTimeline->SetTimelineLengthMode(ETimelineLengthMode::TL_LastKeyFrame);
 		MyTimeline->SetPlaybackPosition(0.0f, false);
@@ -93,10 +92,8 @@ void AGamePawn::BeginPlay()
 		DeathTimeline->SetNetAddressable();    // This component has a stable name that can be referenced for replication
 
 		DeathTimeline->SetPropertySetObject(this); // Set which object the timeline should drive properties on
-		//DeathTimeline->SetDirectionPropertyName(FName("TimelineDirection"));
 
 		DeathTimeline->SetLooping(false);
-		//DeathTimeline->SetTimelineLength(0.5f);
 		DeathTimeline->SetPlayRate(1.0f);
 		DeathTimeline->SetTimelineLengthMode(ETimelineLengthMode::TL_LastKeyFrame);
 		DeathTimeline->SetPlaybackPosition(0.0f, false);
@@ -280,7 +277,6 @@ void AGamePawn::TimelineCallback(float TimeValue)
 
 void AGamePawn::TimelineFinishedCallback()
 {
-	UE_LOG(LogTemp, Warning, TEXT("TimelineFinishedCallback %s"), *GetName());
 	MovementSound->Stop();
 	EndAction();
 }
@@ -299,7 +295,6 @@ void AGamePawn::SilenceSounds() {
 *				DEATH FUNCTIONS			                               *
 ***********************************************************************/
 void AGamePawn::Death(AActor* Cause) {
-	UE_LOG(LogTemp, Warning, TEXT("Death %s"), *GetName());
 	UGameplayStatics::PlaySound2D(this, DeathSound->GetSound());
 	PlayDeathTimeline();
 }

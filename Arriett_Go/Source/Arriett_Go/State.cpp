@@ -88,7 +88,6 @@ void UState_GameModeCaseEffect::EnterState() {
 
 
 void UState_GameModeCaseEffect::UpdateState() {
-	UE_LOG(LogTemp, Warning, TEXT("UpdateState EC size %d"), Gamemode->GetEffectGridCasesToActivate().Num());
 	if (Gamemode->GetEffectGridCasesToActivate().IsEmpty()) {
 		UState_GameMode* State = nullptr;
 		if (NextState) {
@@ -115,7 +114,6 @@ void UState_GameModeEnemyMovement::EnterState() {
 
 
 void UState_GameModeEnemyMovement::UpdateState() {
-	UE_LOG(LogTemp, Warning, TEXT("UpdateState EM size %d"), Gamemode->GetEnemiesToMove().Num());
 	if (Gamemode->GetEnemiesToMove().IsEmpty()) {
 		UState_GameMode* State = nullptr;
 		if (NextState) {
@@ -123,7 +121,6 @@ void UState_GameModeEnemyMovement::UpdateState() {
 		}
 		else {
 			//Print NextState null
-			UE_LOG(LogTemp, Warning, TEXT("NextState null"));
 			auto NewStateTMP = NewObject<UState_GameModeCaseEffect>();
 			NewStateTMP->SetGamemode(Gamemode);
 			NewStateTMP->SetNextStateClass(UState_GameModeEndTurn::StaticClass());
