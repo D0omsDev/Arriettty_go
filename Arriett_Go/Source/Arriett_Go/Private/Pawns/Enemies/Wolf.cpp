@@ -23,6 +23,9 @@ AWolf::AWolf() {
 	WolfWakingSound->SetupAttachment(RootComponent);
 	WolfWakingSound->bAutoActivate = false;
 
+	WolfMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("WolfMesh"));
+	WolfMesh->SetupAttachment(RootComponent);
+
 }
 int32 FindMin(TArray<int32> Array) {
 	int index = -1;
@@ -161,6 +164,10 @@ void AWolf::Awake() {
 		bIsAwaken = true;
 		WolfSleepingSound->Stop();
 		WolfWakingSound->Play();
+		UStaticMesh * AwakenMesh = LoadObject<UStaticMesh>(nullptr, TEXT("StaticMesh'/Game/GA_asset/Characters/Loup/loupV2.loupV2'"));
+		if (AwakenMesh != nullptr) {
+			WolfMesh->SetStaticMesh(AwakenMesh);
+		}
 	}
 }
 

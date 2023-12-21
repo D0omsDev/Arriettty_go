@@ -51,4 +51,9 @@ protected:
 	UAudioComponent* WolfWakingSound;
 
 	FOnWolfTurnEnd OnWolfTurnEnd;
+
+protected :
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Wolf")
+	UStaticMeshComponent* WolfMesh;
 };

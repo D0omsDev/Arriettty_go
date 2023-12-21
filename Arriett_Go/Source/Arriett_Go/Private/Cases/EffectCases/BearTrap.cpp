@@ -54,6 +54,7 @@ void ABearTrap::EnterCase(AGamePawn* Pawn) {
 		switch (TrapState) {
 		case ETrapState::Idle:
 			TrapState = ETrapState::FirstTrigger;
+			ArmSound->Play();
 			break;
 		case ETrapState::Prepared:
 			TrapState = ETrapState::Active;
@@ -102,5 +103,4 @@ void ABearTrap::RefreshTrap() {
 
 void ABearTrap::PrepareTrap() {
 	TrapState = ETrapState::Prepared;
-	ArmSound->Play();
 }

@@ -24,7 +24,7 @@ bool ULevel1Objective::GetObjective2()
 
 bool ULevel1Objective::GetObjective3()
 {
-	return Gamemode->GetNbTurn() <= 17;
+	return Gamemode->GetNbTurn() <= TurnNumberMax;
 }
 
 /********************************************
@@ -45,7 +45,7 @@ bool ULevel2Objective::GetObjective2()
 
 bool ULevel2Objective::GetObjective3()
 {
-	return Gamemode->GetNbTurn() <= 17;
+	return Gamemode->GetNbTurn() <= TurnNumberMax;
 }
 /********************************************
 *				 LEVEL 3					*
@@ -63,5 +63,5 @@ bool ULevel3Objective::GetObjective2()
 
 bool ULevel3Objective::GetObjective3()
 {
-	return Gamemode->GetNbTurn() <= 25;
+	return Gamemode->GetNbTurn() <= TurnNumberMax;
 }

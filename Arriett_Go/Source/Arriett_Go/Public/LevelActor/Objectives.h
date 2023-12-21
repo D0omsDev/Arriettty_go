@@ -67,7 +67,7 @@ class ARRIETT_GO_API ULevel1Objective : public UObjectives
 		virtual bool GetObjective2() override;
 		virtual bool GetObjective3() override;
 protected : 
-	int32 TurnNumberMax = 17;
+	int32 TurnNumberMax = 27;
 };
 
 
@@ -85,7 +85,7 @@ public:
 	virtual bool GetObjective3() override;
 
 protected:
-	int32 TurnNumberMax = 17;
+	int32 TurnNumberMax = 14;
 };
 
 
@@ -103,5 +103,5 @@ public:
 	virtual bool GetObjective3() override;
 
 protected:
-	int32 TurnNumberMax = 17;
+	int32 TurnNumberMax = 45;
 };
