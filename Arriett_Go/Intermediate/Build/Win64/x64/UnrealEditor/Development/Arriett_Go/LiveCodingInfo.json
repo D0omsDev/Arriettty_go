@@ -33,11 +33,11 @@
 			"Arriett_GoPlayerController.cpp.obj",
 			"Boar.cpp.obj",
 			"EnemyPawn.cpp.obj",
+			"Wolf.cpp.obj",
+			"GamePawn.cpp.obj",
 			"Julie.cpp.obj",
 			"FiniteStateMachine.cpp.obj",
-			"State.cpp.obj",
-			"Wolf.cpp.obj",
-			"GamePawn.cpp.obj"
+			"State.cpp.obj"
 		]
 	}
 }
