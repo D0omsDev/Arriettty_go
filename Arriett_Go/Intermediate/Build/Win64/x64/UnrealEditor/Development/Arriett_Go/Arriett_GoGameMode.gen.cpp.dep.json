@@ -1,17 +1,25 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\lemai\\desktop\\nsm\\arriety_go\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\arriett_gogamemode.gen.cpp",
+        "Source": "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\arriett_gogamemode.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "c:\\users\\lemai\\desktop\\nsm\\arriety_go\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\x64\\arriett_goeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "PCH": "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\x64\\arriett_goeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
         "Includes": [
-            "c:\\users\\lemai\\desktop\\nsm\\arriety_go\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\arriett_go\\definitions.arriett_go.h",
-            "c:\\users\\lemai\\desktop\\nsm\\arriety_go\\arriettty_go\\arriett_go\\source\\arriett_go\\arriett_gogamemode.h",
-            "f:\\unreal_engine\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
-            "f:\\unreal_engine\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
-            "f:\\unreal_engine\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
-            "f:\\unreal_engine\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
-            "c:\\users\\lemai\\desktop\\nsm\\arriety_go\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\arriett_gogamemode.generated.h"
+            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\arriett_go\\definitions.arriett_go.h",
+            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\source\\arriett_go\\arriett_gogamemode.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\source\\arriett_go\\finitestatemachine.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\coreuobject\\public\\uobject\\noexporttypes.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\coreuobject\\public\\serialization\\testundeclaredscriptstructobjectreferences.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\core\\public\\math\\unitconversion.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\core\\public\\math\\unitconversion.inl",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\core\\public\\internationalization\\polyglottextdata.h",
+            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\finitestatemachine.generated.h",
+            "c:\\users\\mykud\\desktop\\cours\\arriettty_go\\arriett_go\\intermediate\\build\\win64\\unrealeditor\\inc\\arriett_go\\uht\\arriett_gogamemode.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

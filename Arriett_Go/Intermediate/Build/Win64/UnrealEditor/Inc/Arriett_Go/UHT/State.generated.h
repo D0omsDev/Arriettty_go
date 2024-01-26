@@ -1,0 +1,330 @@
+// Copyright Epic Games, Inc. All Rights Reserved.
+/*===========================================================================
+	Generated code exported from UnrealHeaderTool.
+	DO NOT modify this manually! Edit the corresponding .h files instead!
+===========================================================================*/
+
+// IWYU pragma: private, include "State.h"
+#include "UObject/ObjectMacros.h"
+#include "UObject/ScriptMacros.h"
+
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+#ifdef ARRIETT_GO_State_generated_h
+#error "State.generated.h already included, missing '#pragma once' in State.h"
+#endif
+#define ARRIETT_GO_State_generated_h
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_18_SPARSE_DATA
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_18_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_18_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_18_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_18_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_18_INCLASS_NO_PURE_DECLS \
+private: \
+	static void StaticRegisterNativesUState(); \
+	friend struct Z_Construct_UClass_UState_Statics; \
+public: \
+	DECLARE_CLASS(UState, UObject, COMPILED_IN_FLAGS(CLASS_Abstract), CASTCLASS_None, TEXT("/Script/Arriett_Go"), NO_API) \
+	DECLARE_SERIALIZER(UState)
+
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_18_ENHANCED_CONSTRUCTORS \
+	/** Standard constructor, called after all reflected properties have been initialized */ \
+	NO_API UState(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+private: \
+	/** Private move- and copy-constructors, should never be used */ \
+	NO_API UState(UState&&); \
+	NO_API UState(const UState&); \
+public: \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UState); \
+	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UState); \
+	DEFINE_ABSTRACT_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UState) \
+	NO_API virtual ~UState();
+
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_15_PROLOG
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_18_GENERATED_BODY \
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_18_SPARSE_DATA \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_18_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_18_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_18_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_18_INCLASS_NO_PURE_DECLS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_18_ENHANCED_CONSTRUCTORS \
+private: \
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+
+
+template<> ARRIETT_GO_API UClass* StaticClass<class UState>();
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_32_SPARSE_DATA
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_32_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_32_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_32_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_32_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_32_INCLASS_NO_PURE_DECLS \
+private: \
+	static void StaticRegisterNativesUState_GameMode(); \
+	friend struct Z_Construct_UClass_UState_GameMode_Statics; \
+public: \
+	DECLARE_CLASS(UState_GameMode, UState, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/Arriett_Go"), NO_API) \
+	DECLARE_SERIALIZER(UState_GameMode)
+
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_32_ENHANCED_CONSTRUCTORS \
+private: \
+	/** Private move- and copy-constructors, should never be used */ \
+	NO_API UState_GameMode(UState_GameMode&&); \
+	NO_API UState_GameMode(const UState_GameMode&); \
+public: \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UState_GameMode); \
+	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UState_GameMode); \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UState_GameMode) \
+	NO_API virtual ~UState_GameMode();
+
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_29_PROLOG
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_32_GENERATED_BODY \
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_32_SPARSE_DATA \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_32_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_32_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_32_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_32_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_32_INCLASS_NO_PURE_DECLS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_32_ENHANCED_CONSTRUCTORS \
+private: \
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+
+
+template<> ARRIETT_GO_API UClass* StaticClass<class UState_GameMode>();
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_47_SPARSE_DATA
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_47_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_47_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_47_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_47_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_47_INCLASS_NO_PURE_DECLS \
+private: \
+	static void StaticRegisterNativesUState_GameModeInputWait(); \
+	friend struct Z_Construct_UClass_UState_GameModeInputWait_Statics; \
+public: \
+	DECLARE_CLASS(UState_GameModeInputWait, UState_GameMode, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/Arriett_Go"), NO_API) \
+	DECLARE_SERIALIZER(UState_GameModeInputWait)
+
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_47_ENHANCED_CONSTRUCTORS \
+	/** Standard constructor, called after all reflected properties have been initialized */ \
+	NO_API UState_GameModeInputWait(); \
+private: \
+	/** Private move- and copy-constructors, should never be used */ \
+	NO_API UState_GameModeInputWait(UState_GameModeInputWait&&); \
+	NO_API UState_GameModeInputWait(const UState_GameModeInputWait&); \
+public: \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UState_GameModeInputWait); \
+	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UState_GameModeInputWait); \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UState_GameModeInputWait) \
+	NO_API virtual ~UState_GameModeInputWait();
+
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_44_PROLOG
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_47_GENERATED_BODY \
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_47_SPARSE_DATA \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_47_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_47_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_47_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_47_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_47_INCLASS_NO_PURE_DECLS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_47_ENHANCED_CONSTRUCTORS \
+private: \
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+
+
+template<> ARRIETT_GO_API UClass* StaticClass<class UState_GameModeInputWait>();
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_57_SPARSE_DATA
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_57_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_57_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_57_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_57_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_57_INCLASS_NO_PURE_DECLS \
+private: \
+	static void StaticRegisterNativesUState_GameModePlayerMovement(); \
+	friend struct Z_Construct_UClass_UState_GameModePlayerMovement_Statics; \
+public: \
+	DECLARE_CLASS(UState_GameModePlayerMovement, UState_GameMode, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/Arriett_Go"), NO_API) \
+	DECLARE_SERIALIZER(UState_GameModePlayerMovement)
+
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_57_ENHANCED_CONSTRUCTORS \
+private: \
+	/** Private move- and copy-constructors, should never be used */ \
+	NO_API UState_GameModePlayerMovement(UState_GameModePlayerMovement&&); \
+	NO_API UState_GameModePlayerMovement(const UState_GameModePlayerMovement&); \
+public: \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UState_GameModePlayerMovement); \
+	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UState_GameModePlayerMovement); \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UState_GameModePlayerMovement) \
+	NO_API virtual ~UState_GameModePlayerMovement();
+
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_54_PROLOG
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_57_GENERATED_BODY \
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_57_SPARSE_DATA \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_57_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_57_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_57_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_57_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_57_INCLASS_NO_PURE_DECLS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_57_ENHANCED_CONSTRUCTORS \
+private: \
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+
+
+template<> ARRIETT_GO_API UClass* StaticClass<class UState_GameModePlayerMovement>();
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_73_SPARSE_DATA
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_73_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_73_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_73_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_73_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_73_INCLASS_NO_PURE_DECLS \
+private: \
+	static void StaticRegisterNativesUState_GameModeCaseEffect(); \
+	friend struct Z_Construct_UClass_UState_GameModeCaseEffect_Statics; \
+public: \
+	DECLARE_CLASS(UState_GameModeCaseEffect, UState_GameMode, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/Arriett_Go"), NO_API) \
+	DECLARE_SERIALIZER(UState_GameModeCaseEffect)
+
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_73_ENHANCED_CONSTRUCTORS \
+private: \
+	/** Private move- and copy-constructors, should never be used */ \
+	NO_API UState_GameModeCaseEffect(UState_GameModeCaseEffect&&); \
+	NO_API UState_GameModeCaseEffect(const UState_GameModeCaseEffect&); \
+public: \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UState_GameModeCaseEffect); \
+	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UState_GameModeCaseEffect); \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UState_GameModeCaseEffect) \
+	NO_API virtual ~UState_GameModeCaseEffect();
+
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_70_PROLOG
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_73_GENERATED_BODY \
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_73_SPARSE_DATA \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_73_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_73_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_73_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_73_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_73_INCLASS_NO_PURE_DECLS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_73_ENHANCED_CONSTRUCTORS \
+private: \
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+
+
+template<> ARRIETT_GO_API UClass* StaticClass<class UState_GameModeCaseEffect>();
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_88_SPARSE_DATA
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_88_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_88_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_88_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_88_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_88_INCLASS_NO_PURE_DECLS \
+private: \
+	static void StaticRegisterNativesUState_GameModeEnemyMovement(); \
+	friend struct Z_Construct_UClass_UState_GameModeEnemyMovement_Statics; \
+public: \
+	DECLARE_CLASS(UState_GameModeEnemyMovement, UState_GameMode, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/Arriett_Go"), NO_API) \
+	DECLARE_SERIALIZER(UState_GameModeEnemyMovement)
+
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_88_ENHANCED_CONSTRUCTORS \
+	/** Standard constructor, called after all reflected properties have been initialized */ \
+	NO_API UState_GameModeEnemyMovement(); \
+private: \
+	/** Private move- and copy-constructors, should never be used */ \
+	NO_API UState_GameModeEnemyMovement(UState_GameModeEnemyMovement&&); \
+	NO_API UState_GameModeEnemyMovement(const UState_GameModeEnemyMovement&); \
+public: \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UState_GameModeEnemyMovement); \
+	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UState_GameModeEnemyMovement); \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UState_GameModeEnemyMovement) \
+	NO_API virtual ~UState_GameModeEnemyMovement();
+
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_85_PROLOG
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_88_GENERATED_BODY \
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_88_SPARSE_DATA \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_88_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_88_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_88_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_88_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_88_INCLASS_NO_PURE_DECLS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_88_ENHANCED_CONSTRUCTORS \
+private: \
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+
+
+template<> ARRIETT_GO_API UClass* StaticClass<class UState_GameModeEnemyMovement>();
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_98_SPARSE_DATA
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_98_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_98_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_98_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_98_ACCESSORS
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_98_INCLASS_NO_PURE_DECLS \
+private: \
+	static void StaticRegisterNativesUState_GameModeEndTurn(); \
+	friend struct Z_Construct_UClass_UState_GameModeEndTurn_Statics; \
+public: \
+	DECLARE_CLASS(UState_GameModeEndTurn, UState_GameMode, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/Arriett_Go"), NO_API) \
+	DECLARE_SERIALIZER(UState_GameModeEndTurn)
+
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_98_ENHANCED_CONSTRUCTORS \
+	/** Standard constructor, called after all reflected properties have been initialized */ \
+	NO_API UState_GameModeEndTurn(); \
+private: \
+	/** Private move- and copy-constructors, should never be used */ \
+	NO_API UState_GameModeEndTurn(UState_GameModeEndTurn&&); \
+	NO_API UState_GameModeEndTurn(const UState_GameModeEndTurn&); \
+public: \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UState_GameModeEndTurn); \
+	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UState_GameModeEndTurn); \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UState_GameModeEndTurn) \
+	NO_API virtual ~UState_GameModeEndTurn();
+
+
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_95_PROLOG
+#define FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_98_GENERATED_BODY \
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_98_SPARSE_DATA \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_98_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_98_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_98_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_98_ACCESSORS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_98_INCLASS_NO_PURE_DECLS \
+	FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h_98_ENHANCED_CONSTRUCTORS \
+private: \
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+
+
+template<> ARRIETT_GO_API UClass* StaticClass<class UState_GameModeEndTurn>();
+
+#undef CURRENT_FILE_ID
+#define CURRENT_FILE_ID FID_Users_mykud_Desktop_Cours_Arriettty_go_Arriett_Go_Source_Arriett_Go_State_h
+
+
+PRAGMA_ENABLE_DEPRECATION_WARNINGS

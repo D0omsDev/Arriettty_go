@@ -16,16 +16,7 @@
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
-    <None Include="..\..\Config\DefaultEditor.ini">
-      <Filter>Config</Filter>
-    </None>
-    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
-      <Filter>Config</Filter>
-    </None>
     <None Include="..\..\Config\DefaultEngine.ini">
-      <Filter>Config</Filter>
-    </None>
-    <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
     <None Include="..\..\Config\DefaultInput.ini">
@@ -59,6 +50,84 @@
       <Filter>Source\Arriett_Go</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Arriett_Go\Arriett_GoPlayerController.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\BearTrap.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\BearTrap.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\EffectGridCase.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\EffectGridCase.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\EnemyPawn.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\EnemyPawn.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\FiniteStateMachine.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\FiniteStateMachine.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\GamePawn.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\GamePawn.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\GridCase.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\GridCase.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\GridSpline.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\GridSpline.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\Hunter.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\Hunter.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\Julie.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\Julie.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\State.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\State.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\TurnNumber.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\TurnNumber.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\Wolf.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\Wolf.h">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Arriett_Go\WoodStick.cpp">
+      <Filter>Source\Arriett_Go</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Arriett_Go\WoodStick.h">
       <Filter>Source\Arriett_Go</Filter>
     </ClInclude>
     <Filter Include="Source\Arriett_Go\AI">
@@ -157,10 +226,10 @@
     <ClInclude Include="..\..\Source\Arriett_Go\LevelActor\NodeBase.h">
       <Filter>Source\Arriett_Go\LevelActor</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\Arriett_Go\LevelActor\PatroPath.cpp">
+    <ClCompile Include="..\..\Source\Arriett_Go\LevelActor\PatrolPath.cpp">
       <Filter>Source\Arriett_Go\LevelActor</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\Arriett_Go\LevelActor\PatroPath.h">
+    <ClInclude Include="..\..\Source\Arriett_Go\LevelActor\PatrolPath.h">
       <Filter>Source\Arriett_Go\LevelActor</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Arriett_Go\LevelActor\PierreJetable.cpp">
